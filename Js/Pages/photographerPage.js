@@ -1,0 +1,1 @@
+// Gestion de l'affichage de la page photographe

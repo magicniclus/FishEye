@@ -1,0 +1,1 @@
+// Création de vignette photographer pour la page index
