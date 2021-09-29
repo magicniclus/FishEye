@@ -1,0 +1,31 @@
+// Import
+
+@import "Mixins/body.scss";
+@import "Mixins/header.scss";
+@import "Mixins/flexbox.scss";
+@import "Mixins/formulaire.scss";
+@import "Mixins/link.scss";
+@import "Mixins/reponsive.scss";
+@import "Mixins/vignetteIndex.scss";
+@import "Use/color.scss";
+
+
+//Style
+
+body {
+    @include body-init;
+    background-color: white;
+    @include link;
+
+    main {
+        width: 100%;
+        @include flexbox-center;
+
+        header {
+            @include header;
+        }
+
+        @include vignetteIndex;
+        
+    }
+}

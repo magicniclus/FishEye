@@ -1,0 +1,179 @@
+/*--Color BackGround--*/
+/*--Color Text--*/
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+body a {
+  text-decoration: none;
+}
+body .linkBack {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+body .linkBack .linkBtn {
+  position: fixed;
+  top: 0;
+  text-align: center;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+  padding: 3px 9px 3px 9px;
+  background-color: #DB8876;
+  border: 1px solid #DB8876;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  display: none;
+}
+body main {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+body main header {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3em;
+  padding-bottom: 7em;
+}
+body main header .logo {
+  width: 20%;
+  object-fit: cover;
+}
+body main header .tagIn button {
+  background-color: white;
+  border: 1px solid #C4C4C4;
+  border-radius: 11px;
+  color: #901C1C;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 15px;
+  margin-left: 4px;
+}
+body main header h1 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 46px;
+  color: #901C1C;
+}
+@media screen and (max-width: 1440px) {
+  body main header .logo {
+    width: 30%;
+  }
+  body main header :nth-child(2) {
+    order: 3;
+    margin-top: 1em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body main header :nth-child(3) {
+    order: 2;
+    font-size: 43px;
+  }
+}
+@media screen and (max-width: 900px) {
+  body main header :nth-child(3) {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  body main header .logo {
+    width: 30%;
+  }
+  body main header :nth-child(3) {
+    font-size: 14px;
+  }
+}
+body main .vignetteIn {
+  width: 100%;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 400px);
+  justify-content: space-between;
+}
+body main .vignetteIn .vignette {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 4em;
+}
+body main .vignetteIn .vignette a {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body main .vignetteIn .vignette a img {
+  width: 10em;
+  height: 10em;
+  object-fit: cover;
+  border-radius: 20em;
+}
+body main .vignetteIn .vignette a span {
+  color: #D3573C;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 46px;
+  text-align: center;
+}
+body main .vignetteIn .vignette .city {
+  color: #D3573C;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+body main .vignetteIn .vignette .comments {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+  line-height: 13px;
+}
+body main .vignetteIn .vignette .price {
+  color: #757575;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 9px;
+  line-height: 11px;
+}
+@media screen and (max-width: 1270px) {
+  body main .vignetteIn {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+@media screen and (max-width: 800px) {
+  body main .vignetteIn {
+    grid-template-columns: repeat(1, 250px);
+    justify-content: center;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

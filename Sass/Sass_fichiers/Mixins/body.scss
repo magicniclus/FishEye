@@ -1,0 +1,18 @@
+@mixin body-init {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    @include flexbox-center;
+    
+    a {
+        text-decoration: none;
+    }
+
+//     img {
+//         width: 100px;
+//         height: 100px;
+//         object-fit: cover;
+//     }
+}

@@ -1,0 +1,73 @@
+@mixin vignetteIndex {
+    width: 90%;
+
+    .vignetteIn {
+        width: 100%;
+        display: grid;
+        flex-wrap: wrap;
+        grid-template-columns: repeat(3, 400px);
+        justify-content: space-between;
+
+        .vignette {
+            @include flexbox-colomn;
+            margin-bottom: 4em;
+
+            a {
+                @include flexbox-colomn;
+
+                img {
+                    width: 10em;
+                    height: 10em;
+                    object-fit: cover;
+                    border-radius: 20em;
+                }
+
+                span {
+                    color: $color-text-four;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-size: 36px;
+                    line-height: 46px;
+                    text-align: center;
+                }
+            }
+
+            .city {
+                color: $color-text-four;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 13px;
+                line-height: 16px;
+            }
+
+            .comments {
+                font-weight: 400;
+                font-style: normal;
+                font-size: 10px;
+                line-height: 13px;
+            }
+
+            .price {
+                color: $color-text-five;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 9px;
+                line-height: 11px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1270px) {
+        .vignetteIn {
+            grid-template-columns: repeat(2, 300px);
+        }
+    } 
+
+    @media screen and (max-width: 800px) {
+        .vignetteIn {
+            grid-template-columns: repeat(1, 250px);
+            justify-content: center;
+        }
+    } 
+    
+}

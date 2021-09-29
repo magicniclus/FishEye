@@ -24,8 +24,10 @@ class MediaProfil{
         return `
                 <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}">    
                 <div class="bottomImg">
-                    <span class="titleImg">${this.title}</span>
-                    <span class="priceImg">${this.price}€</span>
+                    <div class="bottomLeft">
+                        <span class="titleImg">${this.title}</span>
+                        <span class="priceImg">${this.price}<span class="sigle">€</span></span>
+                    </div>    
                     <div class="likeImgGlobal">
                         <span class="likesImg">${this.likes}</span>
                         <i class="fas fa-heart"></i>
@@ -40,8 +42,10 @@ class MediaProfil{
                     <source src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
                 </video>   
                 <div class="bottomVideo">
+                <div class="bottomLeft">
                     <span class="titleVideo">${this.title}</span>
-                    <span class="priceVideo">${this.price}€</span>
+                    <span class="priceVideo">${this.price}<span class="sigle">€</span></span>
+                </div>    
                     <div class="likeVideoGlobal">
                         <span class="likesVideo">${this.likes}</span>
                         <i class="fas fa-heart"></i>

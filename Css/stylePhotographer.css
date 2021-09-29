@@ -1,0 +1,301 @@
+/*--Color BackGround--*/
+/*--Color Text--*/
+body {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+body a {
+  text-decoration: none;
+}
+body .formulaire {
+  width: 41em;
+  height: 56rem;
+  background-color: #DB8876;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 5px;
+  -webkit-box-shadow: -1px 5px 15px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 5px 15px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  right: 23em;
+}
+body .formulaire i {
+  position: absolute;
+  top: 25px;
+  right: 36px;
+  color: white;
+  font-size: 4em;
+  cursor: pointer;
+}
+body .formulaire h2 {
+  margin: 0;
+  margin-left: 35px;
+  text-align: start;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 64px;
+  line-height: 83px;
+}
+body .formulaire .inputid label {
+  margin-left: 35px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 46px;
+  color: #312E2E;
+}
+body .formulaire .inputid input {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 4em;
+  margin-left: 35px;
+  border-radius: 5px;
+  border: none;
+  border-color: #DB8876;
+}
+body .formulaire .saisitext {
+  display: flex;
+  flex-direction: column;
+  margin-left: 35px;
+}
+body .formulaire .saisitext label {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 46px;
+  color: #312E2E;
+}
+body .formulaire .saisitext textarea {
+  width: 84%;
+  height: 10em;
+  border-radius: 5px;
+  border-color: #DB8876;
+}
+body .formulaire .button {
+  margin-top: 2em;
+}
+body .formulaire .button button {
+  width: 10em;
+  height: 4em;
+  margin-left: 35px;
+  background-color: #901C1C;
+  color: white;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 23px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+body .formulaire -ms-input-placeholder {
+  font-size: 4em;
+}
+body main {
+  width: 90%;
+}
+body main .vignette {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #FAFAFA;
+  border-radius: 7px;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+body main .vignette .profil {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2em;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+body main .vignette .profil .profilName {
+  color: #D3573C;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 64px;
+  line-height: 83px;
+  margin: 0;
+}
+body main .vignette .profil .profilCity {
+  color: #901C1C;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 31px;
+}
+body main .vignette .profil .profilComments {
+  margin-top: 1em;
+  color: #525252;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 23px;
+}
+body main .vignette .profil .profilTag {
+  margin-top: 1em;
+}
+body main .vignette .profil .profilTag span {
+  background-color: #FAFAFA;
+  border: 1px solid #C4C4C4;
+  border-radius: 12px;
+  color: #901C1C;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 23px;
+  margin-left: 6px;
+  padding: 1px 7px 1px 7px;
+}
+@media screen and (max-width: 750px) {
+  body main .vignette .profil .profilName {
+    font-size: 45px;
+  }
+  body main .vignette .profil .profilCity {
+    font-size: 17px;
+  }
+  body main .vignette .profil .profilComments {
+    font-size: 12.5px;
+  }
+  body main .vignette .profil .profilTag span {
+    font-size: 12.5px;
+  }
+}
+@media screen and (max-width: 600px) {
+  body main .vignette .profil .profilName {
+    font-size: 31.5px;
+    margin-top: 7px;
+    line-height: 33px;
+  }
+  body main .vignette .profil .profilCity {
+    font-size: 12px;
+    margin-top: 7px;
+    line-height: 12.5px;
+  }
+  body main .vignette .profil .profilComments {
+    font-size: 8.5px;
+    margin-top: 7px;
+  }
+  body main .vignette .profil .profilTag span {
+    font-size: 8.5px;
+    margin-top: 7px;
+  }
+}
+body main .vignette .button {
+  margin-top: 4em;
+  margin-right: 10em;
+}
+body main .vignette .button button {
+  height: 70px;
+  width: 170px;
+  background-color: #901C1C;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+}
+@media screen and (max-width: 1036px) {
+  body main .vignette .button {
+    display: none;
+  }
+}
+body main .vignette img {
+  width: 10em;
+  height: 10em;
+  object-fit: cover;
+  border-radius: 20em;
+  margin-top: 4em;
+  margin-right: 2em;
+}
+@media screen and (max-width: 600px) {
+  body main .vignette img {
+    width: 8em;
+    height: 8em;
+    margin-top: 3em;
+  }
+}
+body main .mediaProfilIn {
+  width: 100%;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 350px);
+  justify-content: space-between;
+}
+body main .mediaProfilIn article {
+  margin-bottom: 2em;
+}
+body main .mediaProfilIn article video, body main .mediaProfilIn article img {
+  width: 350px;
+  height: 300px;
+  border-radius: 3px;
+}
+body main .mediaProfilIn article .bottomVideo, body main .mediaProfilIn article .bottomImg {
+  display: flex;
+  margin-top: 0.5em;
+}
+body main .mediaProfilIn article .bottomVideo .bottomLeft, body main .mediaProfilIn article .bottomImg .bottomLeft {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+body main .mediaProfilIn article .bottomVideo .bottomLeft .sigle, body main .mediaProfilIn article .bottomImg .bottomLeft .sigle {
+  margin-left: 6px;
+}
+body main .mediaProfilIn article .bottomVideo .bottomLeft .titleVideo, body main .mediaProfilIn article .bottomVideo .bottomLeft .titleImg, body main .mediaProfilIn article .bottomVideo .bottomLeft .priceVideo, body main .mediaProfilIn article .bottomVideo .bottomLeft .priceImg, body main .mediaProfilIn article .bottomImg .bottomLeft .titleVideo, body main .mediaProfilIn article .bottomImg .bottomLeft .titleImg, body main .mediaProfilIn article .bottomImg .bottomLeft .priceVideo, body main .mediaProfilIn article .bottomImg .bottomLeft .priceImg {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
+  color: #901C1C;
+}
+body main .mediaProfilIn article .bottomVideo .likeImgGlobal, body main .mediaProfilIn article .bottomVideo .likeVideoGlobal, body main .mediaProfilIn article .bottomImg .likeImgGlobal, body main .mediaProfilIn article .bottomImg .likeVideoGlobal {
+  display: flex;
+}
+body main .mediaProfilIn article .bottomVideo .likeImgGlobal .likesVideo, body main .mediaProfilIn article .bottomVideo .likeImgGlobal .likesImg, body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesVideo, body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesImg, body main .mediaProfilIn article .bottomImg .likeImgGlobal .likesVideo, body main .mediaProfilIn article .bottomImg .likeImgGlobal .likesImg, body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesVideo, body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
+  margin-left: 1em;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 31px;
+  color: #901C1C;
+}
+body main .mediaProfilIn article .bottomVideo .likeImgGlobal .fas, body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .fas, body main .mediaProfilIn article .bottomImg .likeImgGlobal .fas, body main .mediaProfilIn article .bottomImg .likeVideoGlobal .fas {
+  margin-left: 0.5em;
+  color: #901C1C;
+  background-image: #901C1C;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 31px;
+}
+body main .button-div:hover {
+  cursor: pointer;
+}
+body main img, body main video {
+  width: 10em;
+  height: 10em;
+  object-fit: cover;
+  border-radius: 20em;
+}
+
+/*# sourceMappingURL=stylePhotographer.css.map */

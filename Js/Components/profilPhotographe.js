@@ -23,15 +23,14 @@ class ProfilPhotographe {
 
         return this.DOM.innerHTML = `
             <div class="profil">
-                <h1 class="profilNam">${this.name}</h1>
+                <h1 class="profilName">${this.name}</h1>
                 <span class="profilCity">${this.city}, ${this.country}</span>
                 <span class="profilComments">${this.comments}</span>
                 <span class='profilTag'></span>
             </div>
             <div class="button">
-                <button>Contactez moi</button>
+                <button type='button' class="button-div">Contactez moi</button>
             </div>
-            <div class="imgVignette"></div>
             <img src='Sample_Photos/Photographers ID Photos/${this.image}'>
         `
     }

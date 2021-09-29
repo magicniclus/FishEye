@@ -11,9 +11,9 @@ class PhotographerPage {
 
 
     async render () {
-
         this.showProfilPhotographe();
         this.showMediaProfil();
+        this.showFormModal();
     }
 
 
@@ -25,10 +25,18 @@ class PhotographerPage {
 
     async showMediaProfil (){
         const dataMedia = await this.dataManager.getMediaById(this.id);
+        const mediaProfilIn = document.createElement('div');
+        mediaProfilIn.setAttribute('class', 'mediaProfilIn');
+        this.DOM.appendChild(mediaProfilIn);
 
         dataMedia.forEach(media => {
-            new MediaProfil(media, this.DOM);
+            new MediaProfil(media, mediaProfilIn);
         });
     }
 
+    async showFormModal () {
+        const data = await this.dataManager.getPhotographerById(this.id);
+
+        const form = new FormModal (this.DOM, data.name);
+    }
 }

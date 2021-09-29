@@ -1,0 +1,37 @@
+// Import
+
+@import "Mixins/body.scss";
+@import "Mixins/flexbox.scss";
+@import "Mixins/formulaire.scss";
+@import "Mixins/formulaire.scss";
+@import "Mixins/imageLink.scss";
+@import "Mixins/reponsive.scss";
+@import "Mixins/vignettePhotographerPage.scss";
+@import "Use/color.scss";
+
+
+//Style
+
+body {
+    position: relative; 
+    @include body-init;
+    @include formulaire;
+
+    main {
+        width: 90%;
+        @include vignettePhotographerPage;
+        @include imageLink;
+
+        .button-div:hover {
+            cursor: pointer;
+        }
+
+        img, video {
+            width: 10em;
+            height: 10em;
+            object-fit: cover;
+            border-radius: 20em;
+        }
+    }
+}
+

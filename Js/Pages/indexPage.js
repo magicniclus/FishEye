@@ -12,6 +12,7 @@ class IndexPage {
     render () {
         this.DOM.innerText="";
         new Header (this.DOM, 'Sample_Photos/logo/logo.png', this.showTag('.tagIn'), 'Nos photographes');
+        new Link(this.DOM)
         this.showVignettePhotographers ();
     }
 
@@ -19,9 +20,12 @@ class IndexPage {
     async showVignettePhotographers () {
 
         let data = await this.dataManager.getPhotographerList(this.filters);
-
+        const vignetteIn = document.createElement('div');
+        vignetteIn.setAttribute('class', 'vignetteIn');
+        this.DOM.appendChild(vignetteIn);
+        
         for (const photographe of data){
-            new VignettePhotographer (photographe, this.DOM);
+            new VignettePhotographer (photographe, vignetteIn);
         }
     }
 

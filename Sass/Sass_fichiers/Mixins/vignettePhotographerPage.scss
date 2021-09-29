@@ -1,0 +1,149 @@
+@mixin vignettePhotographerPage {
+    .vignette {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        background-color: $color-text-eight;
+        border-radius: 7px;
+        margin-top: 2em;
+        margin-bottom: 3em;
+
+        .profil {
+            display: flex;
+            flex-direction: column;
+            margin-left: 2em;
+            margin-top: 3em;
+            margin-bottom: 3em;
+
+            .profilName {
+                color: $color-text-four;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 64px;
+                line-height: 83px;
+                margin: 0;
+            }
+
+            .profilCity {
+                color: $color-text-three;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 24px;
+                line-height: 31px;
+            }
+
+            .profilComments {
+                margin-top: 1em;
+                color: $color-text-two;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 18px;
+                line-height: 23px;
+            }
+
+            .profilTag {
+                margin-top: 1em;
+                span {
+                    background-color: $color-text-eight;
+                    border: 1px solid $color-text-seven;
+                    border-radius: 12px;
+                    color: $color-text-three;
+                    font-weight: 500;
+                    font-style: normal;
+                    font-size: 18px;
+                    line-height: 23px;
+                    margin-left: 6px;
+                    padding: 1px 7px 1px 7px;
+                }
+            }
+
+            @media screen and (max-width: 750px) {
+                .profilName {
+                    font-size: 45px;
+                }
+
+                .profilCity {
+                    font-size: 17px;
+                }
+
+                .profilComments {
+                    font-size: 12.5px;
+                }
+
+                .profilTag {
+                    span {
+                        font-size: 12.5px;
+                    }
+                }
+            }
+
+            @media screen and (max-width: 600px) {
+                .profilName {
+                    font-size: 31.5px;
+                    margin-top: 7px;
+                    line-height: 33px;
+                }
+
+                .profilCity {
+                    font-size: 12px;
+                    margin-top: 7px;
+                    line-height: 12.5px;
+                }
+
+                .profilComments {
+                    font-size: 8.5px;
+                    margin-top: 7px;
+                }
+
+                .profilTag {
+                    span {
+                        font-size: 8.5px;
+                        margin-top: 7px;
+                    }
+                }
+            }
+        }
+
+        .button {
+            margin-top: 4em;
+            margin-right: 10em;
+
+            button {
+                height: 70px;
+                width: 170px;
+                background-color: $color-text-three;
+                border-radius: 5px;
+                border: none;
+                color: white;
+                font-weight: 700;
+                font-style: normal;
+                font-size: 20px;
+                line-height: 26px;
+                text-align: center;
+            }
+        }
+
+        @media screen and ( max-width:1036px){
+            .button {
+                display: none;
+            }
+        }
+
+        img {
+            width: 10em;
+            height: 10em;
+            object-fit: cover;
+            border-radius: 20em;
+            margin-top: 4em;
+            margin-right: 2em;
+        }
+
+        @media screen and (max-width: 600px) {
+            img {
+                width: 8em;
+                height: 8em;
+                margin-top: 3em;
+            }
+        }
+    }
+}

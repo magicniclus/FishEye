@@ -6,3 +6,4 @@ photographerPageBody.appendChild(mainPhotographeProfil);
 
 
 const photographerPage = new PhotographerPage('https://magicniclus.github.io/FishEye/Js/Data/data.json', mainPhotographeProfil)
+

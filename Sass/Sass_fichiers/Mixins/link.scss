@@ -1,0 +1,27 @@
+@mixin link {
+
+    .linkBack {
+        position: relative;
+        @include flexbox-center;
+        width: 100%;
+
+            .linkBtn {
+            position: fixed;
+            top: 0;
+            text-align: center;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 18px;
+            padding: 3px 9px 3px 9px;
+            background-color:#DB8876;
+            border: 1px solid#DB8876;
+            border-radius: 5px;
+            margin-top: 0.5em;
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+            display: none;
+        }
+    }
+    
+}
