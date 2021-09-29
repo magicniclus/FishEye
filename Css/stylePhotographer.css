@@ -17,7 +17,7 @@ body a {
 }
 body .formulaire {
   width: 41em;
-  height: 56rem;
+  height: 100vh;
   background-color: #DB8876;
   display: flex;
   flex-direction: column;
@@ -25,8 +25,10 @@ body .formulaire {
   border-radius: 5px;
   -webkit-box-shadow: -1px 5px 15px 5px rgba(0, 0, 0, 0.2);
   box-shadow: -1px 5px 15px 5px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   right: 23em;
 }
 body .formulaire i {
@@ -242,34 +244,65 @@ body main .mediaProfilIn {
 }
 body main .mediaProfilIn article {
   margin-bottom: 2em;
+  overflow: hidden;
+  border-radius: 3px;
 }
-body main .mediaProfilIn article video, body main .mediaProfilIn article img {
+body main .mediaProfilIn article video,
+body main .mediaProfilIn article img {
   width: 350px;
   height: 300px;
   border-radius: 3px;
+  transition: all 0.3s ease;
 }
-body main .mediaProfilIn article .bottomVideo, body main .mediaProfilIn article .bottomImg {
+body main .mediaProfilIn article video:hover,
+body main .mediaProfilIn article img:hover {
+  width: 350px;
+  height: 300px;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+body main .mediaProfilIn article .bottomVideo,
+body main .mediaProfilIn article .bottomImg {
   display: flex;
   margin-top: 0.5em;
 }
-body main .mediaProfilIn article .bottomVideo .bottomLeft, body main .mediaProfilIn article .bottomImg .bottomLeft {
+body main .mediaProfilIn article .bottomVideo .bottomLeft,
+body main .mediaProfilIn article .bottomImg .bottomLeft {
   display: flex;
   justify-content: space-between;
   width: 80%;
 }
-body main .mediaProfilIn article .bottomVideo .bottomLeft .sigle, body main .mediaProfilIn article .bottomImg .bottomLeft .sigle {
+body main .mediaProfilIn article .bottomVideo .bottomLeft .sigle,
+body main .mediaProfilIn article .bottomImg .bottomLeft .sigle {
   margin-left: 6px;
 }
-body main .mediaProfilIn article .bottomVideo .bottomLeft .titleVideo, body main .mediaProfilIn article .bottomVideo .bottomLeft .titleImg, body main .mediaProfilIn article .bottomVideo .bottomLeft .priceVideo, body main .mediaProfilIn article .bottomVideo .bottomLeft .priceImg, body main .mediaProfilIn article .bottomImg .bottomLeft .titleVideo, body main .mediaProfilIn article .bottomImg .bottomLeft .titleImg, body main .mediaProfilIn article .bottomImg .bottomLeft .priceVideo, body main .mediaProfilIn article .bottomImg .bottomLeft .priceImg {
+body main .mediaProfilIn article .bottomVideo .bottomLeft .titleVideo,
+body main .mediaProfilIn article .bottomVideo .bottomLeft .titleImg,
+body main .mediaProfilIn article .bottomVideo .bottomLeft .priceVideo,
+body main .mediaProfilIn article .bottomVideo .bottomLeft .priceImg,
+body main .mediaProfilIn article .bottomImg .bottomLeft .titleVideo,
+body main .mediaProfilIn article .bottomImg .bottomLeft .titleImg,
+body main .mediaProfilIn article .bottomImg .bottomLeft .priceVideo,
+body main .mediaProfilIn article .bottomImg .bottomLeft .priceImg {
   font-weight: normal;
   font-size: 24px;
   line-height: 31px;
   color: #901C1C;
 }
-body main .mediaProfilIn article .bottomVideo .likeImgGlobal, body main .mediaProfilIn article .bottomVideo .likeVideoGlobal, body main .mediaProfilIn article .bottomImg .likeImgGlobal, body main .mediaProfilIn article .bottomImg .likeVideoGlobal {
+body main .mediaProfilIn article .bottomVideo .likeImgGlobal,
+body main .mediaProfilIn article .bottomVideo .likeVideoGlobal,
+body main .mediaProfilIn article .bottomImg .likeImgGlobal,
+body main .mediaProfilIn article .bottomImg .likeVideoGlobal {
   display: flex;
 }
-body main .mediaProfilIn article .bottomVideo .likeImgGlobal .likesVideo, body main .mediaProfilIn article .bottomVideo .likeImgGlobal .likesImg, body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesVideo, body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesImg, body main .mediaProfilIn article .bottomImg .likeImgGlobal .likesVideo, body main .mediaProfilIn article .bottomImg .likeImgGlobal .likesImg, body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesVideo, body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
+body main .mediaProfilIn article .bottomVideo .likeImgGlobal .likesVideo,
+body main .mediaProfilIn article .bottomVideo .likeImgGlobal .likesImg,
+body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesVideo,
+body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesImg,
+body main .mediaProfilIn article .bottomImg .likeImgGlobal .likesVideo,
+body main .mediaProfilIn article .bottomImg .likeImgGlobal .likesImg,
+body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesVideo,
+body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
   margin-left: 1em;
   font-weight: 500;
   font-style: normal;
@@ -277,7 +310,10 @@ body main .mediaProfilIn article .bottomVideo .likeImgGlobal .likesVideo, body m
   line-height: 31px;
   color: #901C1C;
 }
-body main .mediaProfilIn article .bottomVideo .likeImgGlobal .fas, body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .fas, body main .mediaProfilIn article .bottomImg .likeImgGlobal .fas, body main .mediaProfilIn article .bottomImg .likeVideoGlobal .fas {
+body main .mediaProfilIn article .bottomVideo .likeImgGlobal .fas,
+body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .fas,
+body main .mediaProfilIn article .bottomImg .likeImgGlobal .fas,
+body main .mediaProfilIn article .bottomImg .likeVideoGlobal .fas {
   margin-left: 0.5em;
   color: #901C1C;
   background-image: #901C1C;

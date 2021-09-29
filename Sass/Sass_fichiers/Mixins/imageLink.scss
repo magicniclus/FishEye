@@ -1,67 +1,83 @@
 @mixin imageLink {
-    .mediaProfilIn {
-        width: 100%;
-        display: grid;
-        flex-wrap: wrap;
-        grid-template-columns: repeat(3, 350px);
-        justify-content: space-between;
+  .mediaProfilIn {
+    width: 100%;
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(3, 350px);
+    justify-content: space-between;
 
-        article {
-            margin-bottom: 2em;
+    article {
+      margin-bottom: 2em;
+      overflow: hidden;
+      border-radius: 3px;
 
-            video, img {
-                width: 350px;
-                height: 300px;
-                border-radius: 3px;
-            }
+      video,
+      img {
+        width: 350px;
+        height: 300px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
 
-            .bottomVideo, .bottomImg {
-                display: flex;
-                margin-top: 0.5em;
+      video:hover,
+      img:hover {
+        width: 350px;
+        height: 300px;
+        cursor: pointer;
+        transform: scale(1.1);
+      }
 
-                .bottomLeft {
-                    display: flex;
-                    justify-content: space-between;
-                    width: 80%;
+      .bottomVideo,
+      .bottomImg {
+        display: flex;
+        margin-top: 0.5em;
 
-                    .sigle {
-                        margin-left: 6px;
-                    }
+        .bottomLeft {
+          display: flex;
+          justify-content: space-between;
+          width: 80%;
 
-                    .titleVideo, .titleImg, .priceVideo, .priceImg {
-                        font-weight: normal;
-                        font-size: 24px;
-                        line-height: 31px;
-                        color: $color-text-three;
-                    }
+          .sigle {
+            margin-left: 6px;
+          }
 
-                }    
-
-                .likeImgGlobal, .likeVideoGlobal {
-                    display: flex;
-                    .likesVideo, .likesImg {
-                        margin-left: 1em;
-                        font-weight: 500;
-                        font-style: normal;
-                        font-size: 24px;
-                        line-height: 31px;
-                        color: $color-text-three;
-                    }
-
-                    .fas {
-                        margin-left: 0.5em;
-                        color: $color-text-three;
-                        background-image: $color-text-three;
-                        background-clip: text;
-                        -webkit-background-clip: text;
-                        font-weight: 500;
-                        font-style: normal;
-                        font-size: 24px;
-                        line-height: 31px;
-                    }
-                }
-            }
+          .titleVideo,
+          .titleImg,
+          .priceVideo,
+          .priceImg {
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 31px;
+            color: $color-text-three;
+          }
         }
+
+        .likeImgGlobal,
+        .likeVideoGlobal {
+          display: flex;
+          .likesVideo,
+          .likesImg {
+            margin-left: 1em;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 31px;
+            color: $color-text-three;
+          }
+
+          .fas {
+            margin-left: 0.5em;
+            color: $color-text-three;
+            background-image: $color-text-three;
+            background-clip: text;
+            -webkit-background-clip: text;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 31px;
+          }
+        }
+      }
     }
-    
+  }
 }

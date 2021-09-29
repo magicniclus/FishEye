@@ -121,6 +121,7 @@
                 line-height: 26px;
                 text-align: center;
             }
+
         }
 
         @media screen and ( max-width:1036px){
@@ -130,14 +131,14 @@
         }
 
         img {
-            width: 10em;
-            height: 10em;
-            object-fit: cover;
-            border-radius: 20em;
-            margin-top: 4em;
-            margin-right: 2em;
+        width: 10em;
+        height: 10em;
+        object-fit: cover;
+        border-radius: 20em;
+        margin-top: 4em;
+        margin-right: 2em;
         }
-
+    
         @media screen and (max-width: 600px) {
             img {
                 width: 8em;

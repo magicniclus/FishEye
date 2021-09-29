@@ -1,25 +1,25 @@
 // Ajout du profil de chaque photographe dans leurs page
 
 class ProfilPhotographe {
-    constructor (props, domTarget) {
+    constructor(props, domTarget) {
         this.DOM = document.createElement("div");
         this.DOM.setAttribute('class', 'vignette')
         domTarget.appendChild(this.DOM);
 
-        this.image      = props.portrait;
-        this.name       = props.name;
-        this.city       = props.city;
-        this.country    = props.country;
-        this.comments   = props.tagline;
-        this.price      = props.price;
-        this.tags       = props.tags;
-        this.id         = props.id;
+        this.image = props.portrait;
+        this.name = props.name;
+        this.city = props.city;
+        this.country = props.country;
+        this.comments = props.tagline;
+        this.price = props.price;
+        this.tags = props.tags;
+        this.id = props.id;
 
         this.render();
-        this.showTags(); 
+        this.showTags();
     }
 
-    render () {   
+    render() {
 
         return this.DOM.innerHTML = `
             <div class="profil">
@@ -35,9 +35,9 @@ class ProfilPhotographe {
         `
     }
 
-    showTags () {
+    showTags() {
 
-        for (const tag of this.tags){
+        for (const tag of this.tags) {
             const tagIn = document.querySelector('.profilTag');
             const tagsIn = document.createElement('span');
             tagIn.appendChild(tagsIn)
