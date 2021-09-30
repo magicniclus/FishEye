@@ -12,6 +12,7 @@ class PhotographerPage {
 
     async render() {
         this.showProfilPhotographe();
+        const filtreImg = new FiltreImage (this.DOM);
         this.showMediaProfil();
         this.showFormModal();
         this.showLightbox();
