@@ -19,6 +19,7 @@ body {
 
     main {
         width: 100%;
+        max-width: 1500px;
         @include flexbox-center;
 
         header {

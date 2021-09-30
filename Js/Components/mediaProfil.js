@@ -22,7 +22,9 @@ class MediaProfil {
 
     templateImage() {
         return `
-                <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}">     
+                <div class='imgContainer'>
+                    <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}">   
+                </div>  
                 <div class="bottomImg">
                     <div class="bottomLeft">
                         <span class="titleImg">${this.title}</span>
@@ -38,11 +40,11 @@ class MediaProfil {
 
     templateVideo() {
         return `
-                <a href="Sample_Photos/${this.video}">
+                <div class='videoContainer'>
                     <video autoplay loop> 
                         <source src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
                     </video>   
-                </a>
+                </div>
                 <div class="bottomVideo">
                 <div class="bottomLeft">
                     <span class="titleVideo">${this.title}</span>

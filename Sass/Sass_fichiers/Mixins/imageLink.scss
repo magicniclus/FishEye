@@ -11,6 +11,13 @@
       overflow: hidden;
       border-radius: 3px;
 
+      .imgContainer, .videoContainer{
+        width: 350px;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 5px;
+      }
+
       video,
       img {
         width: 350px;
@@ -19,7 +26,7 @@
         transition: all 0.3s ease;
       }
 
-      video:hover,
+      .videoContainer video:hover,
       img:hover {
         width: 350px;
         height: 300px;

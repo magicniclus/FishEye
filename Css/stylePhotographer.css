@@ -19,6 +19,7 @@ body a {
 body .formulaire {
   width: 41em;
   height: 99vh;
+  max-height: 51em;
   background-color: #DB8876;
   display: flex;
   flex-direction: column;
@@ -160,6 +161,7 @@ body .lightbox .lightbox__close {
 }
 body main {
   width: 90%;
+  max-width: 1500px;
 }
 body main .vignette {
   display: flex;
@@ -298,6 +300,12 @@ body main .mediaProfilIn article {
   overflow: hidden;
   border-radius: 3px;
 }
+body main .mediaProfilIn article .imgContainer, body main .mediaProfilIn article .videoContainer {
+  width: 350px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 5px;
+}
 body main .mediaProfilIn article video,
 body main .mediaProfilIn article img {
   width: 350px;
@@ -305,7 +313,7 @@ body main .mediaProfilIn article img {
   border-radius: 3px;
   transition: all 0.3s ease;
 }
-body main .mediaProfilIn article video:hover,
+body main .mediaProfilIn article .videoContainer video:hover,
 body main .mediaProfilIn article img:hover {
   width: 350px;
   height: 300px;

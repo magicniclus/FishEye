@@ -22,9 +22,11 @@ body {
 
     main {
         width: 90%;
+        max-width: 1500px;
         @include vignettePhotographerPage;
         @include imageLink;
 
+        
         .button-div:hover {
             cursor: pointer;
         }

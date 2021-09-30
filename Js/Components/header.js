@@ -3,6 +3,7 @@
 class Header {
     constructor(domTarget, img, tag, title){
         this.DOM = document.createElement('header');
+        this.DOM.setAttribute('id', 'top');
         domTarget.appendChild(this.DOM);
         this.img    = img;
         this.tag    = tag;

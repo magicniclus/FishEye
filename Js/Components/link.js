@@ -13,7 +13,8 @@ class Link {
     }
 
     showBtn () {
-        const linkBack = document.createElement('div');
+        const linkBack = document.createElement('a');
+        linkBack.setAttribute('href', '#top');
         linkBack.setAttribute('class', 'linkBack');
         const linkBtn = document.createElement('span');
         linkBtn.setAttribute('class', 'linkBtn')
