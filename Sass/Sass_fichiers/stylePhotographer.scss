@@ -5,6 +5,7 @@
 @import "Mixins/formulaire.scss";
 @import "Mixins/formulaire.scss";
 @import "Mixins/imageLink.scss";
+@import "Mixins/lightBox.scss";
 @import "Mixins/reponsive.scss";
 @import "Mixins/vignettePhotographerPage.scss";
 @import "Use/color.scss";
@@ -16,6 +17,8 @@ body {
     position: relative; 
     @include body-init;
     @include formulaire;
+    @include lightBox;
+    z-index: 5;
 
     main {
         width: 90%;

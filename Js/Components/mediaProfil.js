@@ -1,18 +1,18 @@
 //Ajout des media en fonction de leurs type
 
-class MediaProfil{
-    constructor(data, domTarget){
+class MediaProfil {
+    constructor(data, domTarget) {
         this.DOM = document.createElement("article");
         this.DOM.setAttribute("class", 'photographerImg')
         domTarget.appendChild(this.DOM);
-        for( const [key, value] of Object.entries(data)){
+        for (const [key, value] of Object.entries(data)) {
             this[key] = value;
         }
-        
+
         this.render();
     }
 
-    render(){
+    render() {
         this.DOM.innerHTML = this.image ? this.templateImage() : this.templateVideo();
 
 
@@ -20,9 +20,11 @@ class MediaProfil{
     }
 
 
-    templateImage(){
+    templateImage() {
         return `
-                <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}">    
+                <a href="Sample_Photos/${this.image}">
+                    <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}">    
+                </a>    
                 <div class="bottomImg">
                     <div class="bottomLeft">
                         <span class="titleImg">${this.title}</span>
@@ -36,11 +38,13 @@ class MediaProfil{
         `;
     }
 
-    templateVideo(){
+    templateVideo() {
         return `
-                <video autoplay loop> 
-                    <source src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
-                </video>   
+                <a href="Sample_Photos/${this.video}">
+                    <video autoplay loop> 
+                        <source src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
+                    </video>   
+                </a>
                 <div class="bottomVideo">
                 <div class="bottomLeft">
                     <span class="titleVideo">${this.title}</span>

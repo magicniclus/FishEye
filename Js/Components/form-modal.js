@@ -41,7 +41,7 @@ class FormModal {
         <div class="button">
             <button id="submit-btn" type="submit">Envoyer</button>
         </div>
-        <i class="fas fa-times"></i>
+        <i class="fas fa-times closeIn"></i>
         </form> 
         `
 
@@ -78,7 +78,7 @@ class FormModal {
          */
 
         
-        let closeBtn = document.querySelector('.fa-times');
+        let closeBtn = document.querySelector('.closeIn');
 
         closeBtn.addEventListener("click", function(){
             form.style.display='none';

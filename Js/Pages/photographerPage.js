@@ -31,10 +31,8 @@ class PhotographerPage {
 
         dataMedia.forEach(media => {
             new MediaProfil(media, mediaProfilIn);
+            new Lightbox(this.DOM, media);
         });
-
-
-        this.showLightBox();
     }
 
     async showFormModal() {

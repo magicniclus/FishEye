@@ -11,13 +11,14 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 }
 body a {
   text-decoration: none;
 }
 body .formulaire {
   width: 41em;
-  height: 100vh;
+  height: 99vh;
   background-color: #DB8876;
   display: flex;
   flex-direction: column;
@@ -106,6 +107,56 @@ body .formulaire .button button {
 }
 body .formulaire -ms-input-placeholder {
   font-size: 4em;
+}
+body .lightbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 100%;
+  z-index: 20;
+}
+body .lightbox .lightbox__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body .lightbox .lightbox__container img {
+  width: 90%;
+  max-width: 1800px;
+  height: 900px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+body .lightbox button {
+  all: unset;
+  cursor: pointer;
+  font-size: 48px;
+  color: #901C1C;
+  position: absolute;
+  opacity: 0.7;
+}
+body .lightbox button:hover {
+  opacity: 1;
+  text-shadow: 0px 5px 11px rgba(150, 150, 150, 0.57);
+}
+body .lightbox .lightbox__next,
+body .lightbox .lightbox__prev {
+  height: 100%;
+  z-index: 10;
+}
+body .lightbox .lightbox__prev {
+  left: 20px;
+}
+body .lightbox .lightbox__next {
+  right: 20px;
+}
+body .lightbox .lightbox__close {
+  right: 20px;
+  z-index: 15;
 }
 body main {
   width: 90%;
