@@ -29,49 +29,56 @@ class Lightbox {
         const linksLight = document.querySelectorAll(".photographerImg");
 
         for (let i = 0; i < linksLight.length; i++) {
+            let newIndex = i;
+            let clickImgIndex;
             linksLight[i].addEventListener('click', function (e) {
-
-                let newIndex = i;
+                clickImgIndex = newIndex;
                 e.preventDefault();
                 function preview() {
                     const selectedImgUrl = linksLight[newIndex].querySelector('img').src;
                     previewImg.src = selectedImgUrl;
                 }
 
-                const prevBtn = lightboxHTML.querySelector('.lightbox__prev');
-                const nextBtn = lightboxHTML.querySelector('.lightbox__next');
+                let prevBtn = document.querySelector('.lightbox__prev');
+                const nextBtn = document.querySelector('.lightbox__next');
 
-                // if (newIndex == 0) {
-                //     prevBtn.style.display = 'none';
-                // }else{
-                //     prevBtn.style.display = 'block';
-                // }
+                
+                console.log(newIndex);
 
-                // if (newIndex >= linksLight.length - 1) {
-                //     nextBtn.style.display = 'none';
-                // }else{
-                //     nextBtn.style.display = 'block';
-                // }
+                if (newIndex == 0){
+                    prevBtn.style.display='none';
+                } else {
+                    prevBtn.style.display='block';
+                }
+
+                if (newIndex >= linksLight.length - 1) {
+                    nextBtn.style.display='none';
+                } else {
+                    nextBtn.style.display='block';
+                }
 
                 prevBtn.addEventListener('click', function () {
                     newIndex--;
+                    console.log(newIndex);
                     if (newIndex == 0) {
                         preview();
-                        prevBtn.style.display = 'none';
+                        prevBtn.style.display='none';
                     } else {
                         preview();
-                        prevBtn.style.display = 'block';
+                        nextBtn.style.display='block';
+
                     }
                 })
 
                 nextBtn.addEventListener('click', function () {
                     newIndex++;
+                    console.log(newIndex);
                     if (newIndex >= linksLight.length - 1) {
                         preview();
-                        nextBtn.style.display = 'none';
+                        nextBtn.style.display='none';
                     } else {
                         preview();
-                        nextBtn.style.display = 'block';
+                        prevBtn.style.display='block';
                     }
                 })
 
@@ -82,21 +89,19 @@ class Lightbox {
             })
 
 
+            const closeBox = lightboxHTML.querySelector('.lightbox__close .fas');
+            const prevBtnUn = lightboxHTML.querySelector('.lightbox__prev');
+            const nextBtnUn = lightboxHTML.querySelector('.lightbox__next');
+            closeBox.addEventListener("click", function () {
+                newIndex = clickImgIndex;
+                lightboxHTML.classList.remove('lightbox');
+                lightboxHTML.style.display = 'none';
+                prevBtnUn.style.display='block';
+                nextBtnUn.style.display='block';
+
+             });
+
         }
-
-
-
-        const closeBox = lightboxHTML.querySelector('.lightbox__close .fas');
-        const prevBtnUn = lightboxHTML.querySelector('.lightbox__prev');
-        const nextBtnUn = lightboxHTML.querySelector('.lightbox__next');
-        closeBox.addEventListener("click", function () {
-            lightboxHTML.classList.remove('lightbox');
-            lightboxHTML.style.display = 'none';
-            prevBtnUn.style.display = 'block';
-            nextBtnUn.style.display = 'block';
-
-        });
-
         this.DOM.appendChild(lightboxHTML);
     }
 
