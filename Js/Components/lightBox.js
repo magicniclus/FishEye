@@ -22,35 +22,80 @@ class Lightbox {
             <div class="lightbox__container"><img src="" alt=""></div>
         `;
 
-        lightboxHTML.style.display='none';
+        lightboxHTML.style.display = 'none';
 
         //Récuperation des liens 
-        const images = lightboxHTML.querySelector('.lightbox__container img, .lightbox__container video');
-        const linksLight = document.querySelectorAll(".photographerImg a");
-        for (let link of linksLight) {
-            link.addEventListener("click", function (e) {
+        const previewImg = lightboxHTML.querySelector('img');
+        const linksLight = document.querySelectorAll(".photographerImg");
 
-                //Désactivation des comportements par defaut des liens 
+        for (let i = 0; i < linksLight.length; i++) {
+            linksLight[i].addEventListener('click', function (e) {
+
+                let newIndex = i;
                 e.preventDefault();
+                function preview() {
+                    const selectedImgUrl = linksLight[newIndex].querySelector('img').src;
+                    previewImg.src = selectedImgUrl;
+                }
 
-                lightboxHTML.style.display = 'block';
+                const prevBtn = lightboxHTML.querySelector('.lightbox__prev');
+                const nextBtn = lightboxHTML.querySelector('.lightbox__next');
 
-                images.src = this.href;
-                console.log(images);
+                // if (newIndex == 0) {
+                //     prevBtn.style.display = 'none';
+                // }else{
+                //     prevBtn.style.display = 'block';
+                // }
 
-                //On affiche la modale
+                // if (newIndex >= linksLight.length - 1) {
+                //     nextBtn.style.display = 'none';
+                // }else{
+                //     nextBtn.style.display = 'block';
+                // }
+
+                prevBtn.addEventListener('click', function () {
+                    newIndex--;
+                    if (newIndex == 0) {
+                        preview();
+                        prevBtn.style.display = 'none';
+                    } else {
+                        preview();
+                        prevBtn.style.display = 'block';
+                    }
+                })
+
+                nextBtn.addEventListener('click', function () {
+                    newIndex++;
+                    if (newIndex >= linksLight.length - 1) {
+                        preview();
+                        nextBtn.style.display = 'none';
+                    } else {
+                        preview();
+                        nextBtn.style.display = 'block';
+                    }
+                })
+
+                preview();
+
                 lightboxHTML.classList.add('lightbox');
+                lightboxHTML.style.display = 'block';
             })
+
+
         }
 
-        const closeBox = lightboxHTML.querySelector('.lightbox__close .fas');
 
+
+        const closeBox = lightboxHTML.querySelector('.lightbox__close .fas');
+        const prevBtnUn = lightboxHTML.querySelector('.lightbox__prev');
+        const nextBtnUn = lightboxHTML.querySelector('.lightbox__next');
         closeBox.addEventListener("click", function () {
             lightboxHTML.classList.remove('lightbox');
-            lightboxHTML.style.display='none';
-        })
+            lightboxHTML.style.display = 'none';
+            prevBtnUn.style.display = 'block';
+            nextBtnUn.style.display = 'block';
 
-
+        });
 
         this.DOM.appendChild(lightboxHTML);
     }

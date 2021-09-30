@@ -22,9 +22,7 @@ class MediaProfil {
 
     templateImage() {
         return `
-                <a href="Sample_Photos/${this.image}">
-                    <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}">    
-                </a>    
+                <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}">     
                 <div class="bottomImg">
                     <div class="bottomLeft">
                         <span class="titleImg">${this.title}</span>
