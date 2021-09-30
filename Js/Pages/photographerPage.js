@@ -14,6 +14,7 @@ class PhotographerPage {
         this.showProfilPhotographe();
         this.showMediaProfil();
         this.showFormModal();
+        this.showLightbox();
     }
 
 
@@ -31,8 +32,12 @@ class PhotographerPage {
 
         dataMedia.forEach(media => {
             new MediaProfil(media, mediaProfilIn);
-            new Lightbox(this.DOM, media);
         });
+    }
+
+    async showLightbox () {
+        const dataMedia = await this.dataManager.getMediaById(this.id);
+        new Lightbox(this.DOM, dataMedia);
     }
 
     async showFormModal() {
