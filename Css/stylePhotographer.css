@@ -383,6 +383,32 @@ body main .mediaProfilIn article .bottomImg .likeVideoGlobal .fas {
   font-size: 24px;
   line-height: 31px;
 }
+body main .filtreBouton {
+  margin-top: 1em;
+  -webkit-appearance: none;
+}
+body main .filtreBouton label {
+  font-weight: 700;
+  font-style: normal;
+  font-style: 18px;
+  line-height: 28px;
+}
+body main .filtreBouton select {
+  margin-left: 1em;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 23px;
+  padding-left: 0.5em;
+  padding-right: 1em;
+  color: white;
+  width: 170px;
+  height: 69px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: url(../../../Sample_Photos/logo/fleche.svg) no-repeat right #901C1C;
+  border: 1px solid #901C1C;
+}
 body main .button-div:hover {
   cursor: pointer;
 }

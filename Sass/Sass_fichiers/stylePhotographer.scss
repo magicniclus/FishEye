@@ -1,6 +1,7 @@
 // Import
 
 @import "Mixins/body.scss";
+@import "Mixins/filtreBouton.scss";
 @import "Mixins/flexbox.scss";
 @import "Mixins/formulaire.scss";
 @import "Mixins/formulaire.scss";
@@ -25,6 +26,7 @@ body {
         max-width: 1500px;
         @include vignettePhotographerPage;
         @include imageLink;
+        @include filtreBouton;
 
         
         .button-div:hover {

@@ -12,7 +12,7 @@ class VignettePhotographer {
         this.country    = props.country;
         this.comments   = props.tagline;
         this.price      = props.price;
-        this.tags       = props;
+        this.tags       = props.tags;
         this.id         = props.id;
 
         this.render();
@@ -20,6 +20,7 @@ class VignettePhotographer {
 
     render () {
         this.showVignette();
+        // this.showTags();
     }
 
     showVignette () {
@@ -33,5 +34,15 @@ class VignettePhotographer {
         <span class="price">${this.price}€/jour</span>
         <div class="tagButton"></div> 
         `
+    }
+
+    showTags () {
+
+        for (const tag of this.tags) {
+            const tagIn = document.querySelector('.tagButton');
+            const tagsIn = document.createElement('span');
+            tagIn.appendChild(tagsIn)
+            tagsIn.innerHTML += `#${tag}`;
+        }
     }
 }

@@ -1,0 +1,31 @@
+@mixin filtreBouton {
+    .filtreBouton {
+        margin-top: 1em;
+        -webkit-appearance: none;
+
+        label {
+            font-weight: 700;
+            font-style: normal;
+            font-style: 18px;
+            line-height: 28px;
+        }
+
+        select {
+            margin-left: 1em;
+            font-size: 18px;
+            font-weight: 700;
+            font-style: normal;
+            line-height: 23px;
+            padding-left: 0.5em;
+            padding-right: 1em;
+            color: white;
+            width: 170px;
+            height: 69px;
+            border-radius: 5px;
+            overflow: hidden;
+            background: url(../../../Sample_Photos/logo/fleche.svg) no-repeat right $color-background-primary;
+            border: 1px solid $color-text-three;
+            
+            }
+    }
+}

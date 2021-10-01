@@ -1,6 +1,7 @@
 class FiltreImage {
     constructor (domTarget){
         this.DOM = document.createElement('div');
+        this.DOM.setAttribute('class', 'filtreBouton');
         this.render();
         domTarget.appendChild(this.DOM);
     }
@@ -20,6 +21,10 @@ class FiltreImage {
             <option value="titre">Titre</option>
         </select>
         `
+    }
+
+    getSelectValue() {
+
     }
 
 }
