@@ -1,60 +1,61 @@
 //Ajout des media en fonction de leurs type
 
 class MediaProfil {
-    constructor(data, domTarget) {
+    constructor(data, domTarget, callbacks) {
         this.DOM = document.createElement("article");
         this.DOM.setAttribute("class", 'photographerImg')
         domTarget.appendChild(this.DOM);
         for (const [key, value] of Object.entries(data)) {
             this[key] = value;
         }
-
+        this.DOM.onclick = ()=>callbacks.lightbox(data);
+        this.likeCallback = callbacks.likes;
+        this.liked = false;
         this.render();
     }
 
     render() {
         this.DOM.innerHTML = this.image ? this.templateImage() : this.templateVideo();
-
-
-        const likesImg = document.querySelector('.likesImg');
-    }
-
-
-    templateImage() {
-        return `
-                <div class='imgContainer'>
-                    <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}">   
-                </div>  
-                <div class="bottomImg">
+        const bottom = document.createElement("div");
+        this.DOM.appendChild(bottom);
+        bottom.innerHTML = `
                     <div class="bottomLeft">
                         <span class="titleImg">${this.title}</span>
                         <span class="priceImg">${this.price}<span class="sigle">€</span></span>
                     </div>    
-                    <div class="likeImgGlobal">
-                        <span class="likesImg">${this.likes}</span>
-                        <i class="fas fa-heart"></i>
-                    </div>    
-                </div>   
         `;
+        this.showLikes(bottom);
+    }
+
+
+    templateImage() {
+        return `<img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}"> `;
     }
 
     templateVideo() {
-        return `
-                <div class='videoContainer'>
-                    <video autoplay loop> 
+        return `<video autoplay loop> 
                         <source src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
-                    </video>   
-                </div>
-                <div class="bottomVideo">
-                <div class="bottomLeft">
-                    <span class="titleVideo">${this.title}</span>
-                    <span class="priceVideo">${this.price}<span class="sigle">€</span></span>
-                </div>    
-                    <div class="likeVideoGlobal">
-                        <span class="likesVideo">${this.likes}</span>
-                        <i class="fas fa-heart"></i>
-                    </div>    
-                </div>   
+                    </video> 
         `;
+    }
+
+    showLikes(domTarget){
+        const container = document.createElement("div");
+        //container.className = "likeGlobal";
+        container.innerHTML = `
+                        <span class="likesImg">${this.likes}</span>
+                        <i class="fas fa-heart"></i>
+                        `;
+        container.onclick = this.likeClick.bind(this);
+        domTarget.appendChild(container);
+    }
+    likeClick(event){
+        event.preventDefault();
+        event.stopPropagation();
+        this.liked = !this.liked;
+        if (this.liked) this.likes++;
+        else this.likes--;
+        this.likeCallback(this.liked);
+        this.render();
     }
 }

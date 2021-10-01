@@ -11,11 +11,11 @@ class PhotographerPage {
 
 
     async render() {
-        this.showProfilPhotographe();
+        await this.showProfilPhotographe();
         const filtreImg = new FiltreImage (this.DOM);
-        this.showMediaProfil();
-        this.showFormModal();
-        this.showLightbox();
+        await this.showMediaProfil();
+        await this.showFormModal();
+        //await this.showLightbox();
     }
 
 
@@ -32,12 +32,15 @@ class PhotographerPage {
         this.DOM.appendChild(mediaProfilIn);
 
         dataMedia.forEach(media => {
-            new MediaProfil(media, mediaProfilIn);
+            new MediaProfil(media, mediaProfilIn, {
+                lightbox : this.showLightbox.bind(this),
+                likes : this.addLikesToTotal.bind(this)
+            });
         });
     }
 
-    async showLightbox () {
-        const dataMedia = await this.dataManager.getMediaById(this.id);
+    async showLightbox (dataMedia) {
+        //const dataMedia = await this.dataManager.getMediaById(this.id);
         new Lightbox(this.DOM, dataMedia);
     }
 
@@ -46,4 +49,16 @@ class PhotographerPage {
 
         const form = new FormModal(this.DOM, data.name);
     }
+
+    /**
+     * [addLikesToTotal description]
+     *
+     * @param   {Boolean}  add  true : ajoute false : retitre
+     *
+     * @return  {void}       [return description]
+     */
+    addLikesToTotal(add){
+
+    }
+
 }
