@@ -54,6 +54,22 @@
                 font-size: 9px;
                 line-height: 11px;
             }
+
+            .tagButton {
+
+                span {
+                    background-color: white;
+                    border: 1px solid $color-text-seven;
+                    border-radius: 11px;
+                    color: $color-text-three;
+                    font-weight: 500;
+                    font-style: normal;
+                    font-size: 12px;
+                    line-height: 15px;
+                    margin-left: 4px;
+                    padding: 1px 5px;
+                }
+            }
         }
     }
 
@@ -69,5 +85,7 @@
             justify-content: center;
         }
     } 
+
+
     
 }

@@ -34,6 +34,11 @@ class DataManager {
         return list;
     }
 
+    async getPhotographerSort () {
+        if(Object.entries(this.data).length === 0) await this.getAllData();
+        return this.data.photographers;
+    }
+
     async getMediaList () {
         if(Object.entries(this.data).length === 0) await this.getAllData();
         return this.data.media;

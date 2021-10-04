@@ -1,6 +1,7 @@
 @mixin filtreBouton {
     .filtreBouton {
         margin-top: 1em;
+        margin-bottom: 3em;
         -webkit-appearance: none;
 
         label {
@@ -23,9 +24,8 @@
             height: 69px;
             border-radius: 5px;
             overflow: hidden;
-            background: url(../../../Sample_Photos/logo/fleche.svg) no-repeat right $color-background-primary;
+            background: $color-background-primary;
             border: 1px solid $color-text-three;
-            
-            }
+        }
     }
 }

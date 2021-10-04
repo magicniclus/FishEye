@@ -1,4 +1,4 @@
-@mixin header {
+    @mixin header {
     width: 90%;
     @include flexbox-space-between;
     padding-top: 3em;

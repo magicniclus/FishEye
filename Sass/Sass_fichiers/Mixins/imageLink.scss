@@ -59,7 +59,7 @@
           }
         }
 
-        .likeImgGlobal,
+        .likeGlobal,
         .likeVideoGlobal {
           display: flex;
           .likesVideo,
@@ -74,10 +74,11 @@
 
           .fas {
             margin-left: 0.5em;
-            color: $color-text-three;
-            background-image: $color-text-three;
             background-clip: text;
             -webkit-background-clip: text;
+            color: transparent;
+            background-image: $color-text-three;
+            background-color: $color-text-three;
             font-weight: 500;
             font-style: normal;
             font-size: 24px;

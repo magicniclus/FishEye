@@ -17,6 +17,7 @@ class MediaProfil {
     render() {
         this.DOM.innerHTML = this.image ? this.templateImage() : this.templateVideo();
         const bottom = document.createElement("div");
+        bottom.setAttribute('class', 'bottomImg')
         this.DOM.appendChild(bottom);
         bottom.innerHTML = `
                     <div class="bottomLeft">
@@ -29,19 +30,26 @@ class MediaProfil {
 
 
     templateImage() {
-        return `<img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}"> `;
+        return `
+            <div class='imgContainer'>
+                <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}"> 
+            </div>
+        `;
     }
 
     templateVideo() {
-        return `<video autoplay loop> 
+        return `
+                <div class='videoContainer'>
+                    <video autoplay loop> 
                         <source src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
-                    </video> 
+                    </video>
+                </div>     
         `;
     }
 
     showLikes(domTarget){
         const container = document.createElement("div");
-        //container.className = "likeGlobal";
+        container.className = "likeGlobal";
         container.innerHTML = `
                         <span class="likesImg">${this.likes}</span>
                         <i class="fas fa-heart"></i>

@@ -14,7 +14,6 @@ class VignettePhotographer {
         this.price      = props.price;
         this.tags       = props.tags;
         this.id         = props.id;
-        console.log(this.tags)
         this.render();
     }
 

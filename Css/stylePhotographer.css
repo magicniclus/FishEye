@@ -348,18 +348,18 @@ body main .mediaProfilIn article .bottomImg .bottomLeft .priceImg {
   line-height: 31px;
   color: #901C1C;
 }
-body main .mediaProfilIn article .bottomVideo .likeImgGlobal,
+body main .mediaProfilIn article .bottomVideo .likeGlobal,
 body main .mediaProfilIn article .bottomVideo .likeVideoGlobal,
-body main .mediaProfilIn article .bottomImg .likeImgGlobal,
+body main .mediaProfilIn article .bottomImg .likeGlobal,
 body main .mediaProfilIn article .bottomImg .likeVideoGlobal {
   display: flex;
 }
-body main .mediaProfilIn article .bottomVideo .likeImgGlobal .likesVideo,
-body main .mediaProfilIn article .bottomVideo .likeImgGlobal .likesImg,
+body main .mediaProfilIn article .bottomVideo .likeGlobal .likesVideo,
+body main .mediaProfilIn article .bottomVideo .likeGlobal .likesImg,
 body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesVideo,
 body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesImg,
-body main .mediaProfilIn article .bottomImg .likeImgGlobal .likesVideo,
-body main .mediaProfilIn article .bottomImg .likeImgGlobal .likesImg,
+body main .mediaProfilIn article .bottomImg .likeGlobal .likesVideo,
+body main .mediaProfilIn article .bottomImg .likeGlobal .likesImg,
 body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesVideo,
 body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
   margin-left: 1em;
@@ -369,15 +369,16 @@ body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
   line-height: 31px;
   color: #901C1C;
 }
-body main .mediaProfilIn article .bottomVideo .likeImgGlobal .fas,
+body main .mediaProfilIn article .bottomVideo .likeGlobal .fas,
 body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .fas,
-body main .mediaProfilIn article .bottomImg .likeImgGlobal .fas,
+body main .mediaProfilIn article .bottomImg .likeGlobal .fas,
 body main .mediaProfilIn article .bottomImg .likeVideoGlobal .fas {
   margin-left: 0.5em;
-  color: #901C1C;
-  background-image: #901C1C;
   background-clip: text;
   -webkit-background-clip: text;
+  color: transparent;
+  background-image: #901C1C;
+  background-color: #901C1C;
   font-weight: 500;
   font-style: normal;
   font-size: 24px;
@@ -385,6 +386,7 @@ body main .mediaProfilIn article .bottomImg .likeVideoGlobal .fas {
 }
 body main .filtreBouton {
   margin-top: 1em;
+  margin-bottom: 3em;
   -webkit-appearance: none;
 }
 body main .filtreBouton label {
@@ -406,7 +408,7 @@ body main .filtreBouton select {
   height: 69px;
   border-radius: 5px;
   overflow: hidden;
-  background: url(../../../Sample_Photos/logo/fleche.svg) no-repeat right #901C1C;
+  background: #901C1C;
   border: 1px solid #901C1C;
 }
 body main .button-div:hover {

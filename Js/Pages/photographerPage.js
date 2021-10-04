@@ -12,10 +12,9 @@ class PhotographerPage {
 
     async render() {
         await this.showProfilPhotographe();
-        const filtreImg = new FiltreImage (this.DOM);
+        await this.addFilterImage();
         await this.showMediaProfil();
         await this.showFormModal();
-        //await this.showLightbox();
     }
 
 
@@ -23,6 +22,46 @@ class PhotographerPage {
         const data = await this.dataManager.getPhotographerById(this.id);
         const newProfil = new ProfilPhotographe(data, this.DOM);
     }
+
+    async addFilterImage () {
+        const data = await this.dataManager.getPhotographerById(this.id);
+        const newFilterImage =await new FilterImage(this.DOM, data);
+    }
+
+    // async creatFilterImage (data) {
+    //     let dataIn = await data;
+    //     const select = document.querySelector('#list');
+
+    //     select.addEventListener("change", function() {
+
+    //         const selectValue = document.querySelector('#list');
+
+    //         console.log(selectValue);
+
+    //         //Popularité
+    //         if (this.value === 'Popularité') {
+    //             console.log(dataIn);
+    //             const array = newArray (dataIn, 'likes');
+    //         }
+
+
+    //         //Date
+    //         if (this.value === 'Date') console.log('Date');
+
+
+    //         //Titre
+    //         if (this.value === 'Titre') console.log('Titre');
+
+
+    //         function newArray(array, sort){
+    //             array.sort(function (a, b){
+    //                 if (a[sort] < b[sort]) return -1;
+    //                 if (a[sort] > b[sort]) return 1;
+    //                 return 0;
+    //             });
+    //         }
+    //     })
+    // }   
 
 
     async showMediaProfil() {
@@ -40,7 +79,6 @@ class PhotographerPage {
     }
 
     async showLightbox (dataMedia) {
-        //const dataMedia = await this.dataManager.getMediaById(this.id);
         new Lightbox(this.DOM, dataMedia);
     }
 
