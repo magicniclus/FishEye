@@ -6,9 +6,6 @@ class FilterImage {
         this.data = props
         this.render();
         domTarget.appendChild(this.DOM);
-
-
-
     }
 
     async render () {
@@ -32,35 +29,37 @@ class FilterImage {
 
         const select = document.querySelector('#list');
 
-        select.addEventListener("change", function() {
+        let desc = false;
 
-            console.log(this.value);
-            //Popularité
-            if (this.value === 'popularite') {
-                // console.log(data);
-                // const array = newArray (data, 'likes');
-                // console.log(array);
-                // const array = data;
-                // const arrayMap = array.map(x => x * 2);
-                // console.log(arrayMap);
+
+        //Popularité filtre
+                
+        select.addEventListener('change', function(){
+            if(this.value === 'popularite'){
+                const arrayLikes = newArray (Object.values(data), 'likes');
+                console.log(arrayLikes);
             }
 
-
-            //Date
-            if (this.value === 'Date') console.log('Date');
-
-
-            //Titre
-            if (this.value === 'Titre') console.log('Titre');
-
-
-            function newArray(array, valeur){
-                array.sort(function (a, b){
-                    if (a[valeur] < b[valeur]) return -1;
-                    if (a[valeur] > b[valeur]) return 1;
-                    return 0;
-                });
+            if(this.value === 'date'){
+                const arrayDate = newArray (Object.values(data), 'date');
+                console.log(arrayDate);
             }
-        })
+
+            if (this.value === 'titre'){
+                const arrayTitre = newArray (Object.values(data), 'title');
+                console.log(arrayTitre);
+            }
+        });
+
+
+        function newArray(array, sort){
+            array.sort(function (a, b){
+                if (a[sort] < b[sort]) return -1;
+                if (a[sort] > b[sort]) return 1;
+                return 0;
+            });
+
+            return array;
+        }
     }
 }

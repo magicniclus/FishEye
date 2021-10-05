@@ -24,7 +24,7 @@ class PhotographerPage {
     }
 
     async addFilterImage () {
-        const data = await this.dataManager.getPhotographerById(this.id);
+        const data = await this.dataManager.getMediaById(this.id);
         const newFilterImage =await new FilterImage(this.DOM, data);
     }
 
