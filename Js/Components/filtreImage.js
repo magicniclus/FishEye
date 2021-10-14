@@ -1,65 +1,56 @@
 class FilterImage {
-    constructor (domTarget, props){
-        this.DOM = document.createElement('div');
+    constructor (domTarget, props, callBack){
+        this.DOM = document.createElement('span');
         this.DOM.setAttribute('class', 'filtreBouton');
-        this.id = parseInt(window.location.search.slice(4));
-        this.data = props
+        this.callBack = callBack;
+        this.data = props;
+        this.selected = this.data[0];
+        this.showList = false;
         this.render();
         domTarget.appendChild(this.DOM);
     }
 
     async render () {
-        await this.selectHTML();
-        await this.getSelectValue(await this.data);
+        this.DOM.innerHTML = "<label for=\"filtre-select\">Trier par</label>";
+        const select = document.createElement("div");
+        select.setAttribute('class', 'divIn');
+        this.DOM.appendChild(select);
+        this.makeOptions(select);
     }
 
-    selectHTML () {
-        this.DOM.innerHTML = `
-        <label for="filtre-select">Trier par</label>
-
-        <select id="list">
-            <option class='populariteOption' value="popularite" >Popularité</option>
-            <option class='dateOption' value="date">Date</option>
-            <option class='titreOption' value="titre">Titre</option>
-        </select>
-        `
-    }
-
-    getSelectValue(data) {
-
-        const select = document.querySelector('#list');
-
-        let desc = false;
-
-
-        //Popularité filtre
-                
-        select.addEventListener('change', function(){
-            if(this.value === 'popularite'){
-                const arrayLikes = newArray (Object.values(data), 'likes');
-                console.log(arrayLikes);
-            }
-
-            if(this.value === 'date'){
-                const arrayDate = newArray (Object.values(data), 'date');
-                console.log(arrayDate);
-            }
-
-            if (this.value === 'titre'){
-                const arrayTitre = newArray (Object.values(data), 'title');
-                console.log(arrayTitre);
-            }
-        });
-
-
-        function newArray(array, sort){
-            array.sort(function (a, b){
-                if (a[sort] < b[sort]) return -1;
-                if (a[sort] > b[sort]) return 1;
-                return 0;
-            });
-
-            return array;
+    makeOptions(container){
+        if (!this.showList) {
+            this.makeOption(container, this.selected);
+            return;
         }
+        this.data.forEach(option => {
+            this.makeOption(container, option);
+        });
+    }
+
+    /**
+     * [makeOption description]
+     *
+     * @param   {HTMLElement}  container  [container description]
+     * @param   {Object}  title
+     */
+    makeOption(container, title){
+        const div = document.createElement("div");
+        div.setAttribute('class', "divIin");
+        div.innerText = title + (title === this.selected ? " v" : "");
+        div.className = `${title.toLocaleLowerCase()}Option`;
+        div.onclick = ()=> this.click(title);
+        container.appendChild(div);
+    }
+
+    click(selected){
+        this.showList = !this.showList;
+        if (this.showList) {
+            this.render();
+            return;
+        }
+        this.selected = selected;
+        this.callBack(selected);
+        this.render();
     }
 }

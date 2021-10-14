@@ -6,6 +6,12 @@ class PhotographerPage {
         this.dataManager = new DataManager(props);
         this.DOM = domTarget;
         this.id = parseInt(window.location.search.slice(4));
+        this.filters = [
+            "Popularité",
+            "Date",
+            "Titre"
+        ]
+        this.currentFilter = this.filters[0];
         this.render();
     }
 
@@ -14,7 +20,7 @@ class PhotographerPage {
         await this.showProfilPhotographe();
         await this.addFilterImage();
         await this.showMediaProfil();
-        await this.showFormModal();
+        // await this.showFormModal();
     }
 
 
@@ -23,62 +29,34 @@ class PhotographerPage {
         const newProfil = new ProfilPhotographe(data, this.DOM);
     }
 
-    async addFilterImage () {
-        const data = await this.dataManager.getMediaById(this.id);
-        const newFilterImage =await new FilterImage(this.DOM, data);
+    async addFilterImage() {
+        const newFilterImage = new FilterImage(this.DOM, this.filters, this.updateFilter.bind(this)); //TODO : Changement à effectuer ici pour afficher les images
     }
-
-    // async creatFilterImage (data) {
-    //     let dataIn = await data;
-    //     const select = document.querySelector('#list');
-
-    //     select.addEventListener("change", function() {
-
-    //         const selectValue = document.querySelector('#list');
-
-    //         console.log(selectValue);
-
-    //         //Popularité
-    //         if (this.value === 'Popularité') {
-    //             console.log(dataIn);
-    //             const array = newArray (dataIn, 'likes');
-    //         }
-
-
-    //         //Date
-    //         if (this.value === 'Date') console.log('Date');
-
-
-    //         //Titre
-    //         if (this.value === 'Titre') console.log('Titre');
-
-
-    //         function newArray(array, sort){
-    //             array.sort(function (a, b){
-    //                 if (a[sort] < b[sort]) return -1;
-    //                 if (a[sort] > b[sort]) return 1;
-    //                 return 0;
-    //             });
-    //         }
-    //     })
-    // }   
 
 
     async showMediaProfil() {
-        const dataMedia = await this.dataManager.getMediaById(this.id);
+        const data = await this.dataManager.getOrderedMedia(this.id, this.currentFilter);
+
+        const titreOption = document.querySelector('.titreOption');
+
+        // titreOption.addEventListener('click', function (){
+        //     window.location.href= 'photographerPage.html?id='+this.id;
+        // })
+
+        // console.log(">>>", data)
         const mediaProfilIn = document.createElement('div');
         mediaProfilIn.setAttribute('class', 'mediaProfilIn');
         this.DOM.appendChild(mediaProfilIn);
 
-        dataMedia.forEach(media => {
+        data.forEach(media => {
             new MediaProfil(media, mediaProfilIn, {
-                lightbox : this.showLightbox.bind(this),
-                likes : this.addLikesToTotal.bind(this)
+                lightbox: this.showLightbox.bind(this),
+                likes: this.addLikesToTotal.bind(this)
             });
         });
     }
 
-    async showLightbox (dataMedia) {
+    async showLightbox(dataMedia) {
         new Lightbox(this.DOM, dataMedia);
     }
 
@@ -95,8 +73,13 @@ class PhotographerPage {
      *
      * @return  {void}       [return description]
      */
-    addLikesToTotal(add){
+    addLikesToTotal(add) {
 
+    }
+
+    updateFilter(filter) {
+        this.currentFilter = filter;
+        this.render();
     }
 
 }

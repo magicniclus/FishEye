@@ -1,0 +1,368 @@
+class MediaProfil {
+    constructor(data, domTarget, callbacks) {
+        this.DOM = document.createElement("article");
+        this.DOM.setAttribute("class", 'photographerImg')
+        domTarget.appendChild(this.DOM);
+        for (const [key, value] of Object.entries(data)) {
+            this[key] = value;
+        }
+        this.DOM.onclick = ()=>callbacks.lightbox(data);
+        this.likeCallback = callbacks.likes;
+        this.liked = false;
+        this.render();
+    }
+
+    render() {
+        this.DOM.innerHTML = this.image ? this.templateImage() : this.templateVideo();
+        const bottom = document.createElement("div");
+        bottom.setAttribute('class', 'bottomImg')
+        this.DOM.appendChild(bottom);
+        bottom.innerHTML = `
+                    <div class="bottomLeft">
+                        <span class="titleImg">${this.title}</span>
+                        <span class="priceImg">${this.price}<span class="sigle">€</span></span>
+                    </div>    
+        `;
+        this.showLikes(bottom);
+    }
+
+
+    templateImage() {
+        return `
+            <div class='imgContainer'>
+                <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}"> 
+            </div>
+        `;
+    }
+
+    templateVideo() {
+        return `
+                <div class='videoContainer'>
+                    <video autoplay loop> 
+                        <source src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
+                    </video>
+                </div>     
+        `;
+    }
+
+    showLikes(domTarget){
+        const container = document.createElement("div");
+        container.className = "likeGlobal";
+        container.innerHTML = `
+                        <span class="likesImg">${this.likes}</span>
+                        <i class="fas fa-heart"></i>
+                        `;
+        container.onclick = this.likeClick.bind(this);
+        domTarget.appendChild(container);
+    }
+    likeClick(event){
+        event.preventDefault();
+        event.stopPropagation();
+        this.liked = !this.liked;
+        console.log(this.liked);
+        if (this.liked) this.likes++;
+        else this.likes--;
+        this.likeCallback(this.liked);
+        this.render();
+    }
+}
+
+
+
+
+
+
+
+
+
+class FilterImage {
+    constructor (domTarget, props){
+        this.DOM = document.createElement('div');
+        this.DOM.setAttribute('class', 'filtreBouton');
+        this.data = props
+        this.render();
+        domTarget.appendChild(this.DOM);
+    }
+
+    async render () {
+        this.selectHTML();
+        this.getSelectValue(await this.data);
+    }
+
+    selectHTML () {
+        this.DOM.innerHTML = `
+        <label for="filtre-select">Trier par</label>
+
+        <select id="list">
+            <option class='populariteOption' value="popularite" >Popularité</option>
+            <option class='dateOption' value="date">Date</option>
+            <option class='titreOption' value="titre">Titre</option>
+        </select>
+        `
+    }
+
+    getSelectValue(data) {
+
+        const select = document.querySelector('#list');
+        //Popularité filtre
+                
+        select.addEventListener('change', function(){
+
+            if(this.value === 'popularite'){
+                const array = newArray (Object.values(data), 'likes');
+                console.log(array);
+                return array;
+            }
+
+            if(this.value === 'date'){
+                const array = newArray (Object.values(data), 'date');
+                console.log(array);
+                return array;
+            }
+
+            if (this.value === 'titre'){
+                const array = newArray (Object.values(data), 'title');
+                console.log(array);
+                return array;
+            }
+        });
+
+
+        function newArray(array, sort){
+            array.sort(function (a, b){
+                if (a[sort] < b[sort]) return -1;
+                if (a[sort] > b[sort]) return 1;
+                return 0;
+            });
+
+            return array;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+// Gestion de l'affichage de la page photographe
+
+class PhotographerPage {
+
+    constructor(props, domTarget) {
+        this.dataManager = new DataManager(props);
+        this.DOM = domTarget;
+        this.id = parseInt(window.location.search.slice(4));
+        this.render();
+    }
+
+
+    async render() {
+        await this.showProfilPhotographe();
+        await this.addFilterImage();
+        await this.showMediaProfil();
+        await this.showFormModal();
+    }
+
+
+    async showProfilPhotographe() {
+        const data = await this.dataManager.getPhotographerById(this.id);
+        const newProfil = new ProfilPhotographe(data, this.DOM);
+    }
+
+    async addFilterImage () {
+        const data = await this.dataManager.getMediaById(this.id);
+        const newFilterImage = new FilterImage(this.DOM, data);
+    }  
+
+    async showMediaProfilTo(data) {
+        // const dataMedia = await this.dataManager.getMediaById(this.id);
+        const mediaProfilIn = document.createElement('div');
+        mediaProfilIn.setAttribute('class', 'mediaProfilIn');
+        this.DOM.appendChild(mediaProfilIn);
+
+        data.forEach(media => {
+            
+            new MediaProfil(media, mediaProfilIn, {
+                lightbox : this.showLightbox.bind(this),
+                likes : this.addLikesToTotal.bind(this)
+            });
+        });
+    }
+
+
+    async showMediaProfil() {
+        const dataMedia = await this.dataManager.getMediaById(this.id);
+        const mediaProfilIn = document.createElement('div');
+        mediaProfilIn.setAttribute('class', 'mediaProfilIn');
+        this.DOM.appendChild(mediaProfilIn);
+
+        dataMedia.forEach(media => {
+            
+            new MediaProfil(media, mediaProfilIn, {
+                lightbox : this.showLightbox.bind(this),
+                likes : this.addLikesToTotal.bind(this)
+            });
+        });
+    }
+
+    async showLightbox (dataMedia) {
+        new Lightbox(this.DOM, dataMedia);
+    }
+
+    async showFormModal() {
+        const data = await this.dataManager.getPhotographerById(this.id);
+
+        const form = new FormModal(this.DOM, data.name);
+    }
+
+    /**
+     * [addLikesToTotal description]
+     *
+     * @param   {Boolean}  add  true : ajoute false : retitre
+     *
+     * @return  {void}       [return description]
+     */
+    addLikesToTotal(add){
+
+    }
+
+}
+
+
+
+
+class Lightbox {
+
+    constructor(domTaget, props) {
+        this.DOM = domTaget;
+        this.props = props;
+        this.render();
+    }
+
+    render() {
+        this.showLightBox();
+    }
+
+    //Ajout de l'écouteur sur les liens 
+    showLightBox() {
+
+        const lightboxHTML = document.createElement('div');
+
+        lightboxHTML.innerHTML = `
+            <button class="lightbox__close"><i class="fas fa-times"></i></button>
+            <button class="lightbox__next"><i class="fas fa-chevron-right"></i></button>
+            <button class="lightbox__prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="lightbox__container"><img src="" alt=""></div>
+        `;
+
+
+        
+        lightboxHTML.style.display = 'none';
+
+        //Récuperation des liens 
+        const previewImg = lightboxHTML.querySelector('img');
+        const linksLight = document.querySelectorAll(".photographerImg");
+
+        
+
+        for (let i = 0; i < linksLight.length; i++) {
+            let newIndex = i;
+            let clickImgIndex;
+            linksLight[i].addEventListener('click', function (e) {
+                clickImgIndex = newIndex;
+                e.preventDefault();
+                function preview() {
+                    const selectedImgUrl = linksLight[newIndex].querySelector('img').src;
+                    console.log(selectedImgUrl);
+                    previewImg.src = selectedImgUrl;
+                }
+
+                let prevBtn = document.querySelector('.lightbox__prev');
+                const nextBtn = document.querySelector('.lightbox__next');
+
+
+                console.log(newIndex);
+
+                if (newIndex == 0) {
+                    prevBtn.style.display = 'none';
+                } else {
+                    prevBtn.style.display = 'block';
+                }
+
+                if (newIndex >= linksLight.length - 1) {
+                    nextBtn.style.display = 'none';
+                } else {
+                    nextBtn.style.display = 'block';
+                }
+
+                prevBtn.addEventListener('click', function () {
+                    newIndex--;
+                    console.log(newIndex);
+                    if (newIndex == 0) {
+                        preview();
+                        prevBtn.style.display = 'none';
+                    } else {
+                        preview();
+                        nextBtn.style.display = 'block';
+
+                    }
+                })
+
+                nextBtn.addEventListener('click', function () {
+                    newIndex++;
+                    console.log(newIndex);
+                    if (newIndex >= linksLight.length - 1) {
+                        preview();
+                        nextBtn.style.display = 'none';
+                    } else {
+                        preview();
+                        prevBtn.style.display = 'block';
+                    }
+                })
+
+                preview();
+
+                lightboxHTML.classList.add('lightbox');
+                lightboxHTML.style.display = 'block';
+            })
+
+
+            const closeBox = lightboxHTML.querySelector('.lightbox__close .fas');
+            const prevBtnUn = lightboxHTML.querySelector('.lightbox__prev');
+            const nextBtnUn = lightboxHTML.querySelector('.lightbox__next');
+            closeBox.addEventListener("click", function () {
+                newIndex = clickImgIndex;
+                lightboxHTML.classList.remove('lightbox');
+                lightboxHTML.style.display = 'none';
+                prevBtnUn.style.display = 'block';
+                nextBtnUn.style.display = 'block';
+
+            });
+
+        }
+        this.DOM.appendChild(lightboxHTML);
+    }
+
+    templateImg () {
+        return `
+        <div class="lightbox__container"><img src="" alt=""></div>  
+        `
+    }
+
+    templateVideo () {
+        return `    
+        <video autoplay loop> 
+            <source src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
+        </video>
+        
+        `
+    }
+
+}
+
+
+

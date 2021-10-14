@@ -22,11 +22,16 @@ class Lightbox {
             <div class="lightbox__container"><img src="" alt=""></div>
         `;
 
+
+        
         lightboxHTML.style.display = 'none';
 
         //Récuperation des liens 
         const previewImg = lightboxHTML.querySelector('img');
         const linksLight = document.querySelectorAll(".photographerImg");
+
+        console.log(previewImg);
+        
 
         for (let i = 0; i < linksLight.length; i++) {
             let newIndex = i;
@@ -35,26 +40,26 @@ class Lightbox {
                 clickImgIndex = newIndex;
                 e.preventDefault();
                 function preview() {
-                    const selectedImgUrl = linksLight[newIndex].querySelector('img').src;
+                    const selectedImgUrl = linksLight[newIndex].querySelector('img').src;//TODO problème daffichage des video 
                     previewImg.src = selectedImgUrl;
                 }
 
                 let prevBtn = document.querySelector('.lightbox__prev');
                 const nextBtn = document.querySelector('.lightbox__next');
 
-                
+
                 console.log(newIndex);
 
-                if (newIndex == 0){
-                    prevBtn.style.display='none';
+                if (newIndex == 0) {
+                    prevBtn.style.display = 'none';
                 } else {
-                    prevBtn.style.display='block';
+                    prevBtn.style.display = 'block';
                 }
 
                 if (newIndex >= linksLight.length - 1) {
-                    nextBtn.style.display='none';
+                    nextBtn.style.display = 'none';
                 } else {
-                    nextBtn.style.display='block';
+                    nextBtn.style.display = 'block';
                 }
 
                 prevBtn.addEventListener('click', function () {
@@ -62,10 +67,10 @@ class Lightbox {
                     console.log(newIndex);
                     if (newIndex == 0) {
                         preview();
-                        prevBtn.style.display='none';
+                        prevBtn.style.display = 'none';
                     } else {
                         preview();
-                        nextBtn.style.display='block';
+                        nextBtn.style.display = 'block';
 
                     }
                 })
@@ -75,10 +80,10 @@ class Lightbox {
                     console.log(newIndex);
                     if (newIndex >= linksLight.length - 1) {
                         preview();
-                        nextBtn.style.display='none';
+                        nextBtn.style.display = 'none';
                     } else {
                         preview();
-                        prevBtn.style.display='block';
+                        prevBtn.style.display = 'block';
                     }
                 })
 
@@ -96,13 +101,28 @@ class Lightbox {
                 newIndex = clickImgIndex;
                 lightboxHTML.classList.remove('lightbox');
                 lightboxHTML.style.display = 'none';
-                prevBtnUn.style.display='block';
-                nextBtnUn.style.display='block';
+                prevBtnUn.style.display = 'block';
+                nextBtnUn.style.display = 'block';
 
-             });
+            });
 
         }
         this.DOM.appendChild(lightboxHTML);
+    }
+
+    templateImg () {
+        return `
+        <div class="lightbox__container"><img src="" alt=""></div>  
+        `
+    }
+
+    templateVideo () {
+        return `    
+        <video autoplay loop> 
+            <source src="" type=video/mp4 alt="">
+        </video>
+        
+        `
     }
 
 }

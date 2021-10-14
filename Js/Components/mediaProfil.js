@@ -8,9 +8,9 @@ class MediaProfil {
         for (const [key, value] of Object.entries(data)) {
             this[key] = value;
         }
-        this.DOM.onclick = ()=>callbacks.lightbox(data);
+        this.DOM.onclick = () => callbacks.lightbox(data);
         this.likeCallback = callbacks.likes;
-        this.liked = false;
+        this.liked = true;
         this.render();
     }
 
@@ -47,23 +47,37 @@ class MediaProfil {
         `;
     }
 
-    showLikes(domTarget){
+    async showLikes(domTarget) {
         const container = document.createElement("div");
         container.className = "likeGlobal";
         container.innerHTML = `
                         <span class="likesImg">${this.likes}</span>
                         <i class="fas fa-heart"></i>
                         `;
+
         container.onclick = this.likeClick.bind(this);
+
+        this.liked = !this.liked;
+
+        container.addEventListener('click', () => {
+            this.liked = !this.liked;
+            if (this.liked) container.querySelector('.fas').classList.add('.clickLike'); //TODO Probleme de changement de style au click
+        })
+
         domTarget.appendChild(container);
     }
-    likeClick(event){
+
+    likeClick(event) {
         event.preventDefault();
         event.stopPropagation();
+
         this.liked = !this.liked;
-        if (this.liked) this.likes++;
-        else this.likes--;
+        if (this.liked) {
+           this.likes++;
+        } else this.likes--;
         this.likeCallback(this.liked);
         this.render();
     }
+
+    
 }

@@ -15,6 +15,8 @@ class ProfilPhotographe {
         this.tags = props.tags;
         this.id = props.id;
 
+        
+
         this.render();
         this.showTags();
     }
