@@ -52,17 +52,17 @@ class MediaProfil {
         container.className = "likeGlobal";
         container.innerHTML = `
                         <span class="likesImg">${this.likes}</span>
-                        <i class="fas fa-heart"></i>
+                        <i class="${this.liked ? "fas" : "far"} fa-heart"></i>
                         `;
 
         container.onclick = this.likeClick.bind(this);
 
-        this.liked = !this.liked;
+        //this.liked = !this.liked;
 
-        container.addEventListener('click', () => {
-            this.liked = !this.liked;
-            if (this.liked) container.querySelector('.fas').classList.add('.clickLike'); //TODO Probleme de changement de style au click
-        })
+        // container.addEventListener('click', () => {
+        //     this.liked = !this.liked;
+        //     if (this.liked) container.querySelector('.fas').classList.add('.clickLike'); //TODO Probleme de changement de style au click
+        // })
 
         domTarget.appendChild(container);
     }
@@ -70,8 +70,10 @@ class MediaProfil {
     likeClick(event) {
         event.preventDefault();
         event.stopPropagation();
-
+        //event.target.classList.toggle('clickLike')
         this.liked = !this.liked;
+        event.target.className =  +" fa-heart";
+        console.log(event.target, this.liked)
         if (this.liked) {
            this.likes++;
         } else this.likes--;

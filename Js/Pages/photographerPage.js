@@ -17,10 +17,11 @@ class PhotographerPage {
 
 
     async render() {
+        this.DOM.innerText="";
         await this.showProfilPhotographe();
         await this.addFilterImage();
         await this.showMediaProfil();
-        // await this.showFormModal();
+        // await this.showFormModal(); //BUG Le formulaire s'ouvre à l'ouverture 
     }
 
 
@@ -79,7 +80,7 @@ class PhotographerPage {
 
     updateFilter(filter) {
         this.currentFilter = filter;
-        this.render();
+        this.render(); //BUG le render se multipli 
     }
 
 }

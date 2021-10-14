@@ -291,6 +291,7 @@ body main .vignette img {
 body main .mediaProfilIn {
   width: 100%;
   display: grid;
+  margin-top: 8em;
   flex-wrap: wrap;
   grid-template-columns: repeat(3, 350px);
   justify-content: space-between;
@@ -369,17 +370,12 @@ body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
   line-height: 31px;
   color: #901C1C;
 }
-body main .mediaProfilIn article .bottomVideo .likeGlobal .fas,
-body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .fas,
-body main .mediaProfilIn article .bottomImg .likeGlobal .fas,
-body main .mediaProfilIn article .bottomImg .likeVideoGlobal .fas {
+body main .mediaProfilIn article .bottomVideo .likeGlobal i,
+body main .mediaProfilIn article .bottomVideo .likeVideoGlobal i,
+body main .mediaProfilIn article .bottomImg .likeGlobal i,
+body main .mediaProfilIn article .bottomImg .likeVideoGlobal i {
   margin-left: 0.5em;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-image: #901C1C;
-  background-color: #901C1C;
-  font-weight: 500;
+  color: #901C1C;
   font-style: normal;
   font-size: 24px;
   line-height: 31px;
@@ -389,31 +385,34 @@ body main .clickLike {
   background-color: blue;
 }
 body main .filtreBouton {
-  margin-top: 1em;
-  margin-bottom: 3em;
-  -webkit-appearance: none;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 22em;
 }
-body main .filtreBouton label {
-  font-weight: 700;
-  font-style: normal;
-  font-style: 18px;
-  line-height: 28px;
-}
-body main .filtreBouton select {
-  margin-left: 1em;
-  font-size: 18px;
-  font-weight: 700;
-  font-style: normal;
-  line-height: 23px;
-  padding-left: 0.5em;
-  padding-right: 1em;
-  color: white;
-  width: 170px;
-  height: 69px;
+body main .divIn {
   border-radius: 5px;
-  overflow: hidden;
-  background: #901C1C;
-  border: 1px solid #901C1C;
+  background-color: #901C1C;
+  width: 170px;
+  margin-left: 15px;
+}
+body main .divIn:nth-child(1)::before {
+  width: 40%;
+  border: 1px solid black;
+}
+body main .divIn div {
+  height: 69px;
+  width: 170px;
+  background-color: #901C1C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+  word-spacing: 10px;
+  border-radius: 5px;
 }
 body main .button-div:hover {
   cursor: pointer;

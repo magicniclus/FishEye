@@ -2,6 +2,7 @@
   .mediaProfilIn {
     width: 100%;
     display: grid;
+    margin-top: 8em;
     flex-wrap: wrap;
     grid-template-columns: repeat(3, 350px);
     justify-content: space-between;
@@ -72,14 +73,14 @@
             color: $color-text-three;
           }
 
-          .fas {
+          i {
             margin-left: 0.5em;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            background-image: $color-text-three;
-            background-color: $color-text-three;
-            font-weight: 500;
+            // background-clip: text;
+            // -webkit-background-clip: text;
+            color: $color-text-three;
+            // background-image: $color-text-three;
+            // background-color: $color-text-three;
+            // font-weight: 500;
             font-style: normal;
             font-size: 24px;
             line-height: 31px;

@@ -1,31 +1,38 @@
 @mixin filtreBouton {
     .filtreBouton {
-        margin-top: 1em;
-        margin-bottom: 3em;
-        -webkit-appearance: none;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: 22em;
+    }
 
-        label {
-            font-weight: 700;
-            font-style: normal;
-            font-style: 18px;
-            line-height: 28px;
-        }
+    .divIn {
+        border-radius: 5px;
+        background-color: $color-background-primary;
+        width: 170px;
+        margin-left: 15px;
+    }
 
-        select {
-            margin-left: 1em;
-            font-size: 18px;
-            font-weight: 700;
-            font-style: normal;
-            line-height: 23px;
-            padding-left: 0.5em;
-            padding-right: 1em;
-            color: white;
-            width: 170px;
-            height: 69px;
-            border-radius: 5px;
-            overflow: hidden;
-            background: $color-background-primary;
-            border: 1px solid $color-text-three;
-        }
+
+
+    .divIn:nth-child(1)::before {
+        width: 40%;
+        border: 1px solid black;
+    }
+
+    .divIn div {
+        height: 69px;
+        width: 170px;
+        background-color: $color-background-primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 18px;
+        word-spacing: 10px;
+        border-radius: 5px;
+
     }
 }
