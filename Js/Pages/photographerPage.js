@@ -21,7 +21,7 @@ class PhotographerPage {
         await this.showProfilPhotographe();
         await this.addFilterImage();
         await this.showMediaProfil();
-        // await this.showFormModal(); //BUG Le formulaire s'ouvre à l'ouverture 
+        await this.showFormModal(); 
     }
 
 
@@ -31,12 +31,13 @@ class PhotographerPage {
     }
 
     async addFilterImage() {
-        const newFilterImage = new FilterImage(this.DOM, this.filters, this.updateFilter.bind(this)); //TODO : Changement à effectuer ici pour afficher les images
+        const newFilterImage = new FilterImage(this.DOM, this.filters, this.updateFilter.bind(this)); 
     }
 
 
     async showMediaProfil() {
         const data = await this.dataManager.getOrderedMedia(this.id, this.currentFilter);
+        this.list = data;
 
         const titreOption = document.querySelector('.titreOption');
 
@@ -58,7 +59,7 @@ class PhotographerPage {
     }
 
     async showLightbox(dataMedia) {
-        new Lightbox(this.DOM, dataMedia);
+        new Lightbox(this.DOM, {...dataMedia, list : this.list});
     }
 
     async showFormModal() {
@@ -80,7 +81,7 @@ class PhotographerPage {
 
     updateFilter(filter) {
         this.currentFilter = filter;
-        this.render(); //BUG le render se multipli 
+        this.render();
     }
 
 }

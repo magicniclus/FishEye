@@ -1,128 +1,142 @@
 class Lightbox {
 
-    constructor(domTaget, props) {
-        this.DOM = domTaget;
+
+    date;
+    id;
+    likes;
+    list;
+    photographerId;
+    price;
+    tags;
+    title;
+    video;
+    image;
+
+
+
+    /**
+     * @type {HTMLElement}
+     */
+    prevButton;
+
+    /**
+     * @type {HTMLElement}
+     */
+    nextButton;
+
+    constructor(domTarget, props) {
+        console.log(props)
+        //this.DOM = domTarget;
+        this.DOM = document.createElement("div");
+        this.DOM.setAttribute('class', 'lightbox')
+        domTarget.appendChild(this.DOM);
         this.props = props;
+        for (const [key, value] of Object.entries(props)) {
+            this[key] = value;
+        }
+        this.index = this.findIndex();
+        this.closeButton = this.makeButton("close", "times", this.closeModal);
+        this.nextButton = this.makeButton("next", "chevron-right", this.next);
+        this.prevButton = this.makeButton("prev", "chevron-left", this.prev);
+        this.nextButton.classList.add("visible");
+        this.prevButton.classList.add("visible");
+        this.container = this.makeContainer();
         this.render();
     }
 
-    render() {
-        this.showLightBox();
+    findIndex(){
+        for (let i=0, size = this.list.length; i<size; i++){
+            if (this.list[i].id === this.id) return i;
+        }
+    }
+    makeContainer() {        
+        const container = document.createElement("div");
+        container.className = "lightbox__container";
+        this.DOM.appendChild(container);
+        return container;
     }
 
-    //Ajout de l'écouteur sur les liens 
-    showLightBox() {
+    render(){
+        this.container.innerHTML = this.image ? this.templateImg() : this.templateVideo();
 
-        const lightboxHTML = document.createElement('div');
-
-        lightboxHTML.innerHTML = `
-            <button class="lightbox__close"><i class="fas fa-times"></i></button>
-            <button class="lightbox__next"><i class="fas fa-chevron-right"></i></button>
-            <button class="lightbox__prev"><i class="fas fa-chevron-left"></i></button>
-            <div class="lightbox__container"><img src="" alt=""></div>
-        `;
-
-
-        
-        lightboxHTML.style.display = 'none';
-
-        //Récuperation des liens 
-        const previewImg = lightboxHTML.querySelector('img');
-        const linksLight = document.querySelectorAll(".photographerImg");
-
-        console.log(previewImg);
-        
-
-        for (let i = 0; i < linksLight.length; i++) {
-            let newIndex = i;
-            let clickImgIndex;
-            linksLight[i].addEventListener('click', function (e) {
-                clickImgIndex = newIndex;
-                e.preventDefault();
-                function preview() {
-                    const selectedImgUrl = linksLight[newIndex].querySelector('img').src;//TODO problème daffichage des video 
-                    previewImg.src = selectedImgUrl;
-                }
-
-                let prevBtn = document.querySelector('.lightbox__prev');
-                const nextBtn = document.querySelector('.lightbox__next');
-
-
-                console.log(newIndex);
-
-                if (newIndex == 0) {
-                    prevBtn.style.display = 'none';
-                } else {
-                    prevBtn.style.display = 'block';
-                }
-
-                if (newIndex >= linksLight.length - 1) {
-                    nextBtn.style.display = 'none';
-                } else {
-                    nextBtn.style.display = 'block';
-                }
-
-                prevBtn.addEventListener('click', function () {
-                    newIndex--;
-                    console.log(newIndex);
-                    if (newIndex == 0) {
-                        preview();
-                        prevBtn.style.display = 'none';
-                    } else {
-                        preview();
-                        nextBtn.style.display = 'block';
-
-                    }
-                })
-
-                nextBtn.addEventListener('click', function () {
-                    newIndex++;
-                    console.log(newIndex);
-                    if (newIndex >= linksLight.length - 1) {
-                        preview();
-                        nextBtn.style.display = 'none';
-                    } else {
-                        preview();
-                        prevBtn.style.display = 'block';
-                    }
-                })
-
-                preview();
-
-                lightboxHTML.classList.add('lightbox');
-                lightboxHTML.style.display = 'block';
-            })
-
-
-            const closeBox = lightboxHTML.querySelector('.lightbox__close .fas');
-            const prevBtnUn = lightboxHTML.querySelector('.lightbox__prev');
-            const nextBtnUn = lightboxHTML.querySelector('.lightbox__next');
-            closeBox.addEventListener("click", function () {
-                newIndex = clickImgIndex;
-                lightboxHTML.classList.remove('lightbox');
-                lightboxHTML.style.display = 'none';
-                prevBtnUn.style.display = 'block';
-                nextBtnUn.style.display = 'block';
-
-            });
-
-        }
-        this.DOM.appendChild(lightboxHTML);
     }
 
     templateImg () {
         return `
-        <div class="lightbox__container"><img src="" alt=""></div>  
-        `
+            <div class='lightbox__container__in'>
+                <img class='contents contentInn' src="Sample_Photos/${this.image}" title=${this.title} alt="${this.title}">
+                <span class='lightbox__title'>${this.title}</span>
+            </div>    
+        `;
     }
 
+
     templateVideo () {
-        return `    
-        <video autoplay loop> 
-            <source src="" type=video/mp4 alt="">
-        </video>
-        
-        `
+        return ` 
+            <div class='lightbox__container__in'>
+                <video class='contents lightbox__container' autoplay loop> 
+                    <source class='contentInn' src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
+                </video>
+                <span class='lightbox__title'>${this.title}</span>
+            </div>    
+        `;
+    }
+
+
+ /**
+  * [makeButton description]
+  *
+  * @param   {String}  classname  [classname description]
+  * @param   {String}  icon       [icon description]
+  * @param   {Function}  callback   [callback description]
+  *
+  * @return  {[type]}             [return description]
+  */
+    makeButton(classname,icon, callback){
+        const button = document.createElement("button");
+        button.className = "lightbox__"+classname;
+        button.innerHTML=`<i class="fas fa-${icon}"></i>`;
+        button.onclick = callback.bind(this);
+        this.DOM.appendChild(button);
+        return button;
+    }
+
+    closeModal(){
+        const close = document.querySelector('.lightbox__close');
+        close.addEventListener('click', function() {
+            console.log('ok');
+        })
+    }
+
+    next(){
+        this.showNewMedia(true);
+    }
+
+    prev(){
+        this.showNewMedia(false);
+    }
+
+    showNewMedia(next){
+        this.index += next ? 1 : -1;
+        const {
+            image, video, description, title, name, id
+        } = this.list[this.index];
+        this.id = id;
+        this.name = name;
+        this.title = title;
+        if (video){
+            delete this.image;
+            this.video = video;
+        }
+        else {
+            delete this.video;
+            this.image = image;
+        }
+        console.log(this.index);
+        if (this.index === 0) this.prevButton.classList.remove("visible");
+        if (this.index === this.list.length) this.nextButton.classList.remove("visible");
+        //TODO : ajouter title, dfescritpion
+        this.render();
     }
 
 }

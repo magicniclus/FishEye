@@ -35,12 +35,12 @@ class FilterImage {
      * @param   {Object}  title
      */
     makeOption(container, title){
-        const div = document.createElement("div");
-        div.setAttribute('class', "divIin");
-        div.innerText = title + (title === this.selected ? " v" : "");
-        div.className = `${title.toLocaleLowerCase()}Option`;
-        div.onclick = ()=> this.click(title);
-        container.appendChild(div);
+        const makeOption = document.createElement("div");
+        makeOption.setAttribute('class', "option");
+        makeOption.innerText = title ; //TODO Affichage du logo fleche 
+        makeOption.className = `${title.toLocaleLowerCase()}Option`;
+        makeOption.onclick = ()=> this.click(title);
+        container.appendChild(makeOption);
     }
 
     click(selected){
@@ -50,7 +50,8 @@ class FilterImage {
             return;
         }
         this.selected = selected;
-        this.callBack(selected);
+        this.callBack(selected); //BUG Problème d'affichage des élémnete dans le bouton 
+        console.log(this.selected);
         this.render();
     }
 }

@@ -5,6 +5,7 @@ class IndexPage {
     constructor (props, domTarget) {
         this.dataManager = new DataManager(props);
         this.DOM = domTarget;
+        this.showlist = false;
         this.filters = [];
         this.render ();
     }
@@ -40,14 +41,19 @@ class IndexPage {
         const tagArraySet = new Set (tagArray);
 
         [...tagArraySet].forEach(element => {
+            this.showlist = !this.showlist;
             new Tags (element, document.querySelector(inner),this.filterByTag.bind(this));
         });
     }
 
     filterByTag(newTag){
+        this.showlist = !this.showlist;
+        console.log(this.showlist);
         const index = this.filters.indexOf(newTag);
         if(index >= 0) this.filters.splice(index, 1);
         else this.filters.push(newTag);
+        console.log(this.filters);
+        console.log(newTag);
         this.render();
     }
 

@@ -125,10 +125,28 @@ body .lightbox .lightbox__container {
   align-items: center;
   height: 100vh;
 }
+body .lightbox .lightbox__container .lightbox__container__in {
+  display: flex;
+  flex-direction: column;
+}
+body .lightbox .lightbox__container .lightbox__container__in span {
+  color: #901C1C;
+  margin-top: 0.5em;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+}
 body .lightbox .lightbox__container img {
-  width: 90%;
+  width: 100%;
   max-width: 1800px;
-  height: 900px;
+  height: 800px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+body .lightbox .lightbox__container video {
+  width: 100%;
+  max-width: 1800px;
+  height: 800px;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -158,6 +176,9 @@ body .lightbox .lightbox__next {
 body .lightbox .lightbox__close {
   right: 20px;
   z-index: 15;
+}
+body .lightbox .visible {
+  display: block;
 }
 body main {
   width: 90%;
@@ -312,6 +333,7 @@ body main .mediaProfilIn article img {
   width: 350px;
   height: 300px;
   border-radius: 3px;
+  object-fit: cover;
   transition: all 0.3s ease;
 }
 body main .mediaProfilIn article .videoContainer video:hover,
@@ -385,10 +407,17 @@ body main .clickLike {
   background-color: blue;
 }
 body main .filtreBouton {
+  cursor: pointer;
   position: absolute;
   display: flex;
-  align-items: center;
+  align-items: top;
   top: 22em;
+}
+body main .filtreBouton label {
+  margin-top: 1.5em;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
 }
 body main .divIn {
   border-radius: 5px;
@@ -396,13 +425,8 @@ body main .divIn {
   width: 170px;
   margin-left: 15px;
 }
-body main .divIn:nth-child(1)::before {
-  width: 40%;
-  border: 1px solid black;
-}
 body main .divIn div {
   height: 69px;
-  width: 170px;
   background-color: #901C1C;
   display: flex;
   justify-content: center;
@@ -413,15 +437,21 @@ body main .divIn div {
   font-size: 18px;
   word-spacing: 10px;
   border-radius: 5px;
+  margin-right: 2em;
+}
+body main .divIn:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body main .divIn:nth-child(2) ::before {
+  content: "";
+  width: 80%;
+  border: 1px solid white;
 }
 body main .button-div:hover {
   cursor: pointer;
-}
-body main img, body main video {
-  width: 10em;
-  height: 10em;
-  object-fit: cover;
-  border-radius: 20em;
 }
 
 /*# sourceMappingURL=stylePhotographer.css.map */

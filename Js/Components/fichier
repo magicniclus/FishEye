@@ -256,8 +256,8 @@ class Lightbox {
             <button class="lightbox__close"><i class="fas fa-times"></i></button>
             <button class="lightbox__next"><i class="fas fa-chevron-right"></i></button>
             <button class="lightbox__prev"><i class="fas fa-chevron-left"></i></button>
-            <div class="lightbox__container"><img src="" alt=""></div>
-        `;
+            <div class="lightbox__container"><img src="" alt=""></div>  
+        `; //
 
 
         
@@ -267,6 +267,7 @@ class Lightbox {
         const previewImg = lightboxHTML.querySelector('img');
         const linksLight = document.querySelectorAll(".photographerImg");
 
+        console.log(previewImg);
         
 
         for (let i = 0; i < linksLight.length; i++) {
@@ -277,7 +278,6 @@ class Lightbox {
                 e.preventDefault();
                 function preview() {
                     const selectedImgUrl = linksLight[newIndex].querySelector('img').src;
-                    console.log(selectedImgUrl);
                     previewImg.src = selectedImgUrl;
                 }
 
@@ -356,7 +356,7 @@ class Lightbox {
     templateVideo () {
         return `    
         <video autoplay loop> 
-            <source src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
+            <source src="" type=video/mp4 alt="">
         </video>
         
         `

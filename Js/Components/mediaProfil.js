@@ -10,7 +10,7 @@ class MediaProfil {
         }
         this.DOM.onclick = () => callbacks.lightbox(data);
         this.likeCallback = callbacks.likes;
-        this.liked = true;
+        this.liked = false;
         this.render();
     }
 
@@ -32,7 +32,7 @@ class MediaProfil {
     templateImage() {
         return `
             <div class='imgContainer'>
-                <img class="photoImg" src="Sample_Photos/${this.image}" alt="${this.title}"> 
+                <img class="photoImg contentMedia" src="Sample_Photos/${this.image}" alt="${this.title}"> 
             </div>
         `;
     }
@@ -41,7 +41,7 @@ class MediaProfil {
         return `
                 <div class='videoContainer'>
                     <video autoplay loop> 
-                        <source src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
+                        <source class='contentMedia' src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
                     </video>
                 </div>     
         `;
@@ -57,13 +57,6 @@ class MediaProfil {
 
         container.onclick = this.likeClick.bind(this);
 
-        //this.liked = !this.liked;
-
-        // container.addEventListener('click', () => {
-        //     this.liked = !this.liked;
-        //     if (this.liked) container.querySelector('.fas').classList.add('.clickLike'); //TODO Probleme de changement de style au click
-        // })
-
         domTarget.appendChild(container);
     }
 
@@ -73,7 +66,6 @@ class MediaProfil {
         //event.target.classList.toggle('clickLike')
         this.liked = !this.liked;
         event.target.className =  +" fa-heart";
-        console.log(event.target, this.liked)
         if (this.liked) {
            this.likes++;
         } else this.likes--;
