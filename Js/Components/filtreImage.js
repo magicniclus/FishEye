@@ -38,7 +38,7 @@ class FilterImage {
     makeOption(container, title){
         const makeOption = document.createElement("div");
         makeOption.setAttribute('class', "option");
-        makeOption.innerText = title ; //TODO Affichage du logo fleche 
+        makeOption.innerText = title ;
         makeOption.className = `${title.toLocaleLowerCase()}Option`;
         makeOption.onclick = ()=> this.click(title);
         container.appendChild(makeOption);
@@ -55,8 +55,8 @@ class FilterImage {
             return;
         }
         this.selected = selected;
+        console.log(selected);
         this.callBack(selected); //BUG Problème d'affichage des élémnete dans le bouton 
-        console.log(this.selected);
         this.render();
     }
 }

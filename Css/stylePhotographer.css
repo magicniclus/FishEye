@@ -17,8 +17,8 @@ body a {
   text-decoration: none;
 }
 body .formulaire {
-  width: 41em;
-  height: 99vh;
+  width: 50%;
+  height: 98%;
   max-height: 51em;
   background-color: #DB8876;
   display: flex;
@@ -33,7 +33,11 @@ body .formulaire {
   transform: translate(-50%, -50%);
   right: 23em;
 }
-body .formulaire i {
+body .formulaire form {
+  max-height: 100%;
+  overflow: auto;
+}
+body .formulaire form i {
   position: absolute;
   top: 25px;
   right: 36px;
@@ -41,7 +45,7 @@ body .formulaire i {
   font-size: 4em;
   cursor: pointer;
 }
-body .formulaire h2 {
+body .formulaire form h2 {
   margin: 0;
   margin-left: 35px;
   text-align: start;
@@ -50,7 +54,7 @@ body .formulaire h2 {
   font-size: 64px;
   line-height: 83px;
 }
-body .formulaire .inputid label {
+body .formulaire form .inputid label {
   margin-left: 35px;
   font-weight: 400;
   font-style: normal;
@@ -58,7 +62,7 @@ body .formulaire .inputid label {
   line-height: 46px;
   color: #312E2E;
 }
-body .formulaire .inputid input {
+body .formulaire form .inputid input {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -70,28 +74,28 @@ body .formulaire .inputid input {
   border: none;
   border-color: #DB8876;
 }
-body .formulaire .saisitext {
+body .formulaire form .saisitext {
   display: flex;
   flex-direction: column;
   margin-left: 35px;
 }
-body .formulaire .saisitext label {
+body .formulaire form .saisitext label {
   font-weight: 400;
   font-style: normal;
   font-size: 36px;
   line-height: 46px;
   color: #312E2E;
 }
-body .formulaire .saisitext textarea {
+body .formulaire form .saisitext textarea {
   width: 84%;
   height: 10em;
   border-radius: 5px;
   border-color: #DB8876;
 }
-body .formulaire .button {
+body .formulaire form .button {
   margin-top: 2em;
 }
-body .formulaire .button button {
+body .formulaire form .button button {
   width: 10em;
   height: 4em;
   margin-left: 35px;
@@ -106,7 +110,7 @@ body .formulaire .button button {
   margin-bottom: 1em;
   cursor: pointer;
 }
-body .formulaire -ms-input-placeholder {
+body .formulaire form -ms-input-placeholder {
   font-size: 4em;
 }
 body .lightbox {
@@ -405,6 +409,11 @@ body main .mediaProfilIn article .bottomImg .likeVideoGlobal i {
   font-size: 24px;
   line-height: 31px;
 }
+@media screen and (max-width: 1220px) {
+  body main .mediaProfilIn {
+    grid-template-columns: repeat(2, 350px);
+  }
+}
 body main .clickLike {
   background-image: blue;
   background-color: blue;
@@ -413,7 +422,6 @@ body main .filtreBouton {
   cursor: pointer;
   position: absolute;
   display: flex;
-  align-items: top;
   top: 22em;
 }
 body main .filtreBouton label {
@@ -427,6 +435,11 @@ body main .divIn {
   background-color: #901C1C;
   width: 170px;
   margin-left: 15px;
+  min-height: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
 }
 body main .divIn .fas {
   color: white;
@@ -434,32 +447,45 @@ body main .divIn .fas {
 }
 body main .divIn .fa-angle-down {
   position: absolute;
-  right: 1em;
+  right: 13px;
 }
 body main .divIn .fa-angle-up {
   position: absolute;
-  right: 1em;
+  right: 13px;
   top: 1em;
 }
-body main .divIn div {
-  height: 69px;
-  background-color: #901C1C;
+body main .divIn :nth-child(3) {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 18px;
-  word-spacing: 10px;
-  border-radius: 5px;
-  margin-right: 2em;
-}
-body main .divIn:nth-child(2) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+}
+body main .divIn :nth-child(3)::before {
+  content: "";
+  width: 100%;
+  border-top: 1px solid white;
+  padding-bottom: 15px;
+}
+body main .divIn :nth-child(3)::after {
+  content: "";
+  width: 100%;
+  border-top: 1px solid white;
+  margin-top: 15px;
+}
+body main .divIn :nth-child(2) {
+  margin-top: 21px;
+  margin-bottom: 21px;
+}
+body main .divIn :nth-child(4) {
+  margin-top: 15px;
+  margin-bottom: 22px;
+}
+body main .divIn div {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 18px;
+  font-style: normal;
+  color: white;
 }
 body main .button-div:hover {
   cursor: pointer;

@@ -1,8 +1,8 @@
 @mixin formulaire {
 
     .formulaire {
-        width: 41em;
-        height: 99vh;
+        width: 50%;
+        height: 98%;
         max-height: 51em;
         background-color: $color-background-thee;
         display: flex;
@@ -17,92 +17,97 @@
         transform: translate(-50%, -50%);
         right: 23em;
 
-        i {
-            position: absolute;
-            top: 25px;
-            right: 36px;
-            color: white;
-            font-size: 4em;
-            cursor: pointer;
-        }   
-    
-        h2 {
-            margin: 0;
-            margin-left: 35px;
-            text-align: start;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 64px;
-            line-height: 83px;
-        }    
-    
-        .inputid {
-    
-            label {
-                margin-left: 35px;
-                font-weight: 400;
-                font-style: normal;
-                font-size: 36px;
-                line-height: 46px;
-                color: $color-text-six;
-            }
-    
-            input {
-                @include flexbox-center;
-                width: 80%;
-                height: 4em;
-                margin-left: 35px;
-                border-radius: 5px;
-                border: none;
-                border-color: $color-background-thee;
-            }
-        }
-        .saisitext {
-    
-            display: flex;
-            flex-direction: column;
-            margin-left: 35px;
-    
-            label {
-                font-weight: 400;
-                font-style: normal;
-                font-size: 36px;
-                line-height: 46px;
-                color: $color-text-six;
-            }
-    
-            textarea {
-                width: 84%;
-                height: 10em;
-                border-radius: 5px;
-                border-color: $color-background-thee; 
-            }
-        }
-    
-        .button {
-    
-            margin-top: 2em;
-    
-            button{
-                width: 10em;
-                height: 4em;
-                margin-left: 35px;
-                background-color: $color-background-primary;
+        form {
+            max-height: 100%;
+            overflow: auto;
+
+            i {
+                position: absolute;
+                top: 25px;
+                right: 36px;
                 color: white;
-                font-weight: 700;
-                font-style: normal;
-                font-size: 18px;
-                line-height: 23px;
-                border: none;
-                border-radius: 5px;
-                margin-bottom: 1em;
+                font-size: 4em;
                 cursor: pointer;
+            }   
+        
+            h2 {
+                margin: 0;
+                margin-left: 35px;
+                text-align: start;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 64px;
+                line-height: 83px;
+            }    
+        
+            .inputid {
+        
+                label {
+                    margin-left: 35px;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-size: 36px;
+                    line-height: 46px;
+                    color: $color-text-six;
+                }
+        
+                input {
+                    @include flexbox-center;
+                    width: 80%;
+                    height: 4em;
+                    margin-left: 35px;
+                    border-radius: 5px;
+                    border: none;
+                    border-color: $color-background-thee;
+                }
             }
-            
-        } 
-    
-        -ms-input-placeholder {
-            font-size: 4em;
+            .saisitext {
+        
+                display: flex;
+                flex-direction: column;
+                margin-left: 35px;
+        
+                label {
+                    font-weight: 400;
+                    font-style: normal;
+                    font-size: 36px;
+                    line-height: 46px;
+                    color: $color-text-six;
+                }
+        
+                textarea {
+                    width: 84%;
+                    height: 10em;
+                    border-radius: 5px;
+                    border-color: $color-background-thee; 
+                }
+            }
+        
+            .button {
+        
+                margin-top: 2em;
+        
+                button{
+                    width: 10em;
+                    height: 4em;
+                    margin-left: 35px;
+                    background-color: $color-background-primary;
+                    color: white;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-size: 18px;
+                    line-height: 23px;
+                    border: none;
+                    border-radius: 5px;
+                    margin-bottom: 1em;
+                    cursor: pointer;
+                }
+                
+            } 
+        
+            -ms-input-placeholder {
+                font-size: 4em;
+            }
         }
     }
 }
