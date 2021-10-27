@@ -428,6 +428,19 @@ body main .divIn {
   width: 170px;
   margin-left: 15px;
 }
+body main .divIn .fas {
+  color: white;
+  font-size: 23px;
+}
+body main .divIn .fa-angle-down {
+  position: absolute;
+  right: 1em;
+}
+body main .divIn .fa-angle-up {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
 body main .divIn div {
   height: 69px;
   background-color: #901C1C;
@@ -447,11 +460,6 @@ body main .divIn:nth-child(2) {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-body main .divIn:nth-child(2) ::before {
-  content: "";
-  width: 80%;
-  border: 1px solid white;
 }
 body main .button-div:hover {
   cursor: pointer;

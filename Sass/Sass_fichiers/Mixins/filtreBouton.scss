@@ -19,6 +19,22 @@
         background-color: $color-background-primary;
         width: 170px;
         margin-left: 15px;
+
+        .fas {
+            color: white;
+            font-size: 23px;
+        }
+
+        .fa-angle-down {
+            position: absolute;
+            right: 1em;
+        }       
+
+        .fa-angle-up {
+            position: absolute;
+            right: 1em;
+            top: 1em;
+        }    
     }
 
 
@@ -51,9 +67,11 @@
         flex-direction: column;
     }
 
-    .divIn:nth-child(2) ::before {
-        content: '';
-        width: 80%;
-        border: 1px solid white;
-    }
+    // .divIn:nth-child(2) ::before {
+    //     content: '';
+    //     width: 80%;
+    //     border: 1px solid white;
+    // }
+
+
 }

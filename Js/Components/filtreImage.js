@@ -15,6 +15,7 @@ class FilterImage {
         const select = document.createElement("div");
         select.setAttribute('class', 'divIn');
         this.DOM.appendChild(select);
+        this.addArrow(select);
         this.makeOptions(select);
     }
 
@@ -41,6 +42,10 @@ class FilterImage {
         makeOption.className = `${title.toLocaleLowerCase()}Option`;
         makeOption.onclick = ()=> this.click(title);
         container.appendChild(makeOption);
+    }
+
+    addArrow (parent){
+        parent.innerHTML = `<i class="fas fa-angle-${this.showList ? 'up' : "down"}"></i>`;
     }
 
     click(selected){
