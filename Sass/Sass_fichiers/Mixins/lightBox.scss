@@ -1,89 +1,84 @@
 @mixin lightBox {
   .lightbox {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: white;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
     z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .lightbox__container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-
-      .lightbox__container__in{
-        display: flex;
-        flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
-
-        span {
-          color: $color-text-three;
-          margin-top: 0.5em;
-          font-weight: 400;
-          font-style: normal;
-          font-size: 24px;
-        }
-      }
-
-
-
-      img {
-        width: 100%;
-        max-width: 1800px;
-        height: 800px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-
-      video {
-        width: 100%;
-        max-width: 1800px;
-        height: 800px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-    }
-
-    button {
-      all: unset;
-      cursor: pointer;
-      font-size: 48px;
-      color: $color-text-three;
+    .lightbox__close {
       position: absolute;
-      opacity: 0.7;
-    }
-
-    button:hover {
-      opacity: 1;
-      text-shadow: 0px 5px 11px rgba(150, 150, 150, 0.57);
-    }
-
-    .lightbox__next,
-    .lightbox__prev {
-      height: 100%;
-      z-index: 10;
-    }
-
-    .lightbox__prev {
-      left: 20px;
+      top: 10%;
+      right: 15%;
+      z-index: 30;
+      text-decoration: none;
+      border: none;
+      background-color: white;
+      font-size: 42px;
+      color: $color-text-three;
     }
 
     .lightbox__next {
-      right: 20px;
+      position: absolute;
+      right: 15%;
+      z-index: 25;
+      text-decoration: none;
+      border: none;
+      background-color: white;
+      font-size: 42px;
+      color: $color-text-three;
+      display: none;
     }
 
-    .lightbox__close {
-      right: 20px;
-      z-index: 15;
+    .lightbox__prev {
+      position: absolute;
+      left: 15%;
+      z-index: 25;
+      text-decoration: none;
+      border: none;
+      background-color: white;
+      font-size: 42px;
+      color: $color-text-three;
+      display: none;
     }
 
     .visible {
       display: block;
     }
+
+    .lightbox__container {
+      height: 80%;
+      width: 60%;
+      border-radius: 5px;
+
+      .lightbox__container__in {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        border-radius: 5px;
+
+        img, video {
+        object-fit: cover;
+        min-height: 100%;
+        min-width: 100%;
+        border-radius: 5px;
+        }
+      
+      .lightbox__title {
+        font-weight: 400;
+        font-size: 24px;
+        color: $color-text-three;
+        margin-top: 0.5em;
+        border-radius: 5px;
+      }}
+    }
+    
   }
-}
+}  
