@@ -10,6 +10,7 @@
     }
 
     .tagIn {
+        
         button {
             background-color: white;
             border: 1px solid $color-text-seven;
@@ -20,6 +21,12 @@
             font-size: 12px;
             line-height: 15px;
             margin-left: 4px;
+        }
+
+        .buttonClick {
+            background-color: $color-text-three;
+    
+            color: white;
         }
     }
 
@@ -65,5 +72,5 @@
         :nth-child(3){
             font-size: 14px;
         }
-    } 
+    }
 }

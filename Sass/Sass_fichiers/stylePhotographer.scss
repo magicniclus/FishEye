@@ -1,5 +1,6 @@
 // Import
 
+@import "Mixins/banierePhotographe.scss";
 @import "Mixins/body.scss";
 @import "Mixins/filtreBouton.scss";
 @import "Mixins/flexbox.scss";
@@ -27,18 +28,12 @@ body {
         @include vignettePhotographerPage;
         @include imageLink;
         @include filtreBouton;
+        @include banierePhotographe;
 
         
         .button-div:hover {
             cursor: pointer;
-        }
-
-        // img, video {
-        //     width: 10em;
-        //     height: 10em;
-        //     object-fit: cover;
-        //     border-radius: 20em;
-        // }
+        } 
     }
 }
 

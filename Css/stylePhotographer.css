@@ -411,7 +411,12 @@ body main .mediaProfilIn article .bottomImg .likeVideoGlobal i {
 }
 @media screen and (max-width: 1220px) {
   body main .mediaProfilIn {
-    grid-template-columns: repeat(2, 350px);
+    grid-template-columns: repeat(2, 45%);
+  }
+}
+@media screen and (max-width: 800px) {
+  body main .mediaProfilIn {
+    grid-template-columns: reeat(1, 90%);
   }
 }
 body main .clickLike {
@@ -486,6 +491,35 @@ body main .divIn div {
   font-size: 18px;
   font-style: normal;
   color: white;
+}
+body main .banierePhotographe {
+  width: 376px;
+  height: 70px;
+  background-color: #DB8876;
+  position: fixed;
+  bottom: 0;
+  right: 40px;
+  border-radius: 5px 5px 0 0;
+}
+body main .banierePhotographe .baniere {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body main .banierePhotographe .baniere .likedBaniere span {
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+}
+body main .banierePhotographe .baniere .likedBaniere i {
+  width: 17.5px;
+}
+body main .banierePhotographe .baniere .priceBaniere {
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
 }
 body main .button-div:hover {
   cursor: pointer;

@@ -22,6 +22,7 @@ class PhotographerPage {
         await this.addFilterImage();
         await this.showMediaProfil();
         await this.showFormModal(); 
+        await this.addBanierePhotographe();
     }
 
 
@@ -40,12 +41,6 @@ class PhotographerPage {
         this.list = data;
 
         const titreOption = document.querySelector('.titreOption');
-
-        // titreOption.addEventListener('click', function (){
-        //     window.location.href= 'photographerPage.html?id='+this.id;
-        // })
-
-        // console.log(">>>", data)
         const mediaProfilIn = document.createElement('div');
         mediaProfilIn.setAttribute('class', 'mediaProfilIn');
         this.DOM.appendChild(mediaProfilIn);
@@ -82,6 +77,12 @@ class PhotographerPage {
     updateFilter(filter) {
         this.currentFilter = filter;
         this.render();
+    }
+
+    async addBanierePhotographe () {
+        const dataMedia = await this.dataManager.getMediaById(this.id);
+        const dataPhotographer = await this.dataManager.getPhotographerById(this.id);
+        new BanierePhotographe (this.DOM, dataMedia, dataPhotographer);
     }
 
 }

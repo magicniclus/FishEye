@@ -6,6 +6,7 @@ class IndexPage {
         this.dataManager = new DataManager(props);
         this.DOM = domTarget;
         this.showlist = false;
+        this.showlist = !this.showlist;
         this.filters = [];
         this.render ();
     }
@@ -42,18 +43,14 @@ class IndexPage {
 
         [...tagArraySet].forEach(element => {
             this.showlist = !this.showlist;
-            new Tags (element, document.querySelector(inner),this.filterByTag.bind(this));
+            new Tags (element, document.querySelector(inner),this.filterByTag.bind(this), this.showlist);
         });
     }
 
     filterByTag(newTag){
-        this.showlist = !this.showlist;
-        console.log(this.showlist);
         const index = this.filters.indexOf(newTag);
         if(index >= 0) this.filters.splice(index, 1);
         else this.filters.push(newTag);
-        console.log(this.filters);
-        console.log(newTag);
         this.render();
     }
 

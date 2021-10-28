@@ -63,7 +63,6 @@ class MediaProfil {
     likeClick(event) {
         event.preventDefault();
         event.stopPropagation();
-        //event.target.classList.toggle('clickLike')
         this.liked = !this.liked;
         event.target.className =  +" fa-heart";
         if (this.liked) {

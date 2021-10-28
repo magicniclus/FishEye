@@ -73,6 +73,10 @@ body main header .tagIn button {
   line-height: 15px;
   margin-left: 4px;
 }
+body main header .tagIn .buttonClick {
+  background-color: #901C1C;
+  color: white;
+}
 body main header h1 {
   font-weight: 400;
   font-style: normal;

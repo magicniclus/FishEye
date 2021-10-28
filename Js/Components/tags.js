@@ -9,15 +9,18 @@ class Tags {
      * @param   {Function}  callback
      * 
      */
-    constructor (props, domTarget, callback) {
+    constructor (props, domTarget, callback, valide) {
+        this.valide = valide;
         this.DOM = document.createElement('button');
-        this.DOM.setAttribute('class', 'tag');
+        this.DOM.classList.add('tag')
         domTarget.appendChild(this.DOM);
         this.DOM.innerHTML = `#${props}`;
-        this.DOM.onclick= function(){
+        this.DOM.onclick = () => {
             callback(props);
+            console.log(this.valide);
+            if (this.valide === false) {
+                this.DOM.style.color = 'white';
+            }
         };
     }
-
-
 }

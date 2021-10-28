@@ -35,7 +35,10 @@ class Lightbox {
             this[key] = value;
         }
         this.index = this.findIndex();
-        this.closeButton = this.makeButton("close", "times", this.closeModal);
+        this.closeButton = document.createElement('i');
+        this.closeButton.setAttribute('class', 'lightbox__close fas fa-times');
+        this.closeModal(this.closeButton, this.DOM)
+        this.DOM.appendChild(this.closeButton);
         this.nextButton = this.makeButton("next", "chevron-right", this.next);
         this.prevButton = this.makeButton("prev", "chevron-left", this.prev);
         this.nextButton.classList.add("visible");
@@ -101,10 +104,9 @@ class Lightbox {
         return button;
     }
 
-    closeModal(){
-        const close = document.querySelector('.lightbox__close');
-        close.addEventListener('click', function() {
-            console.log('ok');
+    closeModal(element, parent){
+        element.addEventListener('click', () => {
+            parent.style.display = 'none';
         })
     }
 
