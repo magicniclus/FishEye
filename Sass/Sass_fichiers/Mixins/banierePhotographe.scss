@@ -7,13 +7,10 @@
         bottom: 0;
         right: 40px;
         border-radius: 5px 5px 0 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
 
-        .baniere {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
 
             .likedBaniere {
                 span {
@@ -34,5 +31,4 @@
             }
 
         }
-    }
 }
