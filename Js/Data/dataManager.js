@@ -97,5 +97,4 @@ class DataManager {
         } 
         return showArray()
     }
-
 }
