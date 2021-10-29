@@ -33,19 +33,19 @@ class MediaProfil {
     templateImage() {
         return `
             <div class='imgContainer'>
-                <img class="photoImg contentMedia" src="Sample_Photos/${this.image}" alt="${this.title}">  //TODO : Ajouter les commantaires pour non voayant 
+                <img class="photoImg contentMedia" src="Sample_Photos/${this.image}" alt="${this.title}">  
             </div>
-        `;
+        `;//TODO : Ajouter les commantaires pour non voayant 
     }
 
     templateVideo() {
         return `
                 <div class='videoContainer'>
                     <video autoplay loop> 
-                        <source class='contentMedia' src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}"> //TODO : Ajouter les commantaires pour non voayant 
+                        <source class='contentMedia' src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}"> 
                     </video>
                 </div>     
-        `;
+        `;//TODO : Ajouter les commantaires pour non voayant 
     }
 
     async showLikes(domTarget) {

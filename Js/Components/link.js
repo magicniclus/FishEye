@@ -29,8 +29,6 @@ class Link {
             const linkBtn = document.querySelector('.linkBtn')
             const scrollValue = (window.innerHeight + window.scrollY) / document.body.offsetHeight; //BUG Revoir la position de validité 
 
-            // console.log(scrollValue);
-
             if (scrollValue >= 0.60){
                 linkBtn.style.display = 'block';
             }else {

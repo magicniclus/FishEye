@@ -34,9 +34,9 @@ class ProfilPhotographe {
             <div class="button">
                 <button type='button' class="button-div">Contactez moi</button>
             </div>
-            <img src='Sample_Photos/Photographers ID Photos/${this.image}'> //TODO : Ajouter les commantaires pour non voayant 
+            <img src='Sample_Photos/Photographers ID Photos/${this.image}'> 
         `
-    }
+    }//TODO : Ajouter les commantaires pour non voayant 
 
     showTags() {
 

@@ -69,10 +69,10 @@ class Lightbox {
     templateImg () {
         return `
             <div class='lightbox__container__in'>
-                <img class='contents contentInn' src="Sample_Photos/${this.image}" title=${this.title} alt="${this.title}"> //TODO : Ajouter les commantaires pour non voayant 
+                <img class='contents contentInn' src="Sample_Photos/${this.image}" title=${this.title} alt="${this.title}"> 
                 <span class='lightbox__title'>${this.title}</span>
             </div>    
-        `;
+        `;//TODO : Ajouter les commantaires pour non voayant 
     }
 
 
@@ -80,11 +80,11 @@ class Lightbox {
         return ` 
             <div class='lightbox__container__in'>
                 <video class='contents lightbox__container' autoplay loop> 
-                    <source class='contentInn' src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">//TODO : Ajouter les commantaires pour non voayant 
+                    <source class='contentInn' src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
                 </video>
                 <span class='lightbox__title'>${this.title}</span>
             </div>    
-        `;
+        `;//TODO : Ajouter les commantaires pour non voayant 
     }
 
 

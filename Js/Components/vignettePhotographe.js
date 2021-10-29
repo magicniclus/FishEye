@@ -26,14 +26,14 @@ class VignettePhotographer {
     showVignette () {
         return this.DOM.innerHTML =`
         <a href="./photographerPage.html?id=${this.id}" class="newVignette">
-            <img src='Sample_Photos/Photographers ID Photos/${this.image}'> //TODO : Ajouter les commantaires pour non voayant 
+            <img src='Sample_Photos/Photographers ID Photos/${this.image}'>
             <span class="title">${this.name}</span>
         </a>    
         <span class="city">${this.city}, ${this.country}</span>
         <span class="comments">${this.comments}</span>
         <span class="price">${this.price}€/jour</span>
         `
-    }
+    } //TODO : Ajouter les commantaires pour non voayant 
 
     showTags () {
         const container = document.createElement("div");
