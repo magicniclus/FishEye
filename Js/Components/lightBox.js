@@ -1,3 +1,5 @@
+//TODO : commanter le code
+
 class Lightbox {
 
 
@@ -67,7 +69,7 @@ class Lightbox {
     templateImg () {
         return `
             <div class='lightbox__container__in'>
-                <img class='contents contentInn' src="Sample_Photos/${this.image}" title=${this.title} alt="${this.title}">
+                <img class='contents contentInn' src="Sample_Photos/${this.image}" title=${this.title} alt="${this.title}"> //TODO : Ajouter les commantaires pour non voayant 
                 <span class='lightbox__title'>${this.title}</span>
             </div>    
         `;
@@ -78,7 +80,7 @@ class Lightbox {
         return ` 
             <div class='lightbox__container__in'>
                 <video class='contents lightbox__container' autoplay loop> 
-                    <source class='contentInn' src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
+                    <source class='contentInn' src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">//TODO : Ajouter les commantaires pour non voayant 
                 </video>
                 <span class='lightbox__title'>${this.title}</span>
             </div>    
@@ -136,8 +138,7 @@ class Lightbox {
         }
         console.log(this.index);
         if (this.index === 0) this.prevButton.classList.remove("visible");
-        if (this.index === this.list.length) this.nextButton.classList.remove("visible"); //BUG Probleme d'ffichage des fleche suivante et precedante 
-        //TODO : ajouter title, dfescritpion       DESCRIPTION ?
+        if (this.index === this.list.length) this.nextButton.classList.remove("visible"); 
         this.render();
     }
 

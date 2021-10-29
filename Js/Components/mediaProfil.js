@@ -1,4 +1,5 @@
 //Ajout des media en fonction de leurs type
+//TODO : commanter le code
 
 class MediaProfil {
     constructor(data, domTarget, callbacks) {
@@ -32,7 +33,7 @@ class MediaProfil {
     templateImage() {
         return `
             <div class='imgContainer'>
-                <img class="photoImg contentMedia" src="Sample_Photos/${this.image}" alt="${this.title}"> 
+                <img class="photoImg contentMedia" src="Sample_Photos/${this.image}" alt="${this.title}">  //TODO : Ajouter les commantaires pour non voayant 
             </div>
         `;
     }
@@ -41,7 +42,7 @@ class MediaProfil {
         return `
                 <div class='videoContainer'>
                     <video autoplay loop> 
-                        <source class='contentMedia' src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}">
+                        <source class='contentMedia' src="Sample_Photos/${this.video}" type=video/mp4 alt="${this.title}"> //TODO : Ajouter les commantaires pour non voayant 
                     </video>
                 </div>     
         `;

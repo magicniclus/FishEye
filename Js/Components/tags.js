@@ -1,4 +1,5 @@
 // Création des tags pour le header
+//TODO : commanter le code
 
 class Tags {
     /**

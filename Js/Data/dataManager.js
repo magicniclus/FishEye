@@ -1,4 +1,5 @@
 // Gestion données fetch
+//TODO : commanter le code
 
 class DataManager {
 

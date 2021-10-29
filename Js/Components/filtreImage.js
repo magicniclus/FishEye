@@ -1,3 +1,5 @@
+//TODO : commanter le code
+
 class FilterImage {
     constructor (domTarget, props, callBack){
         this.DOM = document.createElement('span');
@@ -56,7 +58,7 @@ class FilterImage {
         }
         this.selected = selected;
         console.log("choisi : ",this.selected);
-        this.callBack(selected); //BUG Problème d'affichage des élémnete dans le bouton 
+        this.callBack(selected);
         this.render();
     }
 }

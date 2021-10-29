@@ -1,4 +1,5 @@
 //Lien haut de page
+//TODO : commanter le code
 
 class Link {
     constructor (domTarget) {
@@ -26,7 +27,7 @@ class Link {
     showScroll () {
         window.addEventListener('scroll', function () {
             const linkBtn = document.querySelector('.linkBtn')
-            const scrollValue = (window.innerHeight + window.scrollY) / document.body.offsetHeight;
+            const scrollValue = (window.innerHeight + window.scrollY) / document.body.offsetHeight; //BUG Revoir la position de validité 
 
             // console.log(scrollValue);
 

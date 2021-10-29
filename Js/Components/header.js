@@ -1,5 +1,5 @@
 // Header du index.html
-
+//TODO : commanter le code
 class Header {
     constructor(domTarget, img, tag, title){
         this.DOM = document.createElement('header');

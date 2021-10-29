@@ -1,3 +1,5 @@
+//TODO : commanter le code
+
 class BanierePhotographe {
 
     constructor (domTarget, totalLikes, price){

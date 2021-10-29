@@ -1,4 +1,5 @@
 // Gestion de l'affichage de la page photographe
+//TODO : commanter le code
 
 class PhotographerPage {
 
