@@ -5,4 +5,4 @@ const photographerPageBody = document.querySelector('.photographerPageIndex')
 photographerPageBody.appendChild(mainPhotographeProfil);
 
 
-const photographerPage = new PhotographerPage('https://magicniclus.github.io/FishEye/Js/Data/data.json', mainPhotographeProfil)
+const photographerPage = new PhotographerPage('https://magicniclus.github.io/NicolasCastera_6_06052021/Js/Data/data.json', mainPhotographeProfil)
