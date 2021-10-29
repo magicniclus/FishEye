@@ -1,44 +1,28 @@
 class BanierePhotographe {
 
-    constructor (domTarget, propsMedia, propsPhotographer){
-        this.dataMedia = propsMedia;
-        this.dataPhotographer = propsPhotographer;
+    constructor (domTarget, totalLikes, price){
+        
         this.DOM = document.createElement('div');
         this.DOM.classList.add('banierePhotographe')
         domTarget.appendChild(this.DOM);
-        this.array = [];
-        propsMedia.forEach(media => {
-            this.array.push(media.likes);
-        });
-        
-        this.reducer = (acc, cur) => acc + cur;
-
-        this.newArray = this.array.reduce(this.reducer);
-
-        this.pricePhotographer = this.dataPhotographer.price;
+        this.price = price;
+        this.totalLikes = totalLikes;
 
         this.render();
     }
 
     render () {
-        const liked = document.createElement('div');
-        liked.setAttribute('class', 'baniere');
-        this.DOM.appendChild(liked)
-        this.showLike(liked);
-        this.showPrice (liked);
-    }
-
-    showLike (parent) {
-        parent.innerHTML += `
+        this.DOM.innerHTML = `
             <div class='likedBaniere'>
-                <span class='liked'>${this.newArray}</span>
+                <span class='liked'>${this.totalLikes}</span>
                 <i class='fas fa-heart'></i>
             </div>
-        `
-    }
+            
+        <div class='priceBaniere'>${this.price}€ / jour</div>
+    `    };
 
-    showPrice (parent) {
-        parent.innerHTML += `
-        <div class='priceBaniere'>${this.pricePhotographer}€ / jour</div>
-    `    }
+    updateLikes(newSum){
+        this.totalLikes = newSum;
+        this.render();
+    }
 }

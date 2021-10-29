@@ -2,6 +2,10 @@
 
 class PhotographerPage {
 
+    price;
+    totalLikes;
+    banniere;
+
     constructor(props, domTarget) {
         this.dataManager = new DataManager(props);
         this.DOM = domTarget;
@@ -10,24 +14,33 @@ class PhotographerPage {
             "Popularité",
             "Date",
             "Titre"
-        ]
+        ];
         this.currentFilter = this.filters[0];
-        this.render();
+        this.firstRender();
     }
 
 
-    async render() {
+    async firstRender() {
         this.DOM.innerText="";
         await this.showProfilPhotographe();
-        await this.addFilterImage();
+        this.addFilterImage();
+        this.mediaProfilIn = document.createElement('div');
+        this.mediaProfilIn.setAttribute('class', 'mediaProfilIn');
+        this.DOM.appendChild(this.mediaProfilIn);
         await this.showMediaProfil();
         await this.showFormModal(); 
-        await this.addBanierePhotographe();
+        this.banniere = new BanierePhotographe (this.DOM, this.totalLikes, this.price);
+    }
+
+    async render(){
+        this.mediaProfilIn.innerText = "";
+        await this.showMediaProfil();
     }
 
 
     async showProfilPhotographe() {
         const data = await this.dataManager.getPhotographerById(this.id);
+        this.price = data.price;
         const newProfil = new ProfilPhotographe(data, this.DOM);
     }
 
@@ -41,15 +54,13 @@ class PhotographerPage {
         this.list = data;
 
         const titreOption = document.querySelector('.titreOption');
-        const mediaProfilIn = document.createElement('div');
-        mediaProfilIn.setAttribute('class', 'mediaProfilIn');
-        this.DOM.appendChild(mediaProfilIn);
-
+        this.totalLikes = 0;
         data.forEach(media => {
-            new MediaProfil(media, mediaProfilIn, {
+            new MediaProfil(media, this.mediaProfilIn, {
                 lightbox: this.showLightbox.bind(this),
-                likes: this.addLikesToTotal.bind(this)
+                likes: this.updateLikesToTotal.bind(this)
             });
+            this.totalLikes+= media.likes;
         });
     }
 
@@ -70,19 +81,14 @@ class PhotographerPage {
      *
      * @return  {void}       [return description]
      */
-    addLikesToTotal(add) {
-
+    updateLikesToTotal(add) {
+        this.totalLikes += add? 1 : -1;
+        this.banniere.updateLikes(this.totalLikes);
     }
 
     updateFilter(filter) {
         this.currentFilter = filter;
         this.render();
-    }
-
-    async addBanierePhotographe () {
-        const dataMedia = await this.dataManager.getMediaById(this.id);
-        const dataPhotographer = await this.dataManager.getPhotographerById(this.id);
-        new BanierePhotographe (this.DOM, dataMedia, dataPhotographer);
     }
 
 }

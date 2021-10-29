@@ -136,8 +136,8 @@ class Lightbox {
         }
         console.log(this.index);
         if (this.index === 0) this.prevButton.classList.remove("visible");
-        if (this.index === this.list.length) this.nextButton.classList.remove("visible");
-        //TODO : ajouter title, dfescritpion
+        if (this.index === this.list.length) this.nextButton.classList.remove("visible"); //BUG Probleme d'ffichage des fleche suivante et precedante 
+        //TODO : ajouter title, dfescritpion       DESCRIPTION ?
         this.render();
     }
 

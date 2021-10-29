@@ -1,33 +1,29 @@
-// Gestiond de l'affichage de la page index 
 
+/**
+ * Gestiond de l'affichage de la page index 
+ */
 class IndexPage {
     
     constructor (props, domTarget) {
         this.dataManager = new DataManager(props);
         this.DOM = domTarget;
-        this.showlist = false;
-        this.showlist = !this.showlist;
+        // this.showlist = false;
+        // this.showlist = !this.showlist;
         this.filters = [];
+        new Header (this.DOM, 'Sample_Photos/logo/logo.png', this.showTag('.tagIn'), 'Nos photographes');
+        new Link(this.DOM)
+        this.vignetteIn = document.createElement('div');
+        this.vignetteIn.setAttribute('class', 'vignetteIn');
+        this.DOM.appendChild(this.vignetteIn);
         this.render ();
     }
 
-    render () {
-        this.DOM.innerText="";
-        new Header (this.DOM, 'Sample_Photos/logo/logo.png', this.showTag('.tagIn'), 'Nos photographes');
-        new Link(this.DOM)
-        this.showVignettePhotographers ();
-    }
-
-
-    async showVignettePhotographers () {
-
+    async render () {
+        this.vignetteIn.innerText="";
         let data = await this.dataManager.getPhotographerList(this.filters);
-        const vignetteIn = document.createElement('div');
-        vignetteIn.setAttribute('class', 'vignetteIn');
-        this.DOM.appendChild(vignetteIn);
         
         for (const photographe of data){
-            new VignettePhotographer (photographe, vignetteIn);
+            new VignettePhotographer (photographe, this.vignetteIn);
         }
     }
 
@@ -42,8 +38,7 @@ class IndexPage {
         const tagArraySet = new Set (tagArray);
 
         [...tagArraySet].forEach(element => {
-            this.showlist = !this.showlist;
-            new Tags (element, document.querySelector(inner),this.filterByTag.bind(this), this.showlist);
+            new Tags (element, document.querySelector(inner),this.filterByTag.bind(this));
         });
     }
 

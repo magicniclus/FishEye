@@ -1,76 +1,73 @@
-    @mixin header {
-    width: 90%;
-    @include flexbox-space-between;
-    padding-top: 3em;
-    padding-bottom: 7em;
+@mixin header {
+  width: 90%;
+  @include flexbox-space-between;
+  padding-top: 3em;
+  padding-bottom: 7em;
 
+  .logo {
+    width: 20%;
+    object-fit: cover;
+  }
+
+  .tagIn {
+    button {
+      background-color: white;
+      border: 1px solid $color-text-seven;
+      border-radius: 11px;
+      color: $color-text-three;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 12px;
+      line-height: 15px;
+      margin-left: 4px;
+
+      &.active {
+        background-color: $color-text-three;
+        color: white;
+      }
+    }
+  }
+
+  h1 {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 36px;
+    line-height: 46px;
+    color: $color-text-three;
+  }
+
+  @media screen and (max-width: 1440px) {
     .logo {
-        width: 20%;
-        object-fit: cover;
+      width: 30%;
     }
 
-    .tagIn {
-        
-        button {
-            background-color: white;
-            border: 1px solid $color-text-seven;
-            border-radius: 11px;
-            color: $color-text-three;
-            font-weight: 500;
-            font-style: normal;
-            font-size: 12px;
-            line-height: 15px;
-            margin-left: 4px;
-        }
-
-        .buttonClick {
-            background-color: $color-text-three;
-    
-            color: white;
-        }
+    :nth-child(2) {
+      order: 3;
+      margin-top: 1em;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    h1 {
-        font-weight: 400;
-        font-style: normal;
-        font-size: 36px;
-        line-height: 46px;
-        color: $color-text-three;
+    :nth-child(3) {
+      order: 2;
+      font-size: 43px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    :nth-child(3) {
+      font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .logo {
+      width: 30%;
     }
 
-    @media screen and (max-width: 1440px){
-
-        .logo {
-            width: 30%;
-        }
-
-        :nth-child(2){
-            order: 3;
-            margin-top: 1em;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        :nth-child(3){
-            order: 2;
-            font-size: 43px;
-        }
-    }  
-
-    @media screen and (max-width: 900px) {
-        :nth-child(3){
-            font-size: 20px;
-        }
-    } 
-    
-    @media screen and (max-width: 700px) {
-        .logo {
-            width: 30%;
-        }
-
-        :nth-child(3){
-            font-size: 14px;
-        }
+    :nth-child(3) {
+      font-size: 14px;
     }
+  }
 }

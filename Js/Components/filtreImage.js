@@ -55,7 +55,7 @@ class FilterImage {
             return;
         }
         this.selected = selected;
-        console.log(selected);
+        console.log("choisi : ",this.selected);
         this.callBack(selected); //BUG Problème d'affichage des élémnete dans le bouton 
         this.render();
     }
