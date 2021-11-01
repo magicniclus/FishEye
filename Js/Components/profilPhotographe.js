@@ -15,7 +15,7 @@ class ProfilPhotographe {
         this.price = props.price;
         this.tags = props.tags;
         this.id = props.id;
-
+        this.description = props.descritpion;
         
 
         this.render();
@@ -34,9 +34,9 @@ class ProfilPhotographe {
             <div class="button">
                 <button type='button' class="button-div">Contactez moi</button>
             </div>
-            <img src='Sample_Photos/Photographers ID Photos/${this.image}'> 
+            <img src='Sample_Photos/Photographers ID Photos/${this.image}' alt="${this.description}""> 
         `
-    }//TODO : Ajouter les commantaires pour non voayant 
+    }
 
     showTags() {
 
