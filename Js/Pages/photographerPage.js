@@ -23,6 +23,7 @@ class PhotographerPage {
 
     async firstRender() {
         this.DOM.innerText="";
+        await this.addLogo(this.DOM)
         await this.showProfilPhotographe();
         this.addFilterImage();
         this.mediaProfilIn = document.createElement('div');
@@ -90,6 +91,16 @@ class PhotographerPage {
     updateFilter(filter) {
         this.currentFilter = filter;
         this.render();
+    }
+
+    addLogo (parent) {
+        this.logo = document.createElement('a');
+        this.logo.classList.add('logoPhotographerPage')
+        this.logo.setAttribute('href', 'index.html')
+        this.logo.innerHTML = `
+            <img class='logoFishEye' alt='logo du site fish eye' src='Sample_Photos/logo/logo.png'>
+        `;
+        parent.appendChild(this.logo);
     }
 
 }

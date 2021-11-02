@@ -1,0 +1,11 @@
+@mixin logo {
+    .logoPhotographerPage {
+        width: 90%;
+        @include flexbox-space-between;
+        padding-top: 3em;
+
+        img {
+            width: 17em;
+        }
+    }
+}

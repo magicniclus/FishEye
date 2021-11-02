@@ -424,11 +424,22 @@ body main .clickLike {
   background-image: blue;
   background-color: blue;
 }
+body main .logoPhotographerPage {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3em;
+}
+body main .logoPhotographerPage img {
+  width: 17em;
+}
 body main .filtreBouton {
   cursor: pointer;
   position: absolute;
   display: flex;
-  top: 22em;
+  top: 29em;
 }
 body main .filtreBouton label {
   margin-top: 1.5em;

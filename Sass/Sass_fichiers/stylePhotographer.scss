@@ -8,6 +8,7 @@
 @import "Mixins/formulaire.scss";
 @import "Mixins/imageLink.scss";
 @import "Mixins/lightBox.scss";
+@import "Mixins/logo.scss";
 @import "Mixins/reponsive.scss";
 @import "Mixins/vignettePhotographerPage.scss";
 @import "Use/color.scss";
@@ -27,6 +28,7 @@ body {
         max-width: 1500px;
         @include vignettePhotographerPage;
         @include imageLink;
+        @include logo;
         @include filtreBouton;
         @include banierePhotographe;
 
