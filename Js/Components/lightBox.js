@@ -58,6 +58,7 @@ class Lightbox {
             this.nextButton.classList.add("visible"); 
             this.render();
         }
+        this.keyBoardEvent();
     }
 
     findIndex(){
@@ -109,12 +110,27 @@ class Lightbox {
   * @return  {[type]}             [return description]
   */
     makeButton(classname,icon, callback){
-        const button = document.createElement("button");
-        button.className = "lightbox__"+classname;
-        button.innerHTML=`<i class="fas fa-${icon}"></i>`;
-        button.onclick = callback.bind(this);
-        this.DOM.appendChild(button);
-        return button;
+        this.button = document.createElement("button");
+        this.button.className = "lightbox__"+classname;
+        this.button.innerHTML=`<i class="fas fa-${icon}"></i>`;
+        this.button.onclick = callback.bind(this);
+        this.DOM.appendChild(this.button);
+        return this.button;
+    }
+
+    keyBoardEvent(){
+        document.addEventListener('keyup', (key) => {
+            if(key.key === 'ArrowRight' && this.index < this.list.length){
+                this.next();
+                this.render()
+            }else if (key.key ==='ArrowLeft' && this.index >= 0){
+                this.prev();
+                this.render()
+            }else if (key.key === 'Escape'){
+                this.DOM.style.display='none';
+                this.render();
+            }
+        })
     }
 
     closeModal(element, parent){
