@@ -38,7 +38,12 @@ body .linkBack .linkBtn {
   text-decoration: none;
   color: black;
   cursor: pointer;
+}
+body .none {
   display: none;
+}
+body .flex {
+  display: block;
 }
 body main {
   width: 100%;

@@ -20,8 +20,16 @@
             text-decoration: none;
             color: black;
             cursor: pointer;
-            display: none;
+
         }
+    }
+
+    .none {
+        display: none;
+    }
+
+    .flex {
+        display: block;
     }
     
 }
