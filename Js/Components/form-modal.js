@@ -85,6 +85,12 @@ class FormModal {
             form.style.display='none';
         })
 
+        document.addEventListener('keyup', (key) => {
+            if(key.key == 'Escape'){
+                form.style.display ='none';
+            }
+        })
+
 
 
 
