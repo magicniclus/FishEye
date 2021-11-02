@@ -43,6 +43,7 @@ class Lightbox {
         this.container = this.makeContainer();
         this.nextButton = this.makeButton("next", "chevron-right", this.next);
         this.prevButton = this.makeButton("prev", "chevron-left", this.prev);
+        this.keyBoardEvent();
         if (this.index === 0){
             this.nextButton.classList.add("visible"); 
             this.prevButton.classList.remove("visible"); 
@@ -58,7 +59,6 @@ class Lightbox {
             this.nextButton.classList.add("visible"); 
             this.render();
         }
-        this.keyBoardEvent();
     }
 
     findIndex(){

@@ -6,7 +6,6 @@
  * Formulaire de contact
  */
 class FormModal {
-
     /**
      * constructeur du formulaire permetant de selectionner l'emplacement voulu pour ce dernier 
      *
@@ -114,6 +113,7 @@ class FormModal {
             if (firstName.value == '' || rejexName.test(firstName.value.trim()) === false){
                 return false
             } 
+            return true;
         }
 
 
@@ -129,6 +129,7 @@ class FormModal {
             if (lastName.value == '' || rejexName.test(lastName.value.trim()) === false){
                 return false
             } 
+            return true;
         }
 
 
@@ -144,11 +145,11 @@ class FormModal {
             if (email.value == '' || rejexMail.test(email.value.trim()) === false){
                 return false
             } 
+            return true;
         }
 
 
-
-        form.addEventListener('submit', e => {
+        form.addEventListener('keyup', e => {
             e.preventDefault();
 
             if (validationName() == false){
@@ -164,25 +165,30 @@ class FormModal {
             } else email.style.border = '2px solid green';
         })
 
-        firstName.addEventListener('focus', e => {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
+            
             if (validationName() == false){
                 firstName.style.border = '2px solid red';
-            } else firstName.style.border = '2px solid green';
-        })
-
-        lastName.addEventListener('focus', e => {
-            e.preventDefault();
+            } else {
+                firstName.style.border = '2px solid green';
+            } 
+            
             if (validationLastName() == false){
                 lastName.style.border = '2px solid red';
-            } else lastName.style.border = '2px solid green';
-        })
-
-        email.addEventListener('focus', e => {
-            e.preventDefault();
+            } else {
+                lastName.style.border = '2px solid green';
+            }
+            
             if (validationMail() == false){
                 email.style.border = '2px solid red';
-            } else email.style.border = '2px solid green';
+            } else {
+                email.style.border = '2px solid green';
+            }
+
+            if (validationName() == true && validationLastName() == true && validationMail() == true){
+                this.DOM.style.display = 'none';
+            }    
         })
     }
 }

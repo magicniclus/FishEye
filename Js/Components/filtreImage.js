@@ -57,7 +57,6 @@ class FilterImage {
             return;
         }
         this.selected = selected;
-        console.log("choisi : ",this.selected);
         this.callBack(selected);
         this.render();
     }
