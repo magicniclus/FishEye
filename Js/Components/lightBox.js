@@ -28,8 +28,6 @@ class Lightbox {
     nextButton;
 
     constructor(domTarget, props) {
-        console.log(props)
-        //this.DOM = domTarget;
         this.DOM = document.createElement("div");
         this.DOM.setAttribute('class', 'lightbox')
         domTarget.appendChild(this.DOM);
@@ -42,12 +40,24 @@ class Lightbox {
         this.closeButton.setAttribute('class', 'lightbox__close fas fa-times');
         this.closeModal(this.closeButton, this.DOM)
         this.DOM.appendChild(this.closeButton);
+        this.container = this.makeContainer();
         this.nextButton = this.makeButton("next", "chevron-right", this.next);
         this.prevButton = this.makeButton("prev", "chevron-left", this.prev);
-        this.nextButton.classList.add("visible");
-        this.prevButton.classList.add("visible");
-        this.container = this.makeContainer();
-        this.render();
+        if (this.index === 0){
+            this.nextButton.classList.add("visible"); 
+            this.prevButton.classList.remove("visible"); 
+            this.render();
+        }
+        else if (this.index >= this.list.length -1){
+            this.nextButton.classList.remove("visible"); 
+            this.prevButton.classList.add("visible"); 
+            this.render();
+        }
+        else {
+            this.prevButton.classList.add("visible");
+            this.nextButton.classList.add("visible"); 
+            this.render();
+        }
     }
 
     findIndex(){
@@ -137,10 +147,19 @@ class Lightbox {
             delete this.video;
             this.image = image;
         }
-        console.log(this.index);
-        if (this.index === 0) this.prevButton.classList.remove("visible");
-        if (this.index === this.list.length) this.nextButton.classList.remove("visible"); 
-        this.render();
+        if (this.index === 0) {
+            this.prevButton.classList.remove("visible");
+            this.nextButton.classList.add("visible"); 
+            this.render();
+        }else if (this.index === this.list.length -1){
+            this.nextButton.classList.remove("visible");
+            this.prevButton.classList.add("visible"); 
+            this.render();
+        } else {
+            this.prevButton.classList.add("visible");
+            this.nextButton.classList.add("visible"); 
+            this.render();
+        }
     }
 
 }
