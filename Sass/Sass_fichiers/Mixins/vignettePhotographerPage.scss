@@ -1,5 +1,6 @@
 @mixin vignettePhotographerPage {
     .vignette {
+        position: relative;
         display: flex;
         width: 100%;
         justify-content: space-between;
@@ -43,6 +44,7 @@
 
             .profilTag {
                 margin-top: 1em;
+
                 span {
                     background-color: $color-text-eight;
                     border: 1px solid $color-text-seven;
@@ -55,7 +57,27 @@
                     margin-left: 6px;
                     padding: 1px 7px 1px 7px;
                 }
+
+                :nth-child(1){
+                    margin-left: 0;
+                }
             }
+
+            @media screen and (max-width: 1227px) {
+                .profilName {
+                    font-size: 54px;
+                    line-height: 50px;
+                }
+
+                .profilComments {
+                    margin-top: 0;
+                }
+
+                .profilTag {
+                    margin-top: 2px;
+                }
+
+            } 
 
             @media screen and (max-width: 750px) {
                 .profilName {
@@ -102,6 +124,45 @@
                     }
                 }
             }
+
+            @media screen and (max-width: 500px){
+                .profilName {
+                    font-size: 25px;
+                    margin-top: 0px;
+                    line-height: 15px;
+                }
+
+                .profilCity {
+                    font-size: 10px;
+                    margin-top: 7px;
+                    line-height: 10px;
+                }
+
+                .profilComments {
+                    font-size: 8px;
+                    margin-top: 5px;
+                    line-height: 10px;
+                }
+
+                .profilTag {
+                    span {
+                        font-size: 8.5px;
+                        margin-top: 7px;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 1227px) {
+            .profil {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 600px){
+            .profil {
+                margin-right: 0;
+            }
         }
 
         .button {
@@ -124,10 +185,20 @@
 
         }
 
-        @media screen and ( max-width:1036px){
+        @media screen and ( max-width:1227px){
+
             .button {
-                display: none;
+                margin-right: 0;
+                margin-top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                right: 46.3%;
+                bottom: 2%;
             }
+
+
         }
 
         img {
@@ -138,13 +209,34 @@
         margin-top: 4em;
         margin-right: 2em;
         }
+
+        @media screen and (max-width: 1227px) {
+            img {
+                margin-right: 0;
+            }
+        }
     
         @media screen and (max-width: 600px) {
             img {
-                width: 8em;
-                height: 8em;
+                width: 6em;
+                height: 6em;
                 margin-top: 3em;
             }
+        }
+
+        @media screen and (max-width: 500px) {
+            img {
+                width: 5em;
+                height: 5em;
+                margin-top: 3em;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1227px)  {
+        .vignette {
+            background-color: white;
+            margin-top: 0;
         }
     }
 }

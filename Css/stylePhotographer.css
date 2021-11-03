@@ -193,6 +193,7 @@ body main {
   max-width: 1500px;
 }
 body main .vignette {
+  position: relative;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -246,6 +247,21 @@ body main .vignette .profil .profilTag span {
   margin-left: 6px;
   padding: 1px 7px 1px 7px;
 }
+body main .vignette .profil .profilTag :nth-child(1) {
+  margin-left: 0;
+}
+@media screen and (max-width: 1227px) {
+  body main .vignette .profil .profilName {
+    font-size: 54px;
+    line-height: 50px;
+  }
+  body main .vignette .profil .profilComments {
+    margin-top: 0;
+  }
+  body main .vignette .profil .profilTag {
+    margin-top: 2px;
+  }
+}
 @media screen and (max-width: 750px) {
   body main .vignette .profil .profilName {
     font-size: 45px;
@@ -280,6 +296,37 @@ body main .vignette .profil .profilTag span {
     margin-top: 7px;
   }
 }
+@media screen and (max-width: 500px) {
+  body main .vignette .profil .profilName {
+    font-size: 25px;
+    margin-top: 0px;
+    line-height: 15px;
+  }
+  body main .vignette .profil .profilCity {
+    font-size: 10px;
+    margin-top: 7px;
+    line-height: 10px;
+  }
+  body main .vignette .profil .profilComments {
+    font-size: 8px;
+    margin-top: 5px;
+    line-height: 10px;
+  }
+  body main .vignette .profil .profilTag span {
+    font-size: 8.5px;
+    margin-top: 7px;
+  }
+}
+@media screen and (max-width: 1227px) {
+  body main .vignette .profil {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  body main .vignette .profil {
+    margin-right: 0;
+  }
+}
 body main .vignette .button {
   margin-top: 4em;
   margin-right: 10em;
@@ -297,9 +344,16 @@ body main .vignette .button button {
   line-height: 26px;
   text-align: center;
 }
-@media screen and (max-width: 1036px) {
+@media screen and (max-width: 1227px) {
   body main .vignette .button {
-    display: none;
+    margin-right: 0;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 46.3%;
+    bottom: 2%;
   }
 }
 body main .vignette img {
@@ -310,11 +364,29 @@ body main .vignette img {
   margin-top: 4em;
   margin-right: 2em;
 }
+@media screen and (max-width: 1227px) {
+  body main .vignette img {
+    margin-right: 0;
+  }
+}
 @media screen and (max-width: 600px) {
   body main .vignette img {
-    width: 8em;
-    height: 8em;
+    width: 6em;
+    height: 6em;
     margin-top: 3em;
+  }
+}
+@media screen and (max-width: 500px) {
+  body main .vignette img {
+    width: 5em;
+    height: 5em;
+    margin-top: 3em;
+  }
+}
+@media screen and (max-width: 1227px) {
+  body main .vignette {
+    background-color: white;
+    margin-top: 0;
   }
 }
 body main .mediaProfilIn {
@@ -433,7 +505,7 @@ body main .logoPhotographerPage {
   padding-top: 3em;
 }
 body main .logoPhotographerPage img {
-  width: 17em;
+  width: 45%;
 }
 body main .filtreBouton {
   cursor: pointer;
@@ -529,8 +601,18 @@ body main .banierePhotographe .priceBaniere {
   font-style: normal;
   font-size: 24px;
 }
+@media screen and (max-width: 1227px) {
+  body main .banierePhotographe {
+    display: none;
+  }
+}
 body main .button-div:hover {
   cursor: pointer;
+}
+@media screen and (max-width: 1227px) {
+  body main {
+    width: 95%;
+  }
 }
 
 /*# sourceMappingURL=stylePhotographer.css.map */

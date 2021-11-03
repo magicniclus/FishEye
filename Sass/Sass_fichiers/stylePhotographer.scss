@@ -37,5 +37,11 @@ body {
             cursor: pointer;
         } 
     }
+
+    @media screen and (max-width: 1227px) {
+        main {
+            width: 95%;
+        }
+    }
 }
 

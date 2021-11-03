@@ -194,6 +194,7 @@ class FormModal {
 
             if (validationName() == true && validationLastName() == true && validationMail() == true){
                 this.DOM.style.display = 'none';
+                alert('Merci')
             }    
         })
     }
