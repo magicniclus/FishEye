@@ -137,6 +137,13 @@ body .lightbox .lightbox__close {
   font-size: 42px;
   color: #901C1C;
 }
+@media screen and (max-width: 650px) {
+  body .lightbox .lightbox__close {
+    top: 35%;
+    right: 4%;
+    font-size: 25px;
+  }
+}
 body .lightbox .lightbox__next {
   position: absolute;
   right: 15%;
@@ -147,6 +154,12 @@ body .lightbox .lightbox__next {
   font-size: 42px;
   color: #901C1C;
   display: none;
+}
+@media screen and (max-width: 650px) {
+  body .lightbox .lightbox__next {
+    right: 3%;
+    font-size: 20px;
+  }
 }
 body .lightbox .lightbox__prev {
   position: absolute;
@@ -159,6 +172,12 @@ body .lightbox .lightbox__prev {
   color: #901C1C;
   display: none;
 }
+@media screen and (max-width: 650px) {
+  body .lightbox .lightbox__prev {
+    left: 3%;
+    font-size: 20px;
+  }
+}
 body .lightbox .visible {
   display: block;
 }
@@ -166,6 +185,18 @@ body .lightbox .lightbox__container {
   height: 80%;
   width: 60%;
   border-radius: 5px;
+}
+@media screen and (max-width: 950px) {
+  body .lightbox .lightbox__container {
+    height: 50%;
+    width: 50%;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .lightbox .lightbox__container {
+    height: 30%;
+    width: 80%;
+  }
 }
 body .lightbox .lightbox__container .lightbox__container__in {
   height: 100%;
@@ -187,6 +218,11 @@ body .lightbox .lightbox__container .lightbox__container__in .lightbox__title {
   color: #901C1C;
   margin-top: 0.5em;
   border-radius: 5px;
+}
+@media screen and (max-width: 650px) {
+  body .lightbox .lightbox__container .lightbox__container__in .lightbox__title {
+    font-size: 14px;
+  }
 }
 body main {
   width: 90%;

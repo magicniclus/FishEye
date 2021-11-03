@@ -21,6 +21,12 @@
       background-color: white;
       font-size: 42px;
       color: $color-text-three;
+
+      @media screen and (max-width: 650px){
+        top: 35%;
+        right: 4%;
+        font-size: 25px;
+      }
     }
 
     .lightbox__next {
@@ -33,6 +39,11 @@
       font-size: 42px;
       color: $color-text-three;
       display: none;
+
+      @media screen and (max-width: 650px){
+        right: 3%;
+        font-size: 20px;
+      }
     }
 
     .lightbox__prev {
@@ -45,6 +56,11 @@
       font-size: 42px;
       color: $color-text-three;
       display: none;
+
+      @media screen and (max-width: 650px){
+        left: 3%;
+        font-size: 20px;
+      }
     }
 
     .visible {
@@ -55,6 +71,17 @@
       height: 80%;
       width: 60%;
       border-radius: 5px;
+
+
+      @media screen and (max-width: 950px){
+        height: 50%;
+        width: 50%;
+      } 
+
+      @media screen and (max-width: 650px){
+        height: 30%;
+        width: 80%;
+      } 
 
       .lightbox__container__in {
         height: 100%;
@@ -77,6 +104,10 @@
         color: $color-text-three;
         margin-top: 0.5em;
         border-radius: 5px;
+
+        @media screen and (max-width: 650px){
+          font-size: 14px;
+        }
       }}
     }
     
