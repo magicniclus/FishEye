@@ -65,6 +65,7 @@ body main header {
 }
 body main header .logo {
   width: 20%;
+  min-width: 7em;
   object-fit: cover;
 }
 body main header .tagIn button {
@@ -188,12 +189,12 @@ body main .vignetteIn .vignette .tagButton span {
 }
 @media screen and (max-width: 1270px) {
   body main .vignetteIn {
-    grid-template-columns: repeat(2, 300px);
+    grid-template-columns: repeat(2, 45%);
   }
 }
 @media screen and (max-width: 800px) {
   body main .vignetteIn {
-    grid-template-columns: repeat(1, 250px);
+    grid-template-columns: repeat(1, 100%);
     justify-content: center;
   }
 }
