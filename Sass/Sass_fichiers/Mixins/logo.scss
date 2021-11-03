@@ -6,6 +6,11 @@
 
         img {
             width: 45%;
+            max-width: 25em;
+        }
+
+        @media screen and (max-width: 500px) {
+            padding-top: 2em;
         }
     }
 }

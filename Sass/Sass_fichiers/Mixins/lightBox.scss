@@ -22,10 +22,18 @@
       font-size: 42px;
       color: $color-text-three;
 
+      @media screen and (max-width: 950px){
+        top: 23%;
+      }
+
       @media screen and (max-width: 650px){
         top: 35%;
         right: 4%;
         font-size: 25px;
+      }
+
+      @media screen and (max-width: 350px){
+        right: 2%;
       }
     }
 
@@ -44,6 +52,10 @@
         right: 3%;
         font-size: 20px;
       }
+
+      @media screen and (max-width: 350px){
+        right: 2%;
+      }
     }
 
     .lightbox__prev {
@@ -61,6 +73,11 @@
         left: 3%;
         font-size: 20px;
       }
+
+      @media screen and (max-width: 350px){
+        left: 2%;
+      }
+      
     }
 
     .visible {

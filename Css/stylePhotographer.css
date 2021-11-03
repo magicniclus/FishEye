@@ -137,11 +137,21 @@ body .lightbox .lightbox__close {
   font-size: 42px;
   color: #901C1C;
 }
+@media screen and (max-width: 950px) {
+  body .lightbox .lightbox__close {
+    top: 23%;
+  }
+}
 @media screen and (max-width: 650px) {
   body .lightbox .lightbox__close {
     top: 35%;
     right: 4%;
     font-size: 25px;
+  }
+}
+@media screen and (max-width: 350px) {
+  body .lightbox .lightbox__close {
+    right: 2%;
   }
 }
 body .lightbox .lightbox__next {
@@ -161,6 +171,11 @@ body .lightbox .lightbox__next {
     font-size: 20px;
   }
 }
+@media screen and (max-width: 350px) {
+  body .lightbox .lightbox__next {
+    right: 2%;
+  }
+}
 body .lightbox .lightbox__prev {
   position: absolute;
   left: 15%;
@@ -176,6 +191,11 @@ body .lightbox .lightbox__prev {
   body .lightbox .lightbox__prev {
     left: 3%;
     font-size: 20px;
+  }
+}
+@media screen and (max-width: 350px) {
+  body .lightbox .lightbox__prev {
+    left: 2%;
   }
 }
 body .lightbox .visible {
@@ -372,6 +392,11 @@ body main .vignette .button {
   margin-top: 4em;
   margin-right: 10em;
 }
+@media screen and (max-width: 600px) {
+  body main .vignette .button {
+    margin-right: 0;
+  }
+}
 body main .vignette .button button {
   height: 70px;
   width: 170px;
@@ -385,16 +410,57 @@ body main .vignette .button button {
   line-height: 26px;
   text-align: center;
 }
-@media screen and (max-width: 1227px) {
-  body main .vignette .button {
+@media screen and (max-width: 1023px) {
+  body main .vignette .button button {
     margin-right: 0;
     margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
-    right: 46.3%;
+    right: 42%;
     bottom: 2%;
+    height: 35px;
+  }
+}
+@media screen and (max-width: 912px) {
+  body main .vignette .button button {
+    right: 40%;
+  }
+}
+@media screen and (max-width: 740px) {
+  body main .vignette .button button {
+    right: 37%;
+  }
+}
+@media screen and (max-width: 600px) {
+  body main .vignette .button button {
+    right: 35%;
+  }
+}
+@media screen and (max-width: 600px) {
+  body main .vignette .button button {
+    right: 32%;
+  }
+}
+@media screen and (max-width: 430px) {
+  body main .vignette .button button {
+    right: 30%;
+  }
+}
+@media screen and (max-width: 375px) {
+  body main .vignette .button button {
+    right: 27%;
+  }
+}
+@media screen and (max-width: 360px) {
+  body main .vignette .button button {
+    right: 25%;
+  }
+}
+@media screen and (max-width: 325px) {
+  body main .vignette .button button {
+    right: 22%;
   }
 }
 body main .vignette img {
@@ -431,6 +497,7 @@ body main .vignette img {
   }
 }
 body main .mediaProfilIn {
+  z-index: 3;
   width: 100%;
   display: grid;
   margin-top: 8em;
@@ -447,6 +514,11 @@ body main .mediaProfilIn {
   body main .mediaProfilIn {
     grid-template-columns: repeat(1, 100%);
     margin-top: 4em;
+  }
+}
+@media screen and (max-width: 600px) {
+  body main .mediaProfilIn {
+    margin-top: 0;
   }
 }
 body main .mediaProfilIn article {
@@ -475,6 +547,13 @@ body main .mediaProfilIn article img:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
+@media screen and (max-width: 1227px) {
+  body main .mediaProfilIn article .videoContainer video:hover,
+body main .mediaProfilIn article img:hover {
+    width: 100%;
+    transform: none;
+  }
+}
 body main .mediaProfilIn article .bottomVideo,
 body main .mediaProfilIn article .bottomImg {
   display: flex;
@@ -485,6 +564,12 @@ body main .mediaProfilIn article .bottomImg .bottomLeft {
   display: flex;
   justify-content: space-between;
   width: 80%;
+}
+@media screen and (max-width: 1220px) {
+  body main .mediaProfilIn article .bottomVideo .bottomLeft,
+body main .mediaProfilIn article .bottomImg .bottomLeft {
+    width: 87%;
+  }
 }
 body main .mediaProfilIn article .bottomVideo .bottomLeft .sigle,
 body main .mediaProfilIn article .bottomImg .bottomLeft .sigle {
@@ -502,6 +587,19 @@ body main .mediaProfilIn article .bottomImg .bottomLeft .priceImg {
   font-size: 24px;
   line-height: 31px;
   color: #901C1C;
+}
+@media screen and (max-width: 400px) {
+  body main .mediaProfilIn article .bottomVideo .bottomLeft .titleVideo,
+body main .mediaProfilIn article .bottomVideo .bottomLeft .titleImg,
+body main .mediaProfilIn article .bottomVideo .bottomLeft .priceVideo,
+body main .mediaProfilIn article .bottomVideo .bottomLeft .priceImg,
+body main .mediaProfilIn article .bottomImg .bottomLeft .titleVideo,
+body main .mediaProfilIn article .bottomImg .bottomLeft .titleImg,
+body main .mediaProfilIn article .bottomImg .bottomLeft .priceVideo,
+body main .mediaProfilIn article .bottomImg .bottomLeft .priceImg {
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 body main .mediaProfilIn article .bottomVideo .likeGlobal,
 body main .mediaProfilIn article .bottomVideo .likeVideoGlobal,
@@ -524,15 +622,36 @@ body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
   line-height: 31px;
   color: #901C1C;
 }
+@media screen and (max-width: 400px) {
+  body main .mediaProfilIn article .bottomVideo .likeGlobal .likesVideo,
+body main .mediaProfilIn article .bottomVideo .likeGlobal .likesImg,
+body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesVideo,
+body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesImg,
+body main .mediaProfilIn article .bottomImg .likeGlobal .likesVideo,
+body main .mediaProfilIn article .bottomImg .likeGlobal .likesImg,
+body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesVideo,
+body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
 body main .mediaProfilIn article .bottomVideo .likeGlobal i,
 body main .mediaProfilIn article .bottomVideo .likeVideoGlobal i,
 body main .mediaProfilIn article .bottomImg .likeGlobal i,
 body main .mediaProfilIn article .bottomImg .likeVideoGlobal i {
-  margin-left: 0.5em;
   color: #901C1C;
   font-style: normal;
   font-size: 24px;
   line-height: 31px;
+}
+@media screen and (max-width: 400px) {
+  body main .mediaProfilIn article .bottomVideo .likeGlobal i,
+body main .mediaProfilIn article .bottomVideo .likeVideoGlobal i,
+body main .mediaProfilIn article .bottomImg .likeGlobal i,
+body main .mediaProfilIn article .bottomImg .likeVideoGlobal i {
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 body main .clickLike {
   background-image: blue;
@@ -548,6 +667,12 @@ body main .logoPhotographerPage {
 }
 body main .logoPhotographerPage img {
   width: 45%;
+  max-width: 25em;
+}
+@media screen and (max-width: 500px) {
+  body main .logoPhotographerPage {
+    padding-top: 2em;
+  }
 }
 body main .filtreBouton {
   cursor: pointer;
@@ -558,6 +683,11 @@ body main .filtreBouton {
 @media screen and (min-width: 2000px) {
   body main .filtreBouton {
     top: 34em;
+  }
+}
+@media screen and (max-width: 1227px) {
+  body main .filtreBouton {
+    top: 26em;
   }
 }
 @media screen and (max-width: 1024px) {

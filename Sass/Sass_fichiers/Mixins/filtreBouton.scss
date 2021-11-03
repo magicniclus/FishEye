@@ -1,5 +1,6 @@
 @mixin filtreBouton {
     .filtreBouton {
+        z-index: 1;
         cursor: pointer;
         position: absolute;
         display: flex;
@@ -7,6 +8,10 @@
 
         @media screen and (min-width: 2000px) {
             top: 34em;
+        }
+
+        @media  screen and (max-width: 1227px) {
+            top: 26em;
         }
 
         @media screen and (max-width: 1024px) {
