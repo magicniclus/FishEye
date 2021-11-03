@@ -11,6 +11,10 @@
         justify-content: space-around;
         align-items: center;
 
+        @media screen and (max-width: 1024px) {
+            right: 46.1%;
+        }
+
 
             .likedBaniere {
                 span {

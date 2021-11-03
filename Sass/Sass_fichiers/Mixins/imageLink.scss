@@ -7,6 +7,15 @@
     grid-template-columns: repeat(3, 350px);
     justify-content: space-between;
 
+    @media screen and (max-width : 1220px){
+        grid-template-columns: repeat(2, 45%);
+    }
+
+    @media screen and (max-width: 700px) {
+      grid-template-columns: repeat(1, 100%);
+      margin-top: 4em;
+  }
+
 
     article {
       margin-bottom: 2em;
@@ -14,7 +23,7 @@
       border-radius: 3px;
 
       .imgContainer, .videoContainer{
-        width: 350px;
+        width: 100%;
         height: 300px;
         overflow: hidden;
         border-radius: 5px;
@@ -24,7 +33,7 @@
 
       video,
       img {
-        width: 350px;
+        width: 100%;
         height: 300px;
         border-radius: 3px;
         object-fit: cover;
@@ -33,7 +42,7 @@
 
       .videoContainer video:hover,
       img:hover {
-        width: 350px;
+        width: 110%;
         height: 300px;
         cursor: pointer;
         transform: scale(1.1);
@@ -91,20 +100,6 @@
           }
         }
       }
-    }
-  }
-
-  @media screen and (max-width : 1220px){
-    .mediaProfilIn {
-      grid-template-columns: repeat(2, 45%);
-      
-    }
-  }
-
-  @media screen and (max-width : 800px){
-    .mediaProfilIn {
-      grid-template-columns: reeat(1, 90%);
-      
     }
   }
 
