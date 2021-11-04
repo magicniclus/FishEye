@@ -1,4 +1,4 @@
-//TODO : commanter le code
+//Création d'un bouton de filtre d'image 
 
 class FilterImage {
     constructor (domTarget, props, callBack){
@@ -12,6 +12,12 @@ class FilterImage {
         domTarget.appendChild(this.DOM);
     }
 
+
+    /**
+     * [render description]
+     *
+     * @return  {HTMLElement}  [return description]
+     */
     async render () {
         this.DOM.innerHTML = "<label for=\"filtre-select\">Trier par</label>";
         const select = document.createElement("div");
@@ -21,6 +27,14 @@ class FilterImage {
         this.makeOptions(select);
     }
 
+
+    /**
+     * [makeOptions description]
+     *
+     * @param   {HTMLElement}  container  [container description]
+     *
+     * @return  {Array}             [return description]
+     */
     makeOptions(container){
         if (!this.showList) {
             this.makeOption(container, this.selected);
@@ -30,6 +44,7 @@ class FilterImage {
             this.makeOption(container, option);
         });
     }
+
 
     /**
      * [makeOption description]
@@ -46,10 +61,26 @@ class FilterImage {
         container.appendChild(makeOption);
     }
 
+
+    /**
+     * [addArrow description]
+     *
+     * @param   {HMTLElement}  parent  [parent description]
+     *
+     * @return  {HTMLElement}          [return description]
+     */
     addArrow (parent){
         parent.innerHTML = `<i class="fas fa-angle-${this.showList ? 'up' : "down"}"></i>`;
     }
 
+
+    /**
+     * [click description]
+     *
+     * @param   {Boolean}  selected  [selected description]
+     *
+     * @return  {void}            [return description]
+     */
     click(selected){
         this.showList = !this.showList;
         if (this.showList) {

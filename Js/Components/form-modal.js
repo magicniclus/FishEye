@@ -196,6 +196,8 @@ class FormModal {
 
             if (validationName() == true && validationLastName() == true && validationMail() == true){
                 this.DOM.style.display = 'none';
+                const input = document.querySelectorAll('input');
+                console.log(input.values);
                 alert('Merci')
             }    
         })

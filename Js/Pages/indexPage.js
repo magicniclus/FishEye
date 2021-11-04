@@ -1,4 +1,3 @@
-//TODO : commanter le code
 /**
  * Gestiond de l'affichage de la page index 
  */
@@ -7,8 +6,6 @@ class IndexPage {
     constructor (props, domTarget) {
         this.dataManager = new DataManager(props);
         this.DOM = domTarget;
-        // this.showlist = false;
-        // this.showlist = !this.showlist;
         this.filters = [];
         new Header (this.DOM, 'Sample_Photos/logo/logo.png', this.showTag('.tagIn'), 'Nos photographes');
         new Link(this.DOM)
@@ -18,6 +15,12 @@ class IndexPage {
         this.render ();
     }
 
+
+    /**
+     * Gestion de l'affichage des element de la page index
+     *
+     * @return  {HTMLElement}  [return description]
+     */
     async render () {
         this.vignetteIn.innerText="";
         let data = await this.dataManager.getPhotographerList(this.filters);
@@ -27,6 +30,10 @@ class IndexPage {
         }
     }
 
+
+    /**
+     * Affichage des tags
+     */
     async showTag (inner) {
         let data = await this.dataManager.getMediaList();
         let tagArray = [];
@@ -42,6 +49,13 @@ class IndexPage {
         });
     }
 
+    /**
+     * Filtre des tags au click
+     *
+     * @param   {Array}  newTag  [newTag description]
+     *
+     * @return  {Array}          [return description]
+     */
     filterByTag(newTag){
         const index = this.filters.indexOf(newTag);
         if(index >= 0) this.filters.splice(index, 1);
