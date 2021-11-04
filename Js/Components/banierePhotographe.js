@@ -1,4 +1,4 @@
-//TODO : commanter le code
+//Baniere de bas de page de la page photographe
 
 class BanierePhotographe {
 
@@ -13,6 +13,11 @@ class BanierePhotographe {
         this.render();
     }
 
+    /**
+     * Creation de la baniere
+     *
+     * @return  {HTMLElement}  
+     */
     render () {
         this.DOM.innerHTML = `
             <div class='likedBaniere'>
@@ -23,6 +28,13 @@ class BanierePhotographe {
         <div class='priceBaniere'>${this.price}€ / jour</div>
     `    };
 
+    /**
+     * Récuperation des données de like et re-affichage à chaque changement 
+     *
+     * @param   {Number}  newSum  [newSum description]
+     *
+     * @return  {HTMLElement}
+     */
     updateLikes(newSum){
         this.totalLikes = newSum;
         this.render();
