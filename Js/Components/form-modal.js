@@ -211,9 +211,13 @@ class FormModal {
 
             if (validationName() == true && validationLastName() == true && validationMail() == true){
                 this.DOM.style.display = 'none';
-                const input = document.querySelectorAll('input');
-                console.log(input.values);
-                alert('Merci')
+                const inputFirst = document.querySelector('#first-name');
+                const inputLast = document.querySelector('#last-name');
+                const inputEmail = document.querySelector('#email');
+                console.log(inputFirst.value);
+                console.log(inputLast.value);
+                console.log(inputEmail.value);
+                // alert('Merci')
             }    
         })
     }
