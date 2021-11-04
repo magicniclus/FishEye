@@ -21,20 +21,23 @@ class FormModal {
 
         this.DOM.innerHTML = `
         <form action="#" method="POST">
-        <h2 class="contact">Contactez-moi <br> ${this.name}</h2>
-        <div class="prenom inputid">
+        <div class='topForm'>
+            <h2 class="contact">Contactez-moi <br> ${this.name}</h2>
+            <i class="fas fa-times closeIn"></i>
+        </div>    
+        <div class="prenom inputId">
             <label for="name">Prénom</label>
             <input type="text" name="user_name" id="first-name">
         </div>
-        <div class="prenom inputid">
+        <div class="prenom inputId">
             <label for="name">Nom</label>
             <input type="text" name="user_name" id="last-name">
         </div>
-        <div class="prenom inputid">
+        <div class="prenom inputId">
             <label for="name">Email</label>
             <input type="text" name="email" id="email">
         </div>
-        <div class="saisitext">
+        <div class="saisitext inputId">
             <label for="text">Votre message</label>
             <textarea></textarea>
         </div>
@@ -42,7 +45,6 @@ class FormModal {
         <div class="button">
             <button id="submit-btn" type="submit">Envoyer</button>
         </div>
-        <i class="fas fa-times closeIn"></i>
         </form> 
         `
 

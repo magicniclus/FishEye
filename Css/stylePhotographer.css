@@ -19,100 +19,218 @@ body a {
 body .formulaire {
   width: 50%;
   height: 98%;
-  max-height: 51em;
   max-width: 50em;
   background-color: #DB8876;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   border-radius: 5px;
   -webkit-box-shadow: -1px 5px 15px 5px rgba(0, 0, 0, 0.2);
   box-shadow: -1px 5px 15px 5px rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   right: 23em;
-}
-body .formulaire form {
-  max-height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
   overflow: auto;
 }
-body .formulaire form i {
-  position: absolute;
-  top: 25px;
-  right: 36px;
-  color: white;
-  font-size: 4em;
-  cursor: pointer;
+@media screen and (max-width: 650px) {
+  body .formulaire {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 0 0;
+  }
 }
-body .formulaire form h2 {
-  margin: 0;
-  margin-left: 35px;
-  text-align: start;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 64px;
-  line-height: 83px;
-}
-body .formulaire form .inputid label {
-  margin-left: 35px;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 36px;
-  line-height: 46px;
-  color: #312E2E;
-}
-body .formulaire form .inputid input {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 4em;
-  margin-left: 35px;
-  border-radius: 5px;
-  border: none;
-  border-color: #DB8876;
-}
-body .formulaire form .saisitext {
+body .formulaire form {
+  height: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
-  margin-left: 35px;
+  align-items: start;
 }
-body .formulaire form .saisitext label {
+body .formulaire form .topForm {
+  padding-top: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .formulaire form .topForm .contact {
+  font-size: 64px;
   font-weight: 400;
-  font-style: normal;
-  font-size: 36px;
-  line-height: 46px;
-  color: #312E2E;
+  line-height: 83px;
+  margin: 0;
 }
-body .formulaire form .saisitext textarea {
-  width: 84%;
-  height: 10em;
-  border-radius: 5px;
-  border-color: #DB8876;
+@media screen and (max-width: 1260px) {
+  body .formulaire form .topForm .contact {
+    font-size: 50px;
+    line-height: 66px;
+  }
 }
-body .formulaire form .button {
-  margin-top: 2em;
+@media screen and (max-width: 1000px) {
+  body .formulaire form .topForm .contact {
+    font-size: 40px;
+    line-height: 52px;
+  }
 }
-body .formulaire form .button button {
-  width: 10em;
-  height: 4em;
-  margin-left: 35px;
-  background-color: #901C1C;
+@media screen and (max-width: 820px) {
+  body .formulaire form .topForm .contact {
+    font-size: 30px;
+    line-height: 39px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .formulaire form .topForm .contact {
+    font-size: 36px;
+    line-height: 46px;
+  }
+}
+@media screen and (max-width: 370px) {
+  body .formulaire form .topForm .contact {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+body .formulaire form .topForm i {
+  font-size: 42px;
   color: white;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 23px;
+  margin-bottom: 2em;
+}
+@media screen and (max-width: 1260px) {
+  body .formulaire form .topForm i {
+    margin-bottom: 1.5em;
+  }
+}
+@media screen and (max-width: 1000px) {
+  body .formulaire form .topForm i {
+    margin-bottom: 1em;
+  }
+}
+@media screen and (max-width: 1000px) {
+  body .formulaire form .topForm i {
+    font-size: 35px;
+  }
+}
+@media screen and (max-width: 370px) {
+  body .formulaire form .topForm i {
+    font-size: 25px;
+    margin-bottom: 1.6em;
+  }
+}
+body .formulaire form .inputId {
+  width: 100%;
+  display: flex;
+  margin-top: 1em;
+  flex-direction: column;
+  justify-content: start;
+}
+body .formulaire form .inputId label {
+  color: #312E2E;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 46px;
+}
+@media screen and (max-width: 1260px) {
+  body .formulaire form .inputId label {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  body .formulaire form .inputId label {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 820px) {
+  body .formulaire form .inputId label {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .formulaire form .inputId label {
+    font-size: 24px;
+    line-height: 31px;
+  }
+}
+body .formulaire form .inputId input {
+  width: 100%;
+  height: 68px;
   border: none;
   border-radius: 5px;
-  margin-bottom: 1em;
-  cursor: pointer;
 }
-body .formulaire form -ms-input-placeholder {
-  font-size: 4em;
+@media screen and (max-width: 1260px) {
+  body .formulaire form .inputId input {
+    height: 60px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  body .formulaire form .inputId input {
+    height: 55px;
+  }
+}
+@media screen and (max-width: 820px) {
+  body .formulaire form .inputId input {
+    height: 40px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .formulaire form .inputId input {
+    height: 52px;
+  }
+}
+body .formulaire form .inputId textarea {
+  width: 100%;
+  height: 170px;
+  border: none;
+  border-radius: 5px;
+}
+@media screen and (max-width: 1260px) {
+  body .formulaire form .inputId textarea {
+    height: 140px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  body .formulaire form .inputId textarea {
+    height: 110px;
+  }
+}
+@media screen and (max-width: 820px) {
+  body .formulaire form .inputId textarea {
+    height: 90px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .formulaire form .inputId textarea {
+    height: 184px;
+  }
+}
+body .formulaire form .button {
+  width: 100%;
+}
+@media screen and (max-width: 650px) {
+  body .formulaire form .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+body .formulaire form .button button {
+  height: 69px;
+  width: 170px;
+  color: white;
+  background-color: #901C1C;
+  border: none;
+  font-size: 18px;
+  line-height: 23px;
+  border-radius: 5px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+@media screen and (max-width: 650px) {
+  body .formulaire form .button button {
+    height: 35px;
+  }
 }
 body .lightbox {
   position: fixed;
@@ -675,6 +793,7 @@ body main .logoPhotographerPage img {
   }
 }
 body main .filtreBouton {
+  z-index: 1;
   cursor: pointer;
   position: absolute;
   display: flex;
