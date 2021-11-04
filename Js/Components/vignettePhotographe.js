@@ -1,5 +1,4 @@
 // Création de vignette photographer pour la page index
-//TODO : commanter le code
 
 class VignettePhotographer {
     constructor (props, domTarget) {
@@ -24,6 +23,12 @@ class VignettePhotographer {
         this.showTags();
     }
 
+
+    /**
+     * [showVignette description]
+     *
+     * @return  {ReturnType}  [return description]
+     */
     showVignette () {
         return this.DOM.innerHTML =`
         <a href="./photographerPage.html?id=${this.id}" class="newVignette">
@@ -36,6 +41,12 @@ class VignettePhotographer {
         `
     }
 
+
+    /**
+     * [showTags description]
+     *
+     * @return  {HTMLElement}  [return description]
+     */
     showTags () {
         const container = document.createElement("div");
         container.className="tagButton";

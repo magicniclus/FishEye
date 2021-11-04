@@ -1,5 +1,4 @@
 // Création des tags pour le header
-//TODO : commanter le code
 
 class Tags {
     /**
@@ -13,7 +12,6 @@ class Tags {
     constructor (props, domTarget, callback) {
         this.valide = false;
         this.DOM = document.createElement('button');
-        //this.DOM.classList.add('tag')
         domTarget.appendChild(this.DOM);
         this.DOM.innerHTML = `#${props}`;
         this.DOM.onclick = () => {

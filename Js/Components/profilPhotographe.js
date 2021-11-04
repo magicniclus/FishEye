@@ -1,5 +1,4 @@
 // Ajout du profil de chaque photographe dans leurs page
-//TODO : commanter le code
 
 class ProfilPhotographe {
     constructor(props, domTarget) {
@@ -16,14 +15,19 @@ class ProfilPhotographe {
         this.tags = props.tags;
         this.id = props.id;
         this.description = props.descritpion;
-        
+
 
         this.render();
         this.showTags();
     }
 
-    render() {
 
+    /**
+     * [render description]
+     *
+     * @return  {ReturnType}  [return description]
+     */
+    render() {
         return this.DOM.innerHTML = `
             <div class="profil">
                 <h1 class="profilName">${this.name}</h1>
@@ -38,8 +42,13 @@ class ProfilPhotographe {
         `
     }
 
-    showTags() {
 
+    /**
+     * [showTags description]
+     *
+     * @return  {HTMLElement}  [return description]
+     */
+    showTags() {
         for (const tag of this.tags) {
             const tagIn = document.querySelector('.profilTag');
             const tagsIn = document.createElement('span');

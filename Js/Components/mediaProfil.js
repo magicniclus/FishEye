@@ -1,5 +1,4 @@
 //Ajout des media en fonction de leurs type
-//TODO : commanter le code
 
 class MediaProfil {
     constructor(data, domTarget, callbacks) {
@@ -15,6 +14,12 @@ class MediaProfil {
         this.render();
     }
 
+
+    /**
+     * [render description]
+     *
+     * @return  {HTMLElement}  [return description]
+     */
     render() {
         this.DOM.innerHTML = this.image ? this.templateImage() : this.templateVideo();
         const bottom = document.createElement("div");
@@ -30,6 +35,12 @@ class MediaProfil {
     }
 
 
+
+    /**
+     * [templateImage description]
+     *
+     * @return  {ReturnType}  [return description]
+     */
     templateImage() {
         return `
             <div class='imgContainer'>
@@ -38,6 +49,12 @@ class MediaProfil {
         `; 
     }
 
+
+    /**
+     * [templateVideo description]
+     *
+     * @return  {ReturnType}  [return description]
+     */
     templateVideo() {
         return `
                 <div class='videoContainer'>
@@ -48,6 +65,14 @@ class MediaProfil {
         `; 
     }
 
+
+    /**
+     * [showLikes description]
+     *
+     * @param   {Array}  domTarget  [domTarget description]
+     *
+     * @return  {HTMLElement}             [return description]
+     */
     async showLikes(domTarget) {
         const container = document.createElement("div");
         container.className = "likeGlobal";
@@ -61,6 +86,14 @@ class MediaProfil {
         domTarget.appendChild(container);
     }
 
+
+    /**
+     * [likeClick description]
+     *
+     * @param   {Event}  event  [event description]
+     *
+     * @return  {Boolean}         [return description]
+     */
     likeClick(event) {
         event.preventDefault();
         event.stopPropagation();

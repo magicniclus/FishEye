@@ -1,5 +1,3 @@
-//TODO : commanter le code
-
 //page de creation de formulaire
 
 /**
@@ -157,6 +155,14 @@ class FormModal {
         }
 
 
+        /**
+         * [addEventListener description]
+         *
+         * @param   {Event}  keyup  [keyup description]
+         * @param   {Event}  e      [e description]
+         *
+         * @return  {Boolean}         [return description]
+         */
         form.addEventListener('keyup', e => {
             e.preventDefault();
 
@@ -173,6 +179,15 @@ class FormModal {
             } else email.style.border = '2px solid green';
         })
 
+
+        /**
+         * [addEventListener description]
+         *
+         * @param   {Event}  submit  [submit description]
+         * @param   {Event}  e       [e description]
+         *
+         * @return  {Boolean}          [return description]
+         */
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             

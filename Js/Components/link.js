@@ -1,5 +1,4 @@
 //Lien haut de page
-//TODO : commanter le code
 
 class Link {
     constructor (domTarget) {
@@ -20,6 +19,11 @@ class Link {
         this.showScroll();
     }
 
+    /**
+     * [showScroll description]
+     *
+     * @return  {ScrollOptions}  [return description]
+     */
     showScroll () {
         const ratio = .1;
         const options = {

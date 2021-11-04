@@ -1,4 +1,4 @@
-//TODO : commanter le code
+//Création de la lightbox
 
 class Lightbox {
 
@@ -61,11 +61,24 @@ class Lightbox {
         }
     }
 
+
+    /**
+     * [findIndex description]
+     *
+     * @return  {Index}  [return description]
+     */
     findIndex(){
         for (let i=0, size = this.list.length; i<size; i++){
             if (this.list[i].id === this.id) return i;
         }
     }
+
+
+    /**
+     * [makeContainer description]
+     *
+     * @return  {HTMLElement}  [return description]
+     */
     makeContainer() {        
         const container = document.createElement("div");
         container.className = "lightbox__container";
@@ -73,11 +86,23 @@ class Lightbox {
         return container;
     }
 
+
+    /**
+     * [render description]
+     *
+     * @return  {HTMLElement}  [return description]
+     */
     render(){
         this.container.innerHTML = this.image ? this.templateImg() : this.templateVideo();
 
     }
 
+
+    /**
+     * [templateImg description]
+     *
+     * @return  {ReturnType}  [return description]
+     */
     templateImg () {
         return `
             <div class='lightbox__container__in'>
@@ -88,6 +113,12 @@ class Lightbox {
     }
 
 
+
+    /**
+     * [templateVideo description]
+     *
+     * @return  {ReturnType}  [return description]
+     */
     templateVideo () {
         return ` 
             <div class='lightbox__container__in'>
@@ -118,6 +149,12 @@ class Lightbox {
         return this.button;
     }
 
+
+    /**
+     * [keyBoardEvent description]
+     *
+     * @return  {void}  [return description]
+     */
     keyBoardEvent(){
         document.addEventListener('keyup', (key) => {
             if(key.key === 'ArrowRight' && this.index < this.list.length){
@@ -133,20 +170,49 @@ class Lightbox {
         })
     }
 
+
+    /**
+     * [closeModal description]
+     *
+     * @param   {HTMLElement}  element  [element description]
+     * @param   {HTMLElement}  parent   [parent description]
+     *
+     * @return  {Event}           [return description]
+     */
     closeModal(element, parent){
         element.addEventListener('click', () => {
             parent.style.display = 'none';
         })
     }
 
+
+    /**
+     * [next description]
+     *
+     * @return  {Boolean}  [return description]
+     */
     next(){
         this.showNewMedia(true);
     }
 
+
+    /**
+     * [prev description]
+     *
+     * @return  {Boolean}  [return description]
+     */
     prev(){
         this.showNewMedia(false);
     }
 
+
+    /**
+     * [showNewMedia description]
+     *
+     * @param   {Boolean}  next  [next description]
+     *
+     * @return  {HTMLElement}        [return description]
+     */
     showNewMedia(next){
         this.index += next ? 1 : -1;
         const {
