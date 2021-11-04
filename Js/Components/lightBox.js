@@ -150,11 +150,12 @@ class Lightbox {
     showNewMedia(next){
         this.index += next ? 1 : -1;
         const {
-            image, video, description, title, name, id
+            image, video, descritpion, title, name, id
         } = this.list[this.index];
         this.id = id;
         this.name = name;
         this.title = title;
+        this.descritpion = descritpion;
         if (video){
             delete this.image;
             this.video = video;
