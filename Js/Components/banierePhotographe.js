@@ -2,6 +2,14 @@
 
 class BanierePhotographe {
 
+    /**
+     * [constructor description]
+     *
+     * @param   {HTMLElement}  domTarget   [domTarget description]
+     * @param   {object}  totalLikes  [totalLikes description]
+     * @param   {Object}  price       [price description]
+     *
+     */
     constructor (domTarget, totalLikes, price){
         
         this.DOM = document.createElement('div');
@@ -16,7 +24,7 @@ class BanierePhotographe {
     /**
      * Creation de la baniere
      *
-     * @return  {HTMLElement}  
+     * @return  {void}  
      */
     render () {
         this.DOM.innerHTML = `
@@ -33,7 +41,7 @@ class BanierePhotographe {
      *
      * @param   {Number}  newSum  [newSum description]
      *
-     * @return  {HTMLElement}
+     * @return  {void}
      */
     updateLikes(newSum){
         this.totalLikes = newSum;

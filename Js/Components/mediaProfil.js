@@ -1,6 +1,16 @@
 //Ajout des media en fonction de leurs type
 
 class MediaProfil {
+
+    /**
+     * [constructor description]
+     *
+     * @param   {Object}  data       Récuperation de la data pour l'affichages des images/videos 
+     * @param   {HTMLElement}  domTarget  Endroit du DOM ou sera appelé la class
+     * @param   {function}  callbacks  fonction de callBack au clisk sur les images pour l'affichage de la lightbox et sur les likes pour
+     * l'incrémentation ou la décrémentation des likes
+     *
+     */
     constructor(data, domTarget, callbacks) {
         this.DOM = document.createElement("article");
         this.DOM.setAttribute("class", 'photographerImg')
@@ -8,6 +18,7 @@ class MediaProfil {
         for (const [key, value] of Object.entries(data)) {
             this[key] = value;
         }
+        //Appel de la lightbox au click sur le dom 
         this.DOM.onclick = () => callbacks.lightbox(data);
         this.likeCallback = callbacks.likes;
         this.liked = false;
@@ -16,9 +27,9 @@ class MediaProfil {
 
 
     /**
-     * [render description]
+     * Gestion de l'affichage de MediaProfil
      *
-     * @return  {HTMLElement}  [return description]
+     * @return  {void}  [return description]
      */
     render() {
         this.DOM.innerHTML = this.image ? this.templateImage() : this.templateVideo();
@@ -37,9 +48,8 @@ class MediaProfil {
 
 
     /**
-     * [templateImage description]
+     * templete de l'ffichage des images si la data recu renvoie une image
      *
-     * @return  {ReturnType}  [return description]
      */
     templateImage() {
         return `
@@ -51,9 +61,7 @@ class MediaProfil {
 
 
     /**
-     * [templateVideo description]
-     *
-     * @return  {ReturnType}  [return description]
+     * templete de l'ffichage des videos si la data recu renvoie une video
      */
     templateVideo() {
         return `
@@ -67,11 +75,11 @@ class MediaProfil {
 
 
     /**
-     * [showLikes description]
+     * Template d'affichage des likes sous les media et appel de la fonciton de callback 
+     * likeClick bindé pour remettre dans le context 
      *
-     * @param   {Array}  domTarget  [domTarget description]
+     * @param   {HTMLElement} domTarget  [domTarget description]
      *
-     * @return  {HTMLElement}             [return description]
      */
     async showLikes(domTarget) {
         const container = document.createElement("div");
@@ -88,11 +96,12 @@ class MediaProfil {
 
 
     /**
-     * [likeClick description]
+     * Ajout de la fonciton de callBack au click si this.liked = true 
+     * et re-affichage du render au click
      *
      * @param   {Event}  event  [event description]
      *
-     * @return  {Boolean}         [return description]
+     * @return  {void}         [return description]
      */
     likeClick(event) {
         event.preventDefault();
@@ -105,6 +114,4 @@ class MediaProfil {
         this.likeCallback(this.liked);
         this.render();
     }
-
-    
 }

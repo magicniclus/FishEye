@@ -25,7 +25,7 @@ class DataManager {
      *
      * @param   {Array.<String>}  filters  [filters description]
      *
-     * @return  {array}           [return description]
+     * @return  {}           [return description]
      */
     async getPhotographerList(filters) {
         if (Object.entries(this.data).length === 0) await this.getAllData();

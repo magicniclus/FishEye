@@ -20,11 +20,13 @@ class Link {
     }
 
     /**
-     * [showScroll description]
+     * Gestion de l'affichage du lien si on déscent en dessous du header 
      *
-     * @return  {ScrollOptions}  [return description]
+     * @return  {void}  [return description]
      */
     showScroll () {
+
+        //ration de réference 
         const ratio = .1;
         const options = {
             root: null,
@@ -32,6 +34,14 @@ class Link {
             threshold: .1
         }
 
+        /**
+         * Fonction de gestion de l'affichage du bouton au scoll. Le bouton s'affiche si le 
+         * ration est inferieur a celui defini dans la const ratio par rapport à l'élément obervé 
+         *
+         * @param   {ScrollIntoViewOptions}  entries   [entries description]
+         * @param   {HTMLElement}  observer  [observer description]
+         *
+         */
         const callback = function (entries, observer) {
             entries.forEach( (entry) => {
                 const top = document.querySelector('.linkBtn');
@@ -44,6 +54,7 @@ class Link {
                 }
             });
         }
+
 
         const observer = new IntersectionObserver(callback, options);
         observer.observe(document.querySelector('header'));

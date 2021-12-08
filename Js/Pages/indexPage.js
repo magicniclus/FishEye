@@ -3,6 +3,13 @@
  */
 class IndexPage {
     
+    /**
+     * Constructor
+     *
+     * @param   {Object}  props      [props description]
+     * @param   {HTMLElement}  domTarget  [domTarget description]
+     *
+     */
     constructor (props, domTarget) {
         this.dataManager = new DataManager(props);
         this.DOM = domTarget;
@@ -17,9 +24,10 @@ class IndexPage {
 
 
     /**
-     * Gestion de l'affichage des element de la page index
+     * Gestion de l'affichage des elements de la page index:
+     * Affichage des vignettes grace aux data et en fonction de this.filters qui est remplis au click sur les tags
+     * grace à la fonction filterByTag
      *
-     * @return  {HTMLElement}  [return description]
      */
     async render () {
         this.vignetteIn.innerText="";
@@ -32,7 +40,12 @@ class IndexPage {
 
 
     /**
-     * Affichage des tags
+     * Ajout des tags dans le header grace à la class Tags
+     * et filtre des profils en fonction de true ou false du inner
+     *
+     * @param   {boolean}  inner  [inner description]
+     * 
+     *
      */
     async showTag (inner) {
         let data = await this.dataManager.getMediaList();
@@ -50,11 +63,12 @@ class IndexPage {
     }
 
     /**
-     * Filtre des tags au click
+     * Filtre des tags au click et gestion gestion du render en fonction des tags cliqués 
+     * c'est fonction callBack de la class Tags
      *
      * @param   {Array}  newTag  [newTag description]
      *
-     * @return  {Array}          [return description]
+     * @return  {void}          [return description]
      */
     filterByTag(newTag){
         const index = this.filters.indexOf(newTag);

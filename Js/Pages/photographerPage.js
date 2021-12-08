@@ -6,6 +6,14 @@ class PhotographerPage {
     totalLikes;
     banniere;
 
+    /**
+     * Gestion de l'affichage de la page photographe
+     * et des differents éléments nessesaires au différentes fonctions
+     *
+     * @param   {Object}  props      Appel du dataManager
+     * @param   {HTMLElement}  domTarget  
+     *
+     */
     constructor(props, domTarget) {
         this.dataManager = new DataManager(props);
         this.DOM = domTarget;
@@ -23,7 +31,6 @@ class PhotographerPage {
     /**
      * Gestion des premiers affichage des éléments statiques
      *
-     * @return  {HTMLElement} 
      */
     async firstRender() {
         this.DOM.innerText = "";
@@ -42,7 +49,6 @@ class PhotographerPage {
     /**
      * Gestion de l'affichage des media en fonction de l'interaction de l'utilisateur 
      *
-     * @return  {HTMLElement}  
      */
     async render() {
         this.mediaProfilIn.innerText = "";
@@ -53,7 +59,6 @@ class PhotographerPage {
     /**
      * Affichage de la vignette photographe en récuperant la class "PhofilPhotographe"
      *
-     * @return  {HTMLElement}
      */
     async showProfilPhotographe() {
         const data = await this.dataManager.getPhotographerById(this.id);
@@ -63,9 +68,8 @@ class PhotographerPage {
 
 
     /**
-     * Ajout du bouton de filtre des images en récuperant la class newFilterImage
+     * Ajout du bouton de filtre des images en récuperant la class newFilterImage et appel de fonction callBack updateFilter que l'on bind pour la remettre dans le context
      *
-     * @return  {HTMLElement} 
      */
     async addFilterImage() {
         const newFilterImage = new FilterImage(this.DOM, this.filters, this.updateFilter.bind(this));
@@ -73,9 +77,11 @@ class PhotographerPage {
 
 
     /**
-     * Affichage des media en récuperant la class mediaProfil
+     * Affichage des media en récuperant la class getOrderMedia qui filtre les media au click sur les differents options du bouton de filtre
+     * les options sont définis dans this.filters
+     * Ajout des fonction de callBack this.showLightBox et updateLikesToTotal au click sur les images ou sur les les likes 
+     * bind des ces derniers pour la remise dans le context
      *
-     * @return  {HTMLElement}
      */
     async showMediaProfil() {
         const data = await this.dataManager.getOrderedMedia(this.id, this.currentFilter);
@@ -94,9 +100,9 @@ class PhotographerPage {
 
 
     /**
-     * Affichage de la lightbox en récuperant la class lightbox 
+     * Affichage de la lightbox en récuperant la class lightbox qui est appelé en fonction de callBack dans la fonction showMediaProfil
+     * 
      *
-     * @return  {HTMLElement}
      */
     async showLightbox(dataMedia) {
         new Lightbox(this.DOM, { ...dataMedia, list: this.list });
@@ -106,7 +112,6 @@ class PhotographerPage {
     /**
      * Affichage du formulaire en récuperant la class FormModal
      *
-     * @return  {Form}  [return description]
      */
     async showFormModal() {
         const data = await this.dataManager.getPhotographerById(this.id);
@@ -115,7 +120,7 @@ class PhotographerPage {
     }
 
     /**
-     * [addLikesToTotal description]
+     * Modification de la valuer des tags de +1 ou -1 en fonction du boolean add 
      *
      * @param   {Boolean}  add  true : ajoute false : retitre
      *
@@ -132,7 +137,7 @@ class PhotographerPage {
      *
      * @param   {ListeningState}  filter  [filter description]
      *
-     * @return  {[Array}          [return description]
+     * @return  {void}          [return description]
      */
     updateFilter(filter) {
         this.currentFilter = filter;
@@ -145,7 +150,7 @@ class PhotographerPage {
      *
      * @param   {HTMLElement}  parent  [parent description]
      *
-     * @return  {HTMLElement}          [return description]
+     * @return  {void}          [return description]
      */
     addLogo(parent) {
         this.logo = document.createElement('a');

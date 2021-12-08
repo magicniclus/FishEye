@@ -214,10 +214,10 @@ class FormModal {
                 const inputFirst = document.querySelector('#first-name');
                 const inputLast = document.querySelector('#last-name');
                 const inputEmail = document.querySelector('#email');
-                console.log(inputFirst.value);
-                console.log(inputLast.value);
-                console.log(inputEmail.value);
-                // alert('Merci')
+                console.log('Nom: '+inputFirst.value);
+                console.log('Prenom: '+inputLast.value);
+                console.log('Email: '+inputEmail.value);
+                alert('Merci')
             }    
         })
     }

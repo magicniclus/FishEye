@@ -27,6 +27,13 @@ class Lightbox {
      */
     nextButton;
 
+    /**
+     * [constructor description]
+     *
+     * @param   {HTMLElement}  domTarget  [domTarget description]
+     * @param   {Object}  props      [props description]
+     *
+     */
     constructor(domTarget, props) {
         this.DOM = document.createElement("div");
         this.DOM.setAttribute('class', 'lightbox')
@@ -44,6 +51,8 @@ class Lightbox {
         this.nextButton = this.makeButton("next", "chevron-right", this.next);
         this.prevButton = this.makeButton("prev", "chevron-left", this.prev);
         this.keyBoardEvent();
+
+        //Gestion de l'affichage des flèches directionnelles à l'initialisation de la lightBox
         if (this.index === 0){
             this.nextButton.classList.add("visible"); 
             this.prevButton.classList.remove("visible"); 
@@ -63,9 +72,9 @@ class Lightbox {
 
 
     /**
-     * [findIndex description]
+     * Gestion de l'index des images a l'initialisation
      *
-     * @return  {Index}  [return description]
+     * @return  {void}  
      */
     findIndex(){
         for (let i=0, size = this.list.length; i<size; i++){
@@ -75,9 +84,9 @@ class Lightbox {
 
 
     /**
-     * [makeContainer description]
+     * [makeContainer]
      *
-     * @return  {HTMLElement}  [return description]
+     * @return  {HTMLElement}  
      */
     makeContainer() {        
         const container = document.createElement("div");
@@ -88,9 +97,9 @@ class Lightbox {
 
 
     /**
-     * [render description]
+     * Gestion de l'affichage des élément en fonction de si le data nous retourn une image ou une video 
      *
-     * @return  {HTMLElement}  [return description]
+     * @return  {void}  [return description]
      */
     render(){
         this.container.innerHTML = this.image ? this.templateImg() : this.templateVideo();
@@ -99,9 +108,8 @@ class Lightbox {
 
 
     /**
-     * [templateImg description]
+     * templete de l'ffichage des images si la data recu renvoie une image
      *
-     * @return  {ReturnType}  [return description]
      */
     templateImg () {
         return `
@@ -115,9 +123,8 @@ class Lightbox {
 
 
     /**
-     * [templateVideo description]
+     * templete de l'ffichage des videos si la data recu renvoie une video
      *
-     * @return  {ReturnType}  [return description]
      */
     templateVideo () {
         return ` 
@@ -132,13 +139,14 @@ class Lightbox {
 
 
  /**
-  * [makeButton description]
+  * Création des boutton en fonction de leurs noms
+  * Modification de l'image au click sur le boutton 
   *
   * @param   {String}  classname  [classname description]
   * @param   {String}  icon       [icon description]
   * @param   {Function}  callback   [callback description]
   *
-  * @return  {[type]}             [return description]
+  * @return  {HTMLElement}             [return description]
   */
     makeButton(classname,icon, callback){
         this.button = document.createElement("button");
@@ -151,7 +159,7 @@ class Lightbox {
 
 
     /**
-     * [keyBoardEvent description]
+     * Event au click du clavier droite gauche ou échape 
      *
      * @return  {void}  [return description]
      */
@@ -159,10 +167,8 @@ class Lightbox {
         document.addEventListener('keyup', (key) => {
             if(key.key === 'ArrowRight' && this.index < this.list.length){
                 this.next();
-                this.render()
             }else if (key.key ==='ArrowLeft' && this.index >= 0){
-                this.prev();
-                this.render()
+               this.prev();
             }else if (key.key === 'Escape'){
                 this.DOM.style.display='none';
                 this.render();
@@ -172,12 +178,12 @@ class Lightbox {
 
 
     /**
-     * [closeModal description]
+     * Fermeture de la modale au click sur la croix 
      *
-     * @param   {HTMLElement}  element  [element description]
-     * @param   {HTMLElement}  parent   [parent description]
+     * @param   {HTMLElement}  element  le bouton close
+     * @param   {HTMLElement}  parent   la lightbox
      *
-     * @return  {Event}           [return description]
+     * @return  {void}           [return description]
      */
     closeModal(element, parent){
         element.addEventListener('click', () => {
@@ -187,9 +193,8 @@ class Lightbox {
 
 
     /**
-     * [next description]
      *
-     * @return  {Boolean}  [return description]
+     * @return  {void}  [return description]
      */
     next(){
         this.showNewMedia(true);
@@ -197,9 +202,8 @@ class Lightbox {
 
 
     /**
-     * [prev description]
      *
-     * @return  {Boolean}  [return description]
+     * @return  {void}  [return description]
      */
     prev(){
         this.showNewMedia(false);
@@ -207,14 +211,20 @@ class Lightbox {
 
 
     /**
-     * [showNewMedia description]
+     * Gestion de l'affichage des media suivant ou précédent 
+     * si c'est une video on supprome la template image et on ajout celle des videos et si c'est une image on fait l'inverse
+     * Ajout aussi de l'affichage des éléments de direction en fonction de la position de next dans le tableau et on 
+     * appel render pour afficher les nouvelles données
      *
      * @param   {Boolean}  next  [next description]
      *
      * @return  {HTMLElement}        [return description]
      */
     showNewMedia(next){
-        this.index += next ? 1 : -1;
+        const newIndex = this.index +  (next ? 1 : -1);
+        if (newIndex < 0 || newIndex >= this.list.length) return;
+        this.index = newIndex;
+
         const {
             image, video, descritpion, title, name, id
         } = this.list[this.index];

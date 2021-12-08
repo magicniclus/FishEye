@@ -2,7 +2,8 @@
 
 class Tags {
     /**
-     * [constructor description]
+     * Affichage de l'ensemble des tags et filtre des ces derniers au click grace à la fonction callBack appelé dans indexPage.js
+     * grace à this.valide, si this.valide renvoie true, la fonciton callBack est appelé 
      *
      * @param   {String}  props      nom du tag
      * @param   {HTMLElement}  domTarget  [domTarget description]

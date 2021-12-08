@@ -1,6 +1,16 @@
 //Création d'un bouton de filtre d'image 
 
 class FilterImage {
+
+    /**
+     * [constructor description]
+     *
+     * @param   {[type]}  domTarget  [domTarget description]
+     * @param   {[type]}  props      [props description]
+     * @param   {[type]}  callBack   [callBack description]
+     *
+     * @return  {[type]}             [return description]
+     */
     constructor (domTarget, props, callBack){
         this.DOM = document.createElement('span');
         this.DOM.setAttribute('class', 'filtreBouton');
@@ -16,7 +26,6 @@ class FilterImage {
     /**
      * [render description]
      *
-     * @return  {HTMLElement}  [return description]
      */
     async render () {
         this.DOM.innerHTML = "<label for=\"filtre-select\">Trier par</label>";
