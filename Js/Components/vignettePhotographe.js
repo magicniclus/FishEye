@@ -39,7 +39,6 @@ class VignettePhotographer {
     /**
      * Création du HTML à retourner dans le DOM
      *
-     * @return  {ReturnType}  [return description]
      */
     showVignette () {
         return this.DOM.innerHTML =`
@@ -57,7 +56,6 @@ class VignettePhotographer {
     /**
      * Création du HTML de l'ensemble des tag attribué a un profil à retourné dans le render
      *
-     * @return  {HTMLElement}  [return description]
      */
     showTags () {
         const container = document.createElement("div");

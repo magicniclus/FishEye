@@ -1,16 +1,18 @@
 //page de creation de formulaire
 
+
 /**
  * Formulaire de contact
  */
 class FormModal {
+
     /**
      * constructeur du formulaire permetant de selectionner l'emplacement voulu pour ce dernier 
      *
-     * @param   {[String]}  domTarget  [domTarget description]
+     * @param   {HTMLElement}  domTarget  [domTarget description]
+     * @param   {HTMLElement}  name       [name description]
      *
-     * @return  {innerHTML}  
-     */    
+     */   
     constructor (domTarget, name) {
 
         this.name = name;
@@ -51,12 +53,9 @@ class FormModal {
         domTarget.appendChild(this.DOM)
 
 
-        /**
-         * Mise en place de la lunchModal et de la closeModal
-         *
-         */
-        const form = document.querySelector(".formulaire")
+        const form = document.querySelector(".formulaire");
 
+        // @ts-ignore
         form.style.display='none';
 
 
@@ -68,6 +67,7 @@ class FormModal {
          let launchBtn = document.querySelector('.button-div');
  
          launchBtn.addEventListener("click", function(){
+             // @ts-ignore
              form.style.display='flex';
          })
 
@@ -82,11 +82,13 @@ class FormModal {
         let closeBtn = document.querySelector('.closeIn');
 
         closeBtn.addEventListener("click", function(){
+            // @ts-ignore
             form.style.display='none';
         })
 
         document.addEventListener('keyup', (key) => {
             if(key.key == 'Escape'){
+                // @ts-ignore
                 form.style.display ='none';
             }
         })
@@ -101,6 +103,7 @@ class FormModal {
         const firstName = document.querySelector('#first-name');
         const lastName  = document.querySelector('#last-name');
         const email     = document.querySelector('#email');
+        // @ts-ignore
         const submitBtn = document.querySelector("#submit-btn");
 
         const rejexName = /^[a-zA-Z]{2}/;
@@ -111,9 +114,9 @@ class FormModal {
          /**
          * vérification grace aux rejex du first-name
          *
-         * @param   {string}  #first-name  [#first-name description]
+         * @param   {string}  
          *
-         * @return  {boolean}               [return description]
+         * @return {boolean}               [return description]
          */
         function validationName () {
             if (firstName.value == '' || rejexName.test(firstName.value.trim()) === false){
@@ -165,15 +168,21 @@ class FormModal {
             e.preventDefault();
 
             if (validationName() == false){
+                // @ts-ignore
                 firstName.style.border = '2px solid red';
+            // @ts-ignore
             } else firstName.style.border = '2px solid green';
             
             if (validationLastName() == false){
+                // @ts-ignore
                 lastName.style.border = '2px solid red';
+            // @ts-ignore
             } else lastName.style.border = '2px solid green';
             
             if (validationMail() == false){
+                // @ts-ignore
                 email.style.border = '2px solid red';
+            // @ts-ignore
             } else email.style.border = '2px solid green';
         })
 
@@ -190,20 +199,26 @@ class FormModal {
             e.preventDefault();
             
             if (validationName() == false){
+                // @ts-ignore
                 firstName.style.border = '2px solid red';
             } else {
+                // @ts-ignore
                 firstName.style.border = '2px solid green';
             } 
             
             if (validationLastName() == false){
+                // @ts-ignore
                 lastName.style.border = '2px solid red';
             } else {
+                // @ts-ignore
                 lastName.style.border = '2px solid green';
             }
             
             if (validationMail() == false){
+                // @ts-ignore
                 email.style.border = '2px solid red';
             } else {
+                // @ts-ignore
                 email.style.border = '2px solid green';
             }
 

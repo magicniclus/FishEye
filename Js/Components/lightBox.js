@@ -14,6 +14,7 @@ class Lightbox {
     video;
     image;
     descritpion;
+    index;
 
 
 
@@ -53,11 +54,13 @@ class Lightbox {
         this.keyBoardEvent();
 
         //Gestion de l'affichage des flèches directionnelles à l'initialisation de la lightBox
+        // @ts-ignore
         if (this.index === 0){
             this.nextButton.classList.add("visible"); 
             this.prevButton.classList.remove("visible"); 
             this.render();
         }
+        // @ts-ignore
         else if (this.index >= this.list.length -1){
             this.nextButton.classList.remove("visible"); 
             this.prevButton.classList.add("visible"); 
@@ -78,6 +81,7 @@ class Lightbox {
      */
     findIndex(){
         for (let i=0, size = this.list.length; i<size; i++){
+            // @ts-ignore
             if (this.list[i].id === this.id) return i;
         }
     }
@@ -161,12 +165,12 @@ class Lightbox {
     /**
      * Event au click du clavier droite gauche ou échape 
      *
-     * @return  {void}  [return description]
      */
     keyBoardEvent(){
         document.addEventListener('keyup', (key) => {
             if(key.key === 'ArrowRight' && this.index < this.list.length){
                 this.next();
+            // @ts-ignore
             }else if (key.key ==='ArrowLeft' && this.index >= 0){
                this.prev();
             }else if (key.key === 'Escape'){
@@ -221,12 +225,14 @@ class Lightbox {
      * @return  {HTMLElement}        [return description]
      */
     showNewMedia(next){
+        // @ts-ignore
         const newIndex = this.index +  (next ? 1 : -1);
         if (newIndex < 0 || newIndex >= this.list.length) return;
         this.index = newIndex;
 
         const {
             image, video, descritpion, title, name, id
+        // @ts-ignore
         } = this.list[this.index];
         this.id = id;
         this.name = name;
@@ -240,10 +246,12 @@ class Lightbox {
             delete this.video;
             this.image = image;
         }
+        // @ts-ignore
         if (this.index === 0) {
             this.prevButton.classList.remove("visible");
             this.nextButton.classList.add("visible"); 
             this.render();
+        // @ts-ignore
         }else if (this.index === this.list.length -1){
             this.nextButton.classList.remove("visible");
             this.prevButton.classList.add("visible"); 

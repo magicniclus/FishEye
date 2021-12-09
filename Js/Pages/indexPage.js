@@ -14,6 +14,7 @@ class IndexPage {
         this.dataManager = new DataManager(props);
         this.DOM = domTarget;
         this.filters = [];
+        // @ts-ignore
         new Header (this.DOM, 'Sample_Photos/logo/logo.png', this.showTag('.tagIn'), 'Nos photographes');
         new Link(this.DOM)
         this.vignetteIn = document.createElement('div');

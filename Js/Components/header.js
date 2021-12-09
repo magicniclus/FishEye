@@ -4,8 +4,7 @@ class Header {
      * [constructor description]
      *
      * @param   {HTMLElement}  domTarget  [domTarget description]
-     * @param   {HTMLElement}  img        [img description]
-     * @param   {HTMLElement}  tag        [tag description]
+     * @param   {string}  img        [img description]
      * @param   {Object}  title      [title description]
      *
      */

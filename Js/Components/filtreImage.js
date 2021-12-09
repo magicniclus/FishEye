@@ -73,9 +73,6 @@ class FilterImage {
     /**
      * gestion du sens de la fleche 
      *
-     * @param   {HMTLElement}  parent  [parent description]
-     *
-     * @return  {HTMLElement}          [return description]
      */
     addArrow (parent){
         parent.innerHTML = `<i class="fas fa-angle-${this.showList ? 'up' : "down"}"></i>`;
