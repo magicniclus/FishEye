@@ -3,13 +3,12 @@
 class FilterImage {
 
     /**
-     * [constructor description]
+     * Création du bouton de filtre des images
      *
-     * @param   {[type]}  domTarget  [domTarget description]
-     * @param   {[type]}  props      [props description]
-     * @param   {[type]}  callBack   [callBack description]
+     * @param   {HTMLElement}  domTarget  [domTarget description]
+     * @param   {Object}  props      [props description]
+     * @param   {Function}  callBack   [callBack description]
      *
-     * @return  {[type]}             [return description]
      */
     constructor (domTarget, props, callBack){
         this.DOM = document.createElement('span');
@@ -24,12 +23,12 @@ class FilterImage {
 
 
     /**
-     * [render description]
+     * Gestion de l'affichage
      *
      */
     async render () {
         this.DOM.innerHTML = "<label for=\"filtre-select\">Trier par</label>";
-        const select = document.createElement("div");
+        const select = document.createElement("button");
         select.setAttribute('class', 'divIn');
         this.DOM.appendChild(select);
         this.addArrow(select);
@@ -38,7 +37,7 @@ class FilterImage {
 
 
     /**
-     * [makeOptions description]
+     * affichage ou non de l'ensemble de titres
      *
      * @param   {HTMLElement}  container  [container description]
      *
@@ -56,7 +55,7 @@ class FilterImage {
 
 
     /**
-     * [makeOption description]
+     * Gestion du titre initial et de la fleche de direction du boutton
      *
      * @param   {HTMLElement}  container  [container description]
      * @param   {Object}  title
@@ -72,7 +71,7 @@ class FilterImage {
 
 
     /**
-     * [addArrow description]
+     * gestion du sens de la fleche 
      *
      * @param   {HMTLElement}  parent  [parent description]
      *
@@ -84,7 +83,7 @@ class FilterImage {
 
 
     /**
-     * [click description]
+     * gestion de l'appel du callback au click sur un des titre 
      *
      * @param   {Boolean}  selected  [selected description]
      *

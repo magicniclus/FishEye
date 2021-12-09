@@ -1,6 +1,14 @@
 // Ajout du profil de chaque photographe dans leurs page
 
 class ProfilPhotographe {
+
+    /**
+     * [constructor description]
+     *
+     * @param   {Object}  props      [props description]
+     * @param   {HTMLElement}  domTarget  [domTarget description]
+     *
+     */
     constructor(props, domTarget) {
         this.DOM = document.createElement("div");
         this.DOM.setAttribute('class', 'vignette')
@@ -23,9 +31,8 @@ class ProfilPhotographe {
 
 
     /**
-     * [render description]
+     * Création du HTML à afficher dans le dom
      *
-     * @return  {ReturnType}  [return description]
      */
     render() {
         return this.DOM.innerHTML = `
@@ -44,9 +51,9 @@ class ProfilPhotographe {
 
 
     /**
-     * [showTags description]
+     * Création du html qui va composer l'ensemble de mes tags
      *
-     * @return  {HTMLElement}  [return description]
+     * @return  {void}  [return description]
      */
     showTags() {
         for (const tag of this.tags) {

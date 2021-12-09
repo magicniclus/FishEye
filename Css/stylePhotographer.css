@@ -639,100 +639,100 @@ body main .mediaProfilIn {
     margin-top: 0;
   }
 }
-body main .mediaProfilIn article {
+body main .mediaProfilIn .photographerImg {
   margin-bottom: 2em;
   overflow: hidden;
   border-radius: 3px;
 }
-body main .mediaProfilIn article .imgContainer, body main .mediaProfilIn article .videoContainer {
+body main .mediaProfilIn .photographerImg .imgContainer, body main .mediaProfilIn .photographerImg .videoContainer {
   width: 100%;
   height: 300px;
   overflow: hidden;
   border-radius: 5px;
 }
-body main .mediaProfilIn article video,
-body main .mediaProfilIn article img {
+body main .mediaProfilIn .photographerImg video,
+body main .mediaProfilIn .photographerImg img {
   width: 100%;
   height: 300px;
   border-radius: 3px;
   object-fit: cover;
   transition: all 0.3s ease;
 }
-body main .mediaProfilIn article .videoContainer video:hover,
-body main .mediaProfilIn article img:hover {
+body main .mediaProfilIn .photographerImg .videoContainer video:hover,
+body main .mediaProfilIn .photographerImg img:hover {
   width: 110%;
   height: 300px;
   cursor: pointer;
   transform: scale(1.1);
 }
 @media screen and (max-width: 1227px) {
-  body main .mediaProfilIn article .videoContainer video:hover,
-body main .mediaProfilIn article img:hover {
+  body main .mediaProfilIn .photographerImg .videoContainer video:hover,
+body main .mediaProfilIn .photographerImg img:hover {
     width: 100%;
     transform: none;
   }
 }
-body main .mediaProfilIn article .bottomVideo,
-body main .mediaProfilIn article .bottomImg {
+body main .mediaProfilIn .photographerImg .bottomVideo,
+body main .mediaProfilIn .photographerImg .bottomImg {
   display: flex;
   margin-top: 0.5em;
 }
-body main .mediaProfilIn article .bottomVideo .bottomLeft,
-body main .mediaProfilIn article .bottomImg .bottomLeft {
+body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft {
   display: flex;
   justify-content: space-between;
   width: 80%;
 }
 @media screen and (max-width: 1220px) {
-  body main .mediaProfilIn article .bottomVideo .bottomLeft,
-body main .mediaProfilIn article .bottomImg .bottomLeft {
+  body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft {
     width: 87%;
   }
 }
-body main .mediaProfilIn article .bottomVideo .bottomLeft .sigle,
-body main .mediaProfilIn article .bottomImg .bottomLeft .sigle {
+body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft .sigle,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft .sigle {
   margin-left: 6px;
 }
-body main .mediaProfilIn article .bottomVideo .bottomLeft .titleVideo,
-body main .mediaProfilIn article .bottomVideo .bottomLeft .titleImg,
-body main .mediaProfilIn article .bottomVideo .bottomLeft .priceVideo,
-body main .mediaProfilIn article .bottomVideo .bottomLeft .priceImg,
-body main .mediaProfilIn article .bottomImg .bottomLeft .titleVideo,
-body main .mediaProfilIn article .bottomImg .bottomLeft .titleImg,
-body main .mediaProfilIn article .bottomImg .bottomLeft .priceVideo,
-body main .mediaProfilIn article .bottomImg .bottomLeft .priceImg {
+body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft .titleVideo,
+body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft .titleImg,
+body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft .priceVideo,
+body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft .priceImg,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft .titleVideo,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft .titleImg,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft .priceVideo,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft .priceImg {
   font-weight: normal;
   font-size: 24px;
   line-height: 31px;
   color: #901C1C;
 }
 @media screen and (max-width: 400px) {
-  body main .mediaProfilIn article .bottomVideo .bottomLeft .titleVideo,
-body main .mediaProfilIn article .bottomVideo .bottomLeft .titleImg,
-body main .mediaProfilIn article .bottomVideo .bottomLeft .priceVideo,
-body main .mediaProfilIn article .bottomVideo .bottomLeft .priceImg,
-body main .mediaProfilIn article .bottomImg .bottomLeft .titleVideo,
-body main .mediaProfilIn article .bottomImg .bottomLeft .titleImg,
-body main .mediaProfilIn article .bottomImg .bottomLeft .priceVideo,
-body main .mediaProfilIn article .bottomImg .bottomLeft .priceImg {
+  body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft .titleVideo,
+body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft .titleImg,
+body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft .priceVideo,
+body main .mediaProfilIn .photographerImg .bottomVideo .bottomLeft .priceImg,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft .titleVideo,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft .titleImg,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft .priceVideo,
+body main .mediaProfilIn .photographerImg .bottomImg .bottomLeft .priceImg {
     font-size: 14px;
     line-height: 18px;
   }
 }
-body main .mediaProfilIn article .bottomVideo .likeGlobal,
-body main .mediaProfilIn article .bottomVideo .likeVideoGlobal,
-body main .mediaProfilIn article .bottomImg .likeGlobal,
-body main .mediaProfilIn article .bottomImg .likeVideoGlobal {
+body main .mediaProfilIn .photographerImg .bottomVideo .likeGlobal,
+body main .mediaProfilIn .photographerImg .bottomVideo .likeVideoGlobal,
+body main .mediaProfilIn .photographerImg .bottomImg .likeGlobal,
+body main .mediaProfilIn .photographerImg .bottomImg .likeVideoGlobal {
   display: flex;
 }
-body main .mediaProfilIn article .bottomVideo .likeGlobal .likesVideo,
-body main .mediaProfilIn article .bottomVideo .likeGlobal .likesImg,
-body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesVideo,
-body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesImg,
-body main .mediaProfilIn article .bottomImg .likeGlobal .likesVideo,
-body main .mediaProfilIn article .bottomImg .likeGlobal .likesImg,
-body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesVideo,
-body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
+body main .mediaProfilIn .photographerImg .bottomVideo .likeGlobal .likesVideo,
+body main .mediaProfilIn .photographerImg .bottomVideo .likeGlobal .likesImg,
+body main .mediaProfilIn .photographerImg .bottomVideo .likeVideoGlobal .likesVideo,
+body main .mediaProfilIn .photographerImg .bottomVideo .likeVideoGlobal .likesImg,
+body main .mediaProfilIn .photographerImg .bottomImg .likeGlobal .likesVideo,
+body main .mediaProfilIn .photographerImg .bottomImg .likeGlobal .likesImg,
+body main .mediaProfilIn .photographerImg .bottomImg .likeVideoGlobal .likesVideo,
+body main .mediaProfilIn .photographerImg .bottomImg .likeVideoGlobal .likesImg {
   margin-left: 1em;
   font-weight: 500;
   font-style: normal;
@@ -741,37 +741,38 @@ body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
   color: #901C1C;
 }
 @media screen and (max-width: 400px) {
-  body main .mediaProfilIn article .bottomVideo .likeGlobal .likesVideo,
-body main .mediaProfilIn article .bottomVideo .likeGlobal .likesImg,
-body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesVideo,
-body main .mediaProfilIn article .bottomVideo .likeVideoGlobal .likesImg,
-body main .mediaProfilIn article .bottomImg .likeGlobal .likesVideo,
-body main .mediaProfilIn article .bottomImg .likeGlobal .likesImg,
-body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesVideo,
-body main .mediaProfilIn article .bottomImg .likeVideoGlobal .likesImg {
+  body main .mediaProfilIn .photographerImg .bottomVideo .likeGlobal .likesVideo,
+body main .mediaProfilIn .photographerImg .bottomVideo .likeGlobal .likesImg,
+body main .mediaProfilIn .photographerImg .bottomVideo .likeVideoGlobal .likesVideo,
+body main .mediaProfilIn .photographerImg .bottomVideo .likeVideoGlobal .likesImg,
+body main .mediaProfilIn .photographerImg .bottomImg .likeGlobal .likesVideo,
+body main .mediaProfilIn .photographerImg .bottomImg .likeGlobal .likesImg,
+body main .mediaProfilIn .photographerImg .bottomImg .likeVideoGlobal .likesVideo,
+body main .mediaProfilIn .photographerImg .bottomImg .likeVideoGlobal .likesImg {
     font-size: 14px;
     line-height: 18px;
   }
 }
-body main .mediaProfilIn article .bottomVideo .likeGlobal i,
-body main .mediaProfilIn article .bottomVideo .likeVideoGlobal i,
-body main .mediaProfilIn article .bottomImg .likeGlobal i,
-body main .mediaProfilIn article .bottomImg .likeVideoGlobal i {
+body main .mediaProfilIn .photographerImg .bottomVideo .likeGlobal i,
+body main .mediaProfilIn .photographerImg .bottomVideo .likeVideoGlobal i,
+body main .mediaProfilIn .photographerImg .bottomImg .likeGlobal i,
+body main .mediaProfilIn .photographerImg .bottomImg .likeVideoGlobal i {
   color: #901C1C;
   font-style: normal;
   font-size: 24px;
   line-height: 31px;
 }
 @media screen and (max-width: 400px) {
-  body main .mediaProfilIn article .bottomVideo .likeGlobal i,
-body main .mediaProfilIn article .bottomVideo .likeVideoGlobal i,
-body main .mediaProfilIn article .bottomImg .likeGlobal i,
-body main .mediaProfilIn article .bottomImg .likeVideoGlobal i {
+  body main .mediaProfilIn .photographerImg .bottomVideo .likeGlobal i,
+body main .mediaProfilIn .photographerImg .bottomVideo .likeVideoGlobal i,
+body main .mediaProfilIn .photographerImg .bottomImg .likeGlobal i,
+body main .mediaProfilIn .photographerImg .bottomImg .likeVideoGlobal i {
     font-size: 14px;
     line-height: 18px;
   }
 }
 body main .clickLike {
+  background-image: blue;
   background-color: blue;
 }
 body main .logoPhotographerPage {
@@ -830,6 +831,8 @@ body main .filtreBouton label {
   font-size: 18px;
 }
 body main .divIn {
+  border: none;
+  border-radius: none;
   border-radius: 5px;
   background-color: #901C1C;
   width: 170px;
@@ -881,6 +884,7 @@ body main .divIn div {
   width: 90%;
   margin-right: auto;
   margin-left: auto;
+  text-align: start;
   font-weight: 700;
   font-size: 18px;
   font-style: normal;

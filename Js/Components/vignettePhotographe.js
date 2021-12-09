@@ -1,6 +1,14 @@
 // Création de vignette photographer pour la page index
 
 class VignettePhotographer {
+
+    /**
+     * [constructor description]
+     *
+     * @param   {Object}  props      [props description]
+     * @param   {HTMLElement}  domTarget  [domTarget description]
+     *
+     */
     constructor (props, domTarget) {
         this.DOM = document.createElement('div');
         this.DOM.setAttribute('class', 'vignette');
@@ -18,6 +26,10 @@ class VignettePhotographer {
         this.render();
     }
 
+    /**
+     * Gestion de l'affichage des elements
+     *
+     */
     render () {
         this.showVignette();
         this.showTags();
@@ -25,7 +37,7 @@ class VignettePhotographer {
 
 
     /**
-     * [showVignette description]
+     * Création du HTML à retourner dans le DOM
      *
      * @return  {ReturnType}  [return description]
      */
@@ -43,7 +55,7 @@ class VignettePhotographer {
 
 
     /**
-     * [showTags description]
+     * Création du HTML de l'ensemble des tag attribué a un profil à retourné dans le render
      *
      * @return  {HTMLElement}  [return description]
      */

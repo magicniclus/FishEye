@@ -12,8 +12,9 @@ class MediaProfil {
      *
      */
     constructor(data, domTarget, callbacks) {
-        this.DOM = document.createElement("article");
+        this.DOM = document.createElement("a");
         this.DOM.setAttribute("class", 'photographerImg')
+        this.DOM.setAttribute("href", '#lightbox')
         domTarget.appendChild(this.DOM);
         for (const [key, value] of Object.entries(data)) {
             this[key] = value;

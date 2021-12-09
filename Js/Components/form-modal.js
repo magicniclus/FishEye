@@ -127,7 +127,6 @@ class FormModal {
          /**
          * vérification grace aux rejex du Last-name
          *
-         * @param   {string}  #first-name  [#first-name description]
          *
          * @return  {boolean}               [return description]
          */
@@ -143,7 +142,6 @@ class FormModal {
         /**
          * vérification grace aux rejex du Mail
          *
-         * @param   {string}  #first-name  [#first-name description]
          *
          * @return  {boolean}               [return description]
          */
@@ -156,7 +154,7 @@ class FormModal {
 
 
         /**
-         * [addEventListener description]
+         * Verification de la valeur true ou false et application des modification du css en fonction et a chaque saisi 
          *
          * @param   {Event}  keyup  [keyup description]
          * @param   {Event}  e      [e description]
@@ -181,7 +179,7 @@ class FormModal {
 
 
         /**
-         * [addEventListener description]
+         * Verification de la valeur true ou false et application des modification du css en fonction et a chaque envoi 
          *
          * @param   {Event}  submit  [submit description]
          * @param   {Event}  e       [e description]
