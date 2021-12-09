@@ -12,7 +12,7 @@ class Header {
 
     render (){
         return this.DOM.innerHTML = `
-            <img class='logo' src="${this.img} alt='logo du site fish eye">
+            <img class='logo' src="${this.img}" alt='logo du site fish eye">
             <div class='tagIn'></div>
             <h1>${this.title}</h1>
         `
