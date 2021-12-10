@@ -87,7 +87,7 @@ class MediaProfil {
         container.className = "likeGlobal";
         container.innerHTML = `
                         <span class="likesImg">${this.likes}</span>
-                        <i class="${this.liked ? "fas" : "far"} fa-heart"></i>
+                        <i class="${this.liked ? "fas" : "far"} fa-heart" text-aria="bouton pour aimer la photo"></i>
                         `;
 
         container.onclick = this.likeClick.bind(this);

@@ -9,6 +9,7 @@ class Link {
         this.linkBack.setAttribute('class', 'linkBack');
         this.linkBtn = document.createElement('span');
         this.linkBtn.setAttribute('class', 'linkBtn')
+        this.linkBtn.setAttribute('text-aria', "Retour en haut de la page");
         this.linkBtn.innerHTML = 'Passer au contenu'
         this.linkBack.appendChild(this.linkBtn);
         this.DOM.appendChild(this.linkBack);

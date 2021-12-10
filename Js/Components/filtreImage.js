@@ -29,6 +29,7 @@ class FilterImage {
     async render () {
         this.DOM.innerHTML = "<label for=\"filtre-select\">Trier par</label>";
         const select = document.createElement("button");
+        select.setAttribute('text-aria', 'filtrer les images');
         select.setAttribute('class', 'divIn');
         this.DOM.appendChild(select);
         this.addArrow(select);

@@ -43,7 +43,7 @@ class ProfilPhotographe {
                 <span class='profilTag'></span>
             </div>
             <div class="button">
-                <button type='button' class="button-div">Contactez moi</button>
+                <button type='button' class="button-div" text-aria="bouton contactez-moi">Contactez moi</button>
             </div>
             <img src='Sample_Photos/Photographers ID Photos/${this.image}' alt="${this.description}""> 
         `

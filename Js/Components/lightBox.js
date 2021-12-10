@@ -46,6 +46,8 @@ class Lightbox {
         this.index = this.findIndex();
         this.closeButton = document.createElement('i');
         this.closeButton.setAttribute('class', 'lightbox__close fas fa-times');
+        this.closeButton.setAttribute('text-aria', "Fermer la lightbox");
+
         this.closeModal(this.closeButton, this.DOM)
         this.DOM.appendChild(this.closeButton);
         this.container = this.makeContainer();
@@ -156,6 +158,7 @@ class Lightbox {
         this.button = document.createElement("button");
         this.button.className = "lightbox__"+classname;
         this.button.innerHTML=`<i class="fas fa-${icon}"></i>`;
+        icon === 'chevron-right' ? this.button.setAttribute('text-aria', "Passez à l'image suivante"): this.button.setAttribute('text-aria', "Passez à l'image précédente");
         this.button.onclick = callback.bind(this);
         this.DOM.appendChild(this.button);
         return this.button;

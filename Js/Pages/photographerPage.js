@@ -156,6 +156,7 @@ class PhotographerPage {
         this.logo = document.createElement('a');
         this.logo.classList.add('logoPhotographerPage')
         this.logo.setAttribute('href', 'index.html')
+        this.logo.setAttribute('text-aria', "Retour à la page d'aceuil")
         this.logo.innerHTML = `
             <img class='logoFishEye' alt='logo du site fish eye' src='Sample_Photos/logo/logo.png'>
         `;

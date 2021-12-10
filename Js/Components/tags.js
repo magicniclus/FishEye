@@ -13,11 +13,11 @@ class Tags {
     constructor (props, domTarget, callback) {
         this.valide = false;
         this.DOM = document.createElement('button');
+        this.DOM.setAttribute('text-aria', "photographe de la categorie " + props)
         domTarget.appendChild(this.DOM);
         this.DOM.innerHTML = `#${props}`;
         this.DOM.onclick = () => {
             callback(props);
-            console.log(this.valide);
         this.valide = !this.valide;
         this.DOM.classList.toggle("active"); 
         };

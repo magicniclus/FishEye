@@ -23,7 +23,7 @@ class FormModal {
         <form action="#" method="POST">
         <div class='topForm'>
             <h2 class="contact">Contactez-moi <br> ${this.name}</h2>
-            <i class="fas fa-times closeIn"></i>
+            <i class="fas fa-times closeIn" aria-label='fermer le formulaire'></i>
         </div>    
         <div class="prenom inputId">
             <label for="name">Prénom</label>
@@ -43,7 +43,7 @@ class FormModal {
         </div>
         
         <div class="button">
-            <button id="submit-btn" type="submit">Envoyer</button>
+            <button id="submit-btn" type="submit" aria-label='Envoyer le formulaire'>Envoyer</button>
         </div>
         </form> 
         `
