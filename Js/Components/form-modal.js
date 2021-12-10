@@ -52,10 +52,12 @@ class FormModal {
 
         domTarget.appendChild(this.DOM)
 
-
+        /**
+         * @type {HTMLFormElement}
+         */
         const form = document.querySelector(".formulaire");
 
-        // @ts-ignore
+        
         form.style.display='none';
 
 
@@ -67,7 +69,6 @@ class FormModal {
          let launchBtn = document.querySelector('.button-div');
  
          launchBtn.addEventListener("click", function(){
-             // @ts-ignore
              form.style.display='flex';
          })
 
@@ -82,13 +83,11 @@ class FormModal {
         let closeBtn = document.querySelector('.closeIn');
 
         closeBtn.addEventListener("click", function(){
-            // @ts-ignore
             form.style.display='none';
         })
 
         document.addEventListener('keyup', (key) => {
             if(key.key == 'Escape'){
-                // @ts-ignore
                 form.style.display ='none';
             }
         })
@@ -100,10 +99,24 @@ class FormModal {
         * Validation des saisi de l'utilisateur 
         *
         */
+       /**
+        * @type {HTMLInputElement}
+        */
         const firstName = document.querySelector('#first-name');
+
+        /**
+        * @type {HTMLInputElement}
+        */
         const lastName  = document.querySelector('#last-name');
+
+        /**
+        * @type {HTMLInputElement}
+        */
         const email     = document.querySelector('#email');
-        // @ts-ignore
+
+        /**
+        * @type {HTMLInputElement}
+        */
         const submitBtn = document.querySelector("#submit-btn");
 
         const rejexName = /^[a-zA-Z]{2}/;
@@ -224,8 +237,20 @@ class FormModal {
 
             if (validationName() == true && validationLastName() == true && validationMail() == true){
                 this.DOM.style.display = 'none';
+
+                /**
+                * @type {HTMLInputElement}
+                */
                 const inputFirst = document.querySelector('#first-name');
+
+                /**
+                * @type {HTMLInputElement}
+                */
                 const inputLast = document.querySelector('#last-name');
+
+                /**
+                * @type {HTMLInputElement}
+                */
                 const inputEmail = document.querySelector('#email');
                 console.log('Nom: '+inputFirst.value);
                 console.log('Prenom: '+inputLast.value);
